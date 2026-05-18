@@ -8,7 +8,7 @@ on:
 jobs:
   build:
     permissions:
-      contents: read
+      contents: write 
     strategy:
       fail-fast: false
       matrix:
@@ -19,7 +19,6 @@ jobs:
           - platform: macos-latest
             args: --bundles dmg
             artifactName: domestic-macos
-
     runs-on: ${{ matrix.platform }}
 
     steps:
@@ -37,7 +36,7 @@ jobs:
       - name: Rust cache
         uses: swatinem/rust-cache@v2
         with:
-          workspaces: src-tauri -> target
+          workspaces: './src-tauri'
 
       - name: Install frontend dependencies
         run: npm ci --legacy-peer-deps
@@ -46,9 +45,10 @@ jobs:
         uses: tauri-apps/tauri-action@v0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          CI: 'false'
         with:
           includeDebug: false
           args: ${{ matrix.args }}
-          uploadWorkflowArtifacts: true
-          workflowArtifactNamePattern: ${{ matrix.artifactName }}-${{ github.run_number }}
+          # Выберите ОДНО:
+          # uploadWorkflowArtifacts: true          # Для внутреннего тестирования (вкладка Actions)
+          uploadReleaseAssets: true               # Для внешних пользователей (вкладка Releases)
+          # releaseDraft: true                    # черновики релизов
