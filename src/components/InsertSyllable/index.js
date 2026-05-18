@@ -46,7 +46,7 @@ class InsertSyllable extends Component {
   handleKeyPress(e) {
     if (e.key === 'Enter') {
       e.preventDefault()
-      const { symbols, actions, editableSyllable, indexToInsert, paper } = this.props
+      const { symbols, actions, editableSyllable, indexToInsert } = this.props
 
       // if (isNil(paper.syllables[paper.currentPageNum])) {
       //   return
