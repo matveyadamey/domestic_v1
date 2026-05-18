@@ -1,15 +1,58 @@
+.paperLayout {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    max-height: 100vh;
+    overflow: hidden;
+}
+
+.paperLayout .navbar {
+    flex-shrink: 0;
+}
+
+.Paper {
+    display: grid;
+    flex: 1 1 0;
+    grid-template-rows: minmax(0, 1fr) auto;
+    min-height: 0;
+    overflow: hidden;
+}
+
+.Paper > .paperArea {
+    grid-row: 1;
+    min-height: 0;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: none;
+    touch-action: pan-y;
+}
+
 .control {
     display: flex;
-    flex-wrap: wrap;
+    flex: 0 0 auto;
+    flex-wrap: nowrap;
+    grid-row: 2;
+    max-height: min(530px, 42vh);
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior: none;
     background-color: #FFF;
     border-top: 1px solid #e4e4e4;
-    padding-top: 30px;
-    padding-right: 30px;
-    padding-left: 30px;
-    padding-bottom: 30px;
-    position: sticky;
-    max-height: 530px;
-    bottom: 0;
+    padding: 30px;
+    touch-action: pan-x pan-y;
+    z-index: 10;
+}
+
+.paper-modals {
+    position: absolute;
+    width: 0;
+    height: 0;
+    overflow: visible;
+    pointer-events: none;
+}
+
+.paper-modals > * {
+    pointer-events: auto;
 }
 
 .errorNoParagraph {
@@ -37,12 +80,19 @@
 }
 
 .control-block {
+    flex: 0 0 auto;
     border-right: solid 1px silver;
     padding-right: 30px;
     padding-left: 30px;
+    width: 380px;
     height: 350px;
+    max-height: 350px;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: none;
+    touch-action: pan-y;
 }
 
-.control-block-last{
+.control-block-last {
     border-right: none;
 }

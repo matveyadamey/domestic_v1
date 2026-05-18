@@ -12,6 +12,10 @@ import {
   InsertComposition,
   CurrentSymbols,
   InsertText,
+  EditSyllable,
+  EditText,
+  RemoveParagraph,
+  RemovePageModal,
 } from '../'
 
 import { Attention } from '../../containers/'
@@ -33,7 +37,7 @@ class Paper extends Component {
 
     const showError = isNil(paper.syllables[paper.currentPageNum])
     return (
-      <React.Fragment>
+      <div className="paperLayout">
         { (localStorage.getItem('visited') ? null : <Attention />)}
         <Header />
         <div className="Paper">
@@ -59,7 +63,13 @@ class Paper extends Component {
             </div>
           </div>
         </div>
-      </React.Fragment>
+        <div className="paper-modals">
+          <EditSyllable />
+          <EditText />
+          <RemoveParagraph />
+          <RemovePageModal />
+        </div>
+      </div>
     )
   }
 }
@@ -80,4 +90,3 @@ export default connect(mapStateToProps, mapDispatchToProps)(Paper)
 Paper.propTypes = {
   actions: PropTypes.object,
 }
-

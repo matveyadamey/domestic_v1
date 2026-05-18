@@ -24,12 +24,8 @@ import {
 import { Loading, getPageNum } from '../../utils'
 
 import {
-  EditText,
   RemovePageButton,
   RemoveParagraphButton,
-  EditSyllable,
-  RemoveParagraph,
-  RemovePageModal,
 } from '../'
 
 
@@ -100,8 +96,7 @@ class AreaOfSymbols extends Component { // eslint-disable-line
     }
 
     return (
-      <React.Fragment>
-        <div className="paperArea">
+      <div className="paperArea">
           <div className="areaOfSymbols mx-auto">
             <div className="paperMargin" >
               {this.renderPages()}
@@ -114,12 +109,7 @@ class AreaOfSymbols extends Component { // eslint-disable-line
               </Button>
             </div>
           </div>
-        </div>
-        <EditSyllable />
-        <EditText />
-        <RemoveParagraph />
-        <RemovePageModal />
-      </React.Fragment>
+      </div>
     )
   }
 }

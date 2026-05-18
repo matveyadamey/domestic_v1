@@ -1,15 +1,24 @@
 .currentSymbolsArea {
     display: flex;
+    flex: 1 1 auto;
     flex-wrap: wrap;
+    min-height: 0;
     height: 300px;
+    max-height: 300px;
     align-content: start;
-    overflow: scroll;
+    overflow-x: hidden;
+    overflow-y: auto;
+    overscroll-behavior: none;
+    touch-action: pan-y;
 }
 
 .currentSymbols {
     width: 300px;
     height: 300px;
-    position: relative; /* Относительное позиционирование */
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
 }
 
 /* .currentSymbols::after {
