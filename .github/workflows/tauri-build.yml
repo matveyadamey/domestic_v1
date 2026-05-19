@@ -8,17 +8,15 @@ on:
 jobs:
   build:
     permissions:
-      contents: write 
+      contents: write
     strategy:
       fail-fast: false
       matrix:
         include:
           - platform: windows-latest
             args: --bundles nsis
-            artifactName: domestic-windows
           - platform: macos-latest
             args: --bundles dmg
-            artifactName: domestic-macos
     runs-on: ${{ matrix.platform }}
 
     steps:
@@ -41,14 +39,15 @@ jobs:
       - name: Install frontend dependencies
         run: npm ci --legacy-peer-deps
 
+      # tauri-action автоматически создаст/обновит релиз и прикрепит к нему билды
       - name: Build Tauri app
         uses: tauri-apps/tauri-action@v0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
-          includeDebug: false
           args: ${{ matrix.args }}
-          # Выберите ОДНО:
-          # uploadWorkflowArtifacts: true          # Для внутреннего тестирования (вкладка Actions)
-          uploadReleaseAssets: true               # Для внешних пользователей (вкладка Releases)
-          # releaseDraft: true                    # черновики релизов
+          tagName: v__VERSION__          # Берёт версию из package.json / Cargo.toml
+          releaseName: "Desktop App v__VERSION__"
+          releaseBody: "Автоматическая сборка. Файлы для Windows и macOS прикреплены ниже."
+          releaseDraft: true             # true = черновик (безопасно для параллельных jobs)
+          retryAttempts: 3               # Защита от race condition при одновременном обновлении релиза
