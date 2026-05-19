@@ -2,7 +2,7 @@
   "name": "kruk",
   "version": "0.1.0",
   "private": true,
-  "homepage": ".",
+  "homepage": "./",
   "dependencies": {
     "accept-language": "^3.0.17",
     "axios": "^0.18.0",

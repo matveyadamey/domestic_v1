@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import PropTypes from 'react-proptypes'
+import PropTypes from 'prop-types'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { saveAs } from 'file-saver/FileSaver'
+import { saveAs } from 'file-saver'
 import { setSyllables } from '../../actions'
 import { Help } from './../index'
 import './style.css'
@@ -13,8 +13,6 @@ class HeaderButtons extends Component {
     this.state = {
       showModalHelp: false,
     }
-
-    this.toggleModalHelp = this.toggleModalHelp.bind()
   }
 
   handleFile = (e) => {
@@ -27,19 +25,28 @@ class HeaderButtons extends Component {
         reader.onerror = reject
       })
         .then(this.processFileContent)
-        .catch(err => console.log(err),
-        )
+        .catch(err => console.log(err))
     }
   }
 
   processFileContent = (data) => {
     const { actions } = this.props
-    actions.setSyllables(JSON.parse(data))
+    try {
+      const parsed = JSON.parse(data)
+      const syllablesData = parsed.syllables || parsed
+      if (Array.isArray(syllablesData)) {
+        actions.setSyllables(syllablesData)
+      } else {
+        console.error('Loaded data is not an array:', parsed)
+      }
+    } catch (err) {
+      console.error('Failed to parse JSON:', err)
+    }
   }
 
   downloadFile = () => {
     const { paper } = this.props
-    const dataToDownload = JSON.stringify(paper.syllables)
+    const dataToDownload = JSON.stringify({ syllables: paper.syllables }, null, 2)
     const blob = new Blob([dataToDownload], { type: 'application/json; charset=utf-8' })
     saveAs(blob, 'domestikos.json')
   }
@@ -58,10 +65,10 @@ class HeaderButtons extends Component {
           <div id="hidden-export-container" style={{ display: 'none' }} />
           <div className="file btn-light btn">
             Загрузить из файла
-            <input className="input-upload" type="file" name="myfile" onChange={e => this.handleFile(e)} />
+            <input className="input-upload" type="file" name="myfile" onChange={this.handleFile} />
           </div>
           <button className="btn btn-light button-download" onClick={this.downloadFile}>Экспорт в файл</button>
-          <button className="btn button-help btn-primary" onClick={() => this.toggleModalHelp()}>Помощь</button>
+          <button className="btn button-help btn-primary" onClick={this.toggleModalHelp}>Помощь</button>
         </div>
       </React.Fragment>
     )
@@ -72,8 +79,9 @@ const mapStateToProps = state => ({
   paper: state.paper,
 })
 
-const mapDispatchToProps = dispatch => ({ actions: bindActionCreators({ setSyllables }, dispatch) })
-
+const mapDispatchToProps = dispatch => ({
+  actions: bindActionCreators({ setSyllables }, dispatch)
+})
 
 export default connect(mapStateToProps, mapDispatchToProps)(HeaderButtons)
 

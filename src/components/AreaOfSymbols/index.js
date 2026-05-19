@@ -1,8 +1,8 @@
 import React, { Component } from 'react'
-import PropTypes from 'react-proptypes'
+import PropTypes from 'prop-types'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { Button } from 'reactstrap' // eslint-disable-line
+import { Button } from 'reactstrap'
 import { isNil } from 'lodash'
 
 import {
@@ -28,19 +28,18 @@ import {
   RemoveParagraphButton,
 } from '../'
 
-
 import './style.css'
 
-class AreaOfSymbols extends Component { // eslint-disable-line
+class AreaOfSymbols extends Component {
 
   renderPages = () => {
     const { syllables, actions, showPagination, currentPageNum } = this.props
     let pageTemplate = null
 
-    if (syllables) {
+    if (Array.isArray(syllables)) {
       pageTemplate = syllables.map((item, pageIndex) => (
         <React.Fragment>
-          <div className={ pageIndex === currentPageNum ? "a4 activePage" : "a4" } key={pageIndex} onClick={() => actions.changePage(pageIndex)}> {/* eslint-disable-line */}
+          <div className={ pageIndex === currentPageNum ? "a4 activePage" : "a4" } key={pageIndex} onClick={() => actions.changePage(pageIndex)}>
             <RemovePageButton pageIndex={pageIndex} />
             <div className="page">
               {this.renderOnePage(item, pageIndex)}
@@ -54,17 +53,17 @@ class AreaOfSymbols extends Component { // eslint-disable-line
   }
 
   changeParagraph = (e, paragraphIndex) => {
-    // e.stopPropagation()
     const { actions } = this.props
     actions.changeParagraph(paragraphIndex)
   }
 
   renderOnePage = (item, pageIndex) => {
     const { currentPageNum, currentParagraphNum } = this.props
+    if (!Array.isArray(item)) return null
     const syllablesTemplate = item.map((paragraph, paragraphIndex) => (
       <div className="paragraphWrapper">
         <RemoveParagraphButton paragraphIndex={paragraphIndex} pageIndex={pageIndex} />
-        <div className={ pageIndex + '' + paragraphIndex === currentPageNum + '' + currentParagraphNum ? "paragraph activeParagraph" : "paragraph" } key={paragraphIndex + '' + pageIndex} onClick={(e) => this.changeParagraph(e, paragraphIndex)} > {/* eslint-disable-line */}
+        <div className={ pageIndex + '' + paragraphIndex === currentPageNum + '' + currentParagraphNum ? "paragraph activeParagraph" : "paragraph" } key={paragraphIndex + '' + pageIndex} onClick={(e) => this.changeParagraph(e, paragraphIndex)} >
           {this.renderOneParagraph(paragraph, paragraphIndex, pageIndex)}
         </div>
       </div>
@@ -74,13 +73,12 @@ class AreaOfSymbols extends Component { // eslint-disable-line
 
   renderOneParagraph = (paragraph, paragraphIndex, pageIndex) => {
     const { form, actions } = this.props
+    if (!Array.isArray(paragraph)) return null
     const syllablesTemplate = paragraph.map(({ value, text, type }, index) => (
-    /* eslint-disable */
       type === 'KRUK' ? <Syllable value={value} text={text} key={parseInt(index,10)} paragraphIndex={paragraphIndex} pageIndex={pageIndex} index={parseInt(index,10)} /> : 
       type === 'BUCVICA' ? <Bucvica form={form} removeSyllablebyIndex={actions.removeSyllablebyIndex} changePage={actions.changePage} text={text} index={parseInt(index,10)} paragraphIndex={paragraphIndex} pageIndex={pageIndex}/> : 
       type === 'TEXT' ? <Text text={text} pageIndex={pageIndex} index={parseInt(index,10)} key={parseInt(`${pageIndex}${paragraphIndex}${index}`, 10)} /> : 
       type === 'BREAK' ? <hr className="break" /> : null
-      /* eslint-enable */
     ))
     return syllablesTemplate
   }
@@ -88,11 +86,8 @@ class AreaOfSymbols extends Component { // eslint-disable-line
   render() {
     const { form, actions } = this.props
 
-
     if (isNil(form.paperStyle)) {
-      return (
-        <Loading />
-      )
+      return <Loading />
     }
 
     return (
@@ -118,7 +113,7 @@ AreaOfSymbols.propTypes = {
   syllables: PropTypes.array,
   form: PropTypes.object,
   actions: PropTypes.object,
-  showPagination: PropTypes.boolean,
+  showPagination: PropTypes.bool,
   currentPageNum: PropTypes.number,
 }
 
