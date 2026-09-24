@@ -4,6 +4,16 @@ on:
   push:
     branches: [pc_version]
   workflow_dispatch:
+    inputs:
+      target:
+        description: Which desktop target to build
+        required: true
+        default: windows
+        type: choice
+        options:
+          - windows
+          - macos
+          - all
 
 jobs:
   test:
@@ -26,21 +36,37 @@ jobs:
         env:
           CI: true
 
+  # Push → Windows only. Manual run → choice (windows / macos / all).
+  matrix:
+    name: Resolve build matrix
+    runs-on: ubuntu-latest
+    outputs:
+      include: ${{ steps.set.outputs.include }}
+    steps:
+      - id: set
+        env:
+          EVENT: ${{ github.event_name }}
+          TARGET: ${{ inputs.target }}
+        run: |
+          win='{"platform":"windows-latest","args":"--bundles nsis","artifactName":"domestic-windows"}'
+          mac='{"platform":"macos-latest","args":"--bundles dmg","artifactName":"domestic-macos"}'
+          if [ "$EVENT" = "push" ] || [ "$TARGET" = "windows" ]; then
+            echo "include=[$win]" >> "$GITHUB_OUTPUT"
+          elif [ "$TARGET" = "macos" ]; then
+            echo "include=[$mac]" >> "$GITHUB_OUTPUT"
+          else
+            echo "include=[$win,$mac]" >> "$GITHUB_OUTPUT"
+          fi
+
   build:
     name: Tauri (${{ matrix.artifactName }})
-    needs: test
+    needs: [test, matrix]
     permissions:
       contents: write
     strategy:
       fail-fast: false
       matrix:
-        include:
-          - platform: windows-latest
-            args: --bundles nsis
-            artifactName: domestic-windows
-          - platform: macos-latest
-            args: --bundles dmg
-            artifactName: domestic-macos
+        include: ${{ fromJSON(needs.matrix.outputs.include) }}
     runs-on: ${{ matrix.platform }}
 
     steps:

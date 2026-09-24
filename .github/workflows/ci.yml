@@ -1,8 +1,9 @@
 name: CI
 
 on:
+  # pc_version push uses Tauri PC Build (tests + Windows). Keep CI for web branches / PRs.
   push:
-    branches: [master, main, pc_version]
+    branches: [master, main]
   pull_request:
     branches: [master, main, pc_version]
   workflow_dispatch:
