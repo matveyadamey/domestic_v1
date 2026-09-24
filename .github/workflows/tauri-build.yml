@@ -112,7 +112,8 @@ jobs:
         uses: tauri-apps/tauri-action@v0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TAURI_SIGNING_PRIVATE_KEY_PASSWORD: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY_PASSWORD }}
+          # Key was generated without a password — do NOT set
+          # TAURI_SIGNING_PRIVATE_KEY_PASSWORD (even empty breaks signing).
         with:
           includeDebug: false
           args: ${{ matrix.args }}
