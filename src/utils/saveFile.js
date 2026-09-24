@@ -1,6 +1,4 @@
 import { saveAs } from 'file-saver'
-import { save } from '@tauri-apps/plugin-dialog'
-import { writeFile, writeTextFile } from '@tauri-apps/plugin-fs'
 
 function isTauriRuntime() {
   return typeof window !== 'undefined' && !!(
@@ -10,6 +8,15 @@ function isTauriRuntime() {
   )
 }
 
+/** Call Tauri IPC without bundling @tauri-apps/* (CRA 1 can't parse their modern JS). */
+function tauriInvoke(cmd, args) {
+  const core = window.__TAURI__ && window.__TAURI__.core
+  if (!core || typeof core.invoke !== 'function') {
+    return Promise.reject(new Error('Tauri core.invoke is not available'))
+  }
+  return core.invoke(cmd, args)
+}
+
 function toBytes(data) {
   if (typeof data !== 'string') {
     return data instanceof Uint8Array ? data : new Uint8Array(data)
@@ -17,7 +24,6 @@ function toBytes(data) {
   if (typeof TextEncoder !== 'undefined') {
     return new TextEncoder().encode(data)
   }
-  // jsdom / old environments without TextEncoder
   const utf8 = unescape(encodeURIComponent(data))
   const arr = new Uint8Array(utf8.length)
   for (let i = 0; i < utf8.length; i += 1) {
@@ -28,7 +34,7 @@ function toBytes(data) {
 
 /**
  * Native Save As dialog + write bytes/text.
- * Tauri: dialog + fs. Browser: showSaveFilePicker, else file-saver download.
+ * Tauri: dialog + fs via global invoke. Browser: showSaveFilePicker, else file-saver.
  * @returns {Promise<boolean>} true if saved, false if cancelled
  */
 export function saveWithDialog({
@@ -47,15 +53,27 @@ export function saveWithDialog({
 }
 
 function saveWithTauri({ defaultName, data, bytes, filters }) {
-  return save({
-    defaultPath: defaultName,
-    filters: filters || [{ name: 'All files', extensions: ['*'] }],
+  return tauriInvoke('plugin:dialog|save', {
+    options: {
+      defaultPath: defaultName,
+      filters: filters || [{ name: 'All files', extensions: ['*'] }],
+    },
   }).then((path) => {
     if (!path) return false
     if (typeof data === 'string') {
-      return writeTextFile(path, data).then(() => true)
+      return tauriInvoke('plugin:fs|write_text_file', {
+        path: path,
+        data: data,
+      }).then(() => true)
     }
-    return writeFile(path, bytes).then(() => true)
+    const list = []
+    for (let i = 0; i < bytes.length; i += 1) {
+      list.push(bytes[i])
+    }
+    return tauriInvoke('plugin:fs|write_file', {
+      path: path,
+      data: list,
+    }).then(() => true)
   })
 }
 
