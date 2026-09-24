@@ -1,3 +1,25 @@
 .insertComposition {
-    width: 350px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding-right: 8px;
+}
+
+.insertComposition .field {
+    display: grid;
+    grid-template-columns: 90px minmax(0, 1fr);
+    justify-items: stretch;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    column-gap: 8px;
+}
+
+.insertComposition .input,
+.insertComposition .Select,
+.insertComposition .Select-control {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    min-width: 0;
 }

@@ -20,8 +20,21 @@ class InsertComposition extends Component {
 
   changeTone = (e) => {
     const { actions, compositions } = this.props
-    const symbolsFilteredByPitch = filter(compositions, ({ tone }) => tone === e.label)
-    symbolsFilteredByPitch[0].value.map(item => actions.addSyllable({ value: item, text: '-', type: 'KRUK' }))
+    const composition = filter(compositions, ({ tone }) => tone === e.label)[0]
+    if (!composition || !Array.isArray(composition.value)) return
+    const valueNotes = Array.isArray(composition.valueNotes) ? composition.valueNotes : []
+    composition.value.forEach((item, index) => {
+      const note = valueNotes[index]
+      actions.addSyllable({
+        value: item,
+        text: '-',
+        type: 'KRUK',
+        name: composition.name,
+        notes: (note && note !== '###') ? String(note) : '',
+        // Like kruk2: do not resolve via azbuka — popevka glyphs have other meanings
+        notesFixed: true,
+      })
+    })
   }
 
   render() {

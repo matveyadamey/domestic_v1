@@ -5,6 +5,9 @@ import { connect } from 'react-redux'
 import { saveAs } from 'file-saver'
 import { setSyllables } from '../../actions'
 import { Help } from './../index'
+import PaperStyle from '../../components/PaperStyle'
+import { exportPagesToPdf } from '../../utils/exportPdf'
+import { prepareLoadedSyllables } from '../../utils/paginateOverflow'
 import './style.css'
 
 class HeaderButtons extends Component {
@@ -12,6 +15,24 @@ class HeaderButtons extends Component {
     super(props)
     this.state = {
       showModalHelp: false,
+      showSettings: false,
+      exportingPdf: false,
+    }
+  }
+
+  componentDidMount() {
+    window.addEventListener('keydown', this.handleGlobalKeyDown)
+  }
+
+  componentWillUnmount() {
+    window.removeEventListener('keydown', this.handleGlobalKeyDown)
+  }
+
+  handleGlobalKeyDown = (e) => {
+    if ((e.ctrlKey || e.metaKey) && (e.key === 'r' || e.key === 'R' || e.code === 'KeyR')) {
+      e.preventDefault()
+      e.stopPropagation()
+      this.exportPdf()
     }
   }
 
@@ -35,7 +56,8 @@ class HeaderButtons extends Component {
       const parsed = JSON.parse(data)
       const syllablesData = parsed.syllables || parsed
       if (Array.isArray(syllablesData)) {
-        actions.setSyllables(syllablesData)
+        // One page + drop duplicate kruk glyphs (e.g. «-»/«го» both Подчашие)
+        actions.setSyllables(prepareLoadedSyllables(syllablesData))
       } else {
         console.error('Loaded data is not an array:', parsed)
       }
@@ -51,13 +73,37 @@ class HeaderButtons extends Component {
     saveAs(blob, 'domestikos.json')
   }
 
+  exportPdf = () => {
+    if (this.state.exportingPdf) return
+    this.setState({ exportingPdf: true })
+    exportPagesToPdf('domestikos.pdf')
+      .catch((err) => {
+        console.error(err)
+        window.alert(err.message || 'Не удалось экспортировать PDF')
+      })
+      .then(() => {
+        this.setState({ exportingPdf: false })
+      })
+  }
+
   toggleModalHelp = () => {
     this.setState({
       showModalHelp: !this.state.showModalHelp,
     })
   }
 
+  toggleSettings = () => {
+    this.setState(state => ({
+      showSettings: !state.showSettings,
+    }))
+  }
+
+  closeSettings = () => {
+    this.setState({ showSettings: false })
+  }
+
   render() {
+    const { showSettings, exportingPdf } = this.state
     return (
       <React.Fragment>
         <Help toggle={this.toggleModalHelp} showModalHelp={this.state.showModalHelp} />
@@ -68,6 +114,30 @@ class HeaderButtons extends Component {
             <input className="input-upload" type="file" name="myfile" onChange={this.handleFile} />
           </div>
           <button className="btn btn-light button-download" onClick={this.downloadFile}>Экспорт в файл</button>
+          <button
+            type="button"
+            className="btn btn-light button-pdf"
+            onClick={this.exportPdf}
+            disabled={exportingPdf}
+            title="Ctrl+R"
+          >
+            {exportingPdf ? 'PDF…' : 'Экспорт в PDF'}
+          </button>
+          <div className="header-settings">
+            <button
+              type="button"
+              className={`btn btn-light button-settings${showSettings ? ' active' : ''}`}
+              onClick={this.toggleSettings}
+            >
+              Настройки
+            </button>
+            {showSettings ? (
+              <div className="header-settings-backdrop" onClick={this.closeSettings} />
+            ) : null}
+            <div className={`header-settings-panel${showSettings ? '' : ' is-hidden'}`}>
+              <PaperStyle />
+            </div>
+          </div>
           <button className="btn button-help btn-primary" onClick={this.toggleModalHelp}>Помощь</button>
         </div>
       </React.Fragment>

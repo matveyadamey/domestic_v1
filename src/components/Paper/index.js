@@ -8,7 +8,6 @@ import { isNil } from 'lodash'
 import {
   InsertSyllable,
   AreaOfSymbols,
-  PaperStyle,
   InsertComposition,
   CurrentSymbols,
   InsertText,
@@ -56,7 +55,6 @@ class Paper extends Component {
             </div>
             <div className="control-block">
               <InsertComposition />
-              <PaperStyle />
             </div>
             <div className="control-block control-block-last">
               <InsertText />

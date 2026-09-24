@@ -30,16 +30,15 @@
 .control {
     display: flex;
     flex: 0 0 auto;
-    flex-wrap: nowrap;
+    flex-wrap: wrap;
+    align-items: stretch;
     grid-row: 2;
-    max-height: min(530px, 42vh);
-    overflow-x: auto;
-    overflow-y: hidden;
+    overflow: hidden;
     overscroll-behavior: none;
     background-color: #FFF;
     border-top: 1px solid #e4e4e4;
-    padding: 30px;
-    touch-action: pan-x pan-y;
+    padding: 16px 24px;
+    touch-action: pan-y;
     z-index: 10;
 }
 
@@ -56,41 +55,52 @@
 }
 
 .errorNoParagraph {
-    margin-left: 40px;
+    margin-left: 0;
     margin-top: 10px;
-    width: 337px;
-    text-align: left
-}
-
-.hr {
-    margin-top: 100px;
-}
-
-.download-file {
-    position: absolute;
-    bottom: 20px;
-
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    text-align: left;
 }
 
 .removeLast {
-    display: inline-grid;
-    grid-template-columns: 94px 241px;
-    justify-items: start;
-    margin-left: 40px;
+    display: grid;
+    grid-template-columns: 94px minmax(0, 1fr);
+    justify-items: stretch;
+    margin-left: 0;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .control-block {
-    flex: 0 0 auto;
-    border-right: solid 1px silver;
-    padding-right: 30px;
-    padding-left: 30px;
-    width: 380px;
-    height: 350px;
-    max-height: 350px;
+    flex: 1 1 280px;
+    border-right: 1px solid #c0c0c0;
+    padding-right: 20px;
+    padding-left: 20px;
+    min-width: 0;
+    max-width: 380px;
+    height: auto;
+    max-height: 240px;
     overflow-x: hidden;
     overflow-y: auto;
     overscroll-behavior: none;
     touch-action: pan-y;
+    box-sizing: border-box;
+}
+
+.control-block > * {
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.control-block .Select {
+    width: 100%;
+    max-width: 100%;
+}
+
+.control-block .Select-control {
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .control-block-last {

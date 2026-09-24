@@ -84,7 +84,6 @@ export const SYMBOLS = [
   { value: 44, label: 'Хамило' },
   { value: 45, label: 'Паук малый' },
   { value: 46, label: 'Паук большой' },
-  { value: 47, label: 'Фита' },
   { value: 48, label: 'Полукулизма малая' },
   { value: 49, label: 'Фотиза' },
   { value: 50, label: 'Змийца' },

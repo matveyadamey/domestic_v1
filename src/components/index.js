@@ -13,6 +13,8 @@ import PaperStyle from './PaperStyle'
 import RemoveParagraphButton from './RemoveParagraphButton'
 import RemoveParagraph from './RemoveParagraph'
 import RemovePageModal from './RemovePageModal'
+import MusicStaff from './MusicStaff'
+import Paragraph from './Paragraph'
 
 
 export {
@@ -31,4 +33,6 @@ export {
   RemoveParagraphButton,
   RemoveParagraph,
   RemovePageModal,
+  MusicStaff,
+  Paragraph,
 }

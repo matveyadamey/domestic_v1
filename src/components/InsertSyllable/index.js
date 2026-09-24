@@ -28,6 +28,7 @@ import {
   RFReactMultiSelect,
   Loading,
 } from '../../utils'
+import { enrichSyllableWithNotes, getLastKrukFromPaper } from '../../utils/resolveNotes'
 import { KRUKI } from '../../res/'
 
 import './style.css'
@@ -56,7 +57,13 @@ class InsertSyllable extends Component {
         return
       }
 
-      const onlyValues = map(symbols.symbolsFilteredByPitch, ({ value }) => ({ value }))
+      const onlyValues = map(symbols.symbolsFilteredByPitch, symbol => enrichSyllableWithNotes({
+        value: symbol.value,
+        name: symbol.name,
+        pitch: symbol.pitch,
+        opts: symbol.opts,
+        notes: symbol.notes,
+      }, getLastKrukFromPaper(this.props.paper)))
 
       const syllableForInsert = onlyValues[0]
       syllableForInsert.text = e.target.value

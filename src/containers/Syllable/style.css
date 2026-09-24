@@ -1,3 +1,8 @@
 .symbol {
     font-size: 72pt;
 }
+
+.bucvica-inline {
+    color: red;
+    text-transform: uppercase;
+}

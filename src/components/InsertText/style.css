@@ -9,8 +9,10 @@
     color: red !important;
 }
 .insert-text {
-    width: 300px;
-    padding-right: 20px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding-right: 8px;
 }
 
 .toggleShowPagination{

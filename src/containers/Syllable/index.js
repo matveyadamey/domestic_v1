@@ -3,6 +3,8 @@ import { connect } from 'react-redux'
 import PropTypes from 'react-proptypes'
 import { bindActionCreators } from 'redux'
 import EditButtons from '../../components/EditButtons'
+import MusicStaff from '../../components/MusicStaff'
+import { resolveNotesData } from '../../utils/resolveNotes'
 import {
   showModalEditText,
   changePage,
@@ -18,11 +20,28 @@ class Syllable extends Component {
   }
 
   render() {
-    const { form, value, text, index, pageIndex, paragraphIndex } = this.props
+    const {
+      form, value, text, bucvica, index, pageIndex, paragraphIndex, notes, notesFixed, name, pitch, opts,
+      prevNotes, prevPitch, nextNotes, nextPitch,
+    } = this.props
+    const notesData = resolveNotesData({
+      notes, notesFixed, value, name, pitch, opts, prevNotes, prevPitch, nextNotes, nextPitch,
+    })
+
     return (
-      <div className={`syllable size${form.paperStyle.values.fontSize}`}>
+      <div
+        className={`syllable size${form.paperStyle.values.fontSize}${notesData.length >= 3 ? ' syllable--wide-notes' : ''}`}
+        data-paginate-item="1"
+        data-page={pageIndex}
+        data-paragraph={paragraphIndex}
+        data-index={index}
+      >
         <div className="symbol" dangerouslySetInnerHTML={{ __html: value }} />
-        <div id={index} className="text" onClick={e => this.editText(e)} dangerouslySetInnerHTML={{ __html: text }} />
+        <MusicStaff notesData={notesData} />
+        <div id={index} className="text" onClick={e => this.editText(e)}>
+          {bucvica ? <span className="bucvica-inline">{bucvica}</span> : null}
+          <span dangerouslySetInnerHTML={{ __html: text }} />
+        </div>
         <EditButtons index={index} pageIndex={pageIndex} paragraphIndex={paragraphIndex} />
       </div>
     )
@@ -45,7 +64,17 @@ Syllable.propTypes = {
   actions: PropTypes.object,
   value: PropTypes.string,
   text: PropTypes.string,
+  bucvica: PropTypes.string,
   index: PropTypes.number,
   pageIndex: PropTypes.number,
   paragraphIndex: PropTypes.number,
+  notes: PropTypes.string,
+  notesFixed: PropTypes.bool,
+  name: PropTypes.string,
+  pitch: PropTypes.string,
+  opts: PropTypes.array,
+  prevNotes: PropTypes.string,
+  prevPitch: PropTypes.string,
+  nextNotes: PropTypes.string,
+  nextPitch: PropTypes.string,
 }

@@ -1,0 +1,79 @@
+@font-face {
+  font-family: 'Bravura Text';
+  src: url('../../res/fonts/BravuraText.woff2') format('woff2'),
+       url('../../res/fonts/BravuraText.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+.musicStaff {
+  position: relative;
+  height: 56px;
+  margin: 24px 0 18px;
+  pointer-events: none;
+  z-index: 2;
+}
+
+.musicStaff-notes {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  /* 4 × 11px staff space — notehead ≈ interline gap */
+  font-size: 44px;
+}
+
+.bravura-note-item {
+  position: relative;
+  width: 34px;
+  margin-right: -10px;
+  height: 100%;
+  display: inline-block;
+}
+
+/* 3+ notes: give each head room, expand the syllable column */
+.musicStaff--wide .bravura-note-item {
+  width: 26px;
+  margin-right: 0;
+}
+
+.musicStaff--wide .bravura-note-item:last-child {
+  margin-right: 0;
+}
+
+.bravura-note-item span {
+  position: absolute;
+  font-family: 'Bravura Text', serif !important;
+  line-height: 0;
+  white-space: nowrap;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #222;
+}
+
+.b-head {
+  z-index: 5;
+}
+
+.b-head.is-down {
+  transform: translateX(calc(-50% + 1.5px)) !important;
+}
+
+.b-ledger {
+  z-index: 1;
+  left: calc(50% - 4px) !important;
+}
+
+.b-acc {
+  transform: translateX(calc(-50% - 8px)) !important;
+  z-index: 6;
+}
+
+.b-dot {
+  transform: translateX(calc(-50% + 12px)) !important;
+  z-index: 4;
+}

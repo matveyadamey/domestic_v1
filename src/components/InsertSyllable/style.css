@@ -1,31 +1,49 @@
 @font-face {
-    font-family: NewDamaskin; /* Имя шрифта */
-    src: url(../../res/fonts/NewDamaskin.ttf); /* Путь к файлу со шрифтом */
-   }
-
+    font-family: NewDamaskin;
+    src: url(../../res/fonts/NewDamaskin.ttf);
+}
 
 .inputForm {
     display: flex;
     flex-direction: column;
-    width: 340px;
-    margin-left: 40px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding-right: 8px;
+    margin-left: 0;
+}
+
+.inputForm h4,
+.insertComposition h4,
+.insert-text h4 {
+    margin-top: 0;
+    margin-bottom: 8px;
 }
 
 .field {
-    display: inline-grid;
-    grid-template-columns: 90px auto;
-    justify-items: start;
+    display: grid;
+    grid-template-columns: 90px minmax(0, 1fr);
+    justify-items: stretch;
+    align-items: center;
+    width: 100%;
+    box-sizing: border-box;
+    column-gap: 8px;
 }
 
 .input {
-    width: 250px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
     padding: 5px;
+    min-width: 0;
 }
 
 .inputTextUCS {
     font-family: NewDamaskin;
     font-size: 24pt !important;
-    width: 242px !important;
+    width: 100% !important;
+    max-width: 100%;
+    box-sizing: border-box;
     padding-top: 5px;
     margin-top: 5px;
 }
@@ -35,9 +53,11 @@
 }
 
 .removeLast {
-    display: inline-grid;
-    grid-template-columns: 94px 241px;
-    justify-items: start;
+    display: grid;
+    grid-template-columns: 94px minmax(0, 1fr);
+    justify-items: stretch;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .titleControlPanel {
@@ -47,7 +67,7 @@
 .removeButton {
     width: 100%;
     margin-top: 10px;
-} 
+}
 
 .hideMessage {
     display: none;
@@ -55,11 +75,15 @@
 
 .error {
     display: grid;
-    grid-template-columns: 90px auto;
+    grid-template-columns: 90px minmax(0, 1fr);
     margin-top: 10px;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .error > .alert {
-    width: 240px;
-    margin-left: 5px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin-left: 0;
 }

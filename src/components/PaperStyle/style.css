@@ -1,4 +1,7 @@
 .paperStyle {
-    width: 350px;
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    padding-right: 8px;
     margin-top: 40px;
 }

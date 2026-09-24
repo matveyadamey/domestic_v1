@@ -15,7 +15,18 @@ class CurrentSymbols extends Component { //eslint-disable-line
         <h4>Подходящие знамена</h4>
         { currentSymbols.length === 0 ?
           <p>Подходящих знамен нет</p>
-          : <div className="currentSymbolsArea">{ currentSymbols.map(({ value, name, pitch }, index) => <Symbol key={index} value={value} name={name} pitch={pitch} addSyllable={actions.addSyllable} />) }</div>}
+          : <div className="currentSymbolsArea">{ currentSymbols.map((symbol, index) => (
+            <Symbol
+              key={index}
+              value={symbol.value}
+              name={symbol.name}
+              pitch={symbol.pitch}
+              opts={symbol.opts}
+              notes={symbol.notes}
+              paper={this.props.paper}
+              addSyllable={actions.addSyllable}
+            />
+          )) }</div>}
       </div>
     )
   }
@@ -23,6 +34,7 @@ class CurrentSymbols extends Component { //eslint-disable-line
 
 const mapStateToProps = state => ({
   currentSymbols: state.symbols.currentSymbols,
+  paper: state.paper,
 })
 
 const mapDispatchToProps = dispatch => ({
@@ -34,5 +46,6 @@ export default connect(mapStateToProps, mapDispatchToProps)(CurrentSymbols)
 
 CurrentSymbols.propTypes = {
   currentSymbols: PropTypes.array,
+  paper: PropTypes.object,
 }
 

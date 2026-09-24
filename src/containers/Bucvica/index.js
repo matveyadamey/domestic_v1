@@ -1,9 +1,10 @@
-
 import React, { PureComponent } from 'react'
 import PropTypes from 'react-proptypes'
+import MusicStaff from '../../components/MusicStaff'
 
 import './style.css'
 
+/** Fallback when a bucvica is not followed by a kruk. */
 class Bucvica extends PureComponent {
   removeLastSyllable() {
     const { removeSyllablebyIndex, changePage, index, pageIndex } = this.props
@@ -13,21 +14,32 @@ class Bucvica extends PureComponent {
 
   render() {
     const { form, text, index } = this.props
+    const fontSize = (form && form.paperStyle && form.paperStyle.values
+      && form.paperStyle.values.fontSize) || 40
+
     return (
       <div
-        className="bucvica"
-        style={{
-          fontSize: form.paperStyle.values.sizeOfBucvica + 'pt', // eslint-disable-line
-          height: form.paperStyle.values.sizeOfBucvica * 0.9,
-        }}
+        className={`syllable bucvica size${fontSize}`}
+        data-paginate-item="1"
+        data-page={this.props.pageIndex}
+        data-paragraph={this.props.paragraphIndex}
+        data-index={index}
       >
-        {text}
-        <button name={index} onClick={e => this.removeLastSyllable(e)} className="bucvica-button"><i className="icon-bin" /></button>
+        <div className="symbol bucvica-symbol" aria-hidden="true" />
+        <MusicStaff />
+        <div className="text bucvica-letter">{text}</div>
+        <button
+          type="button"
+          name={index}
+          onClick={e => this.removeLastSyllable(e)}
+          className="bucvica-button"
+        >
+          <i className="icon-bin" />
+        </button>
       </div>
     )
   }
 }
-
 
 export default Bucvica
 
@@ -35,8 +47,8 @@ Bucvica.propTypes = {
   form: PropTypes.object,
   text: PropTypes.string,
   pageIndex: PropTypes.number,
+  paragraphIndex: PropTypes.number,
   index: PropTypes.number,
   removeSyllablebyIndex: PropTypes.func,
   changePage: PropTypes.func,
 }
-

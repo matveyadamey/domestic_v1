@@ -193,9 +193,20 @@ export default (state = initialState, action) => {
     case SET_SYLLABLES: {
       const syllablesForSetting = action.payload
       localStorage.setItem('pages', JSON.stringify(syllablesForSetting))
+      const pageCount = Array.isArray(syllablesForSetting) ? syllablesForSetting.length : 0
+      const clampedPage = pageCount === 0
+        ? 0
+        : Math.min(currentPageNum, pageCount - 1)
+      const page = pageCount > 0 ? syllablesForSetting[clampedPage] : null
+      const paraCount = Array.isArray(page) ? page.length : 0
+      const clampedPara = paraCount === 0
+        ? 0
+        : Math.min(currentParagraphNum, paraCount - 1)
       return {
         ...state,
         syllables: syllablesForSetting,
+        currentPageNum: clampedPage,
+        currentParagraphNum: clampedPara,
       }
     }
 

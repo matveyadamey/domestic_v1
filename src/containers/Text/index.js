@@ -7,17 +7,15 @@ import './style.css'
 
 class Text extends PureComponent {
   render() {
-    const { text, index, pageIndex } = this.props
-    console.log("Text")
-    console.log(pageIndex)
+    const { text, index, pageIndex, paragraphIndex } = this.props
     return (
       <React.Fragment>
         <div
           className="text-line"
-          // style={{
-          //   fontSize: form.paperStyle.values.sizeOfText + 'pt', // eslint-disable-line
-          //   height: form.paperStyle.values.sizeOfBucvica * 0.9,
-          // }}
+          data-paginate-item="1"
+          data-page={pageIndex}
+          data-paragraph={paragraphIndex}
+          data-index={index}
         >
           {text}
           <ButtonRemove index={index} pageIndex={pageIndex} className="text-remove-button" />
@@ -33,6 +31,6 @@ export default Text
 Text.propTypes = {
   text: PropTypes.string,
   pageIndex: PropTypes.number,
+  paragraphIndex: PropTypes.number,
   index: PropTypes.number,
 }
-

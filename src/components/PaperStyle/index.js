@@ -33,6 +33,7 @@ const PaperStyle = () => (
 
 const PaperStyleWithForm = reduxForm({
   form: 'paperStyle',
+  destroyOnUnmount: false,
 })(PaperStyle)
 
 const InitializePaperStyleWithForm = connect(

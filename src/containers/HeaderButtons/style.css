@@ -1,27 +1,85 @@
 .btn-upload {
-    margin-right: 20px;
+  margin-right: 20px;
 }
 
-  .import-export {
-      display: flex;
-  }
+.import-export {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0;
+}
 
-  .file {
-    position: relative;
-    overflow: hidden;
-    margin-right: 20px;
-  }
-  .input-upload {
-    position: absolute;
-    font-size: 50px;
-    opacity: 0;
-    right: 0;
-    top: 0;
-  }
+.file {
+  position: relative;
+  overflow: hidden;
+  margin-right: 20px;
+}
 
-  .button-download {
-    font-size: 50px;
-  }
-  .button-help {
-    margin-left: 20px;
-  }
+.input-upload {
+  position: absolute;
+  font-size: 50px;
+  opacity: 0;
+  right: 0;
+  top: 0;
+}
+
+.button-download {
+  margin-right: 0;
+}
+
+.button-pdf {
+  margin-left: 20px;
+}
+
+.button-help {
+  margin-left: 20px;
+}
+
+.header-settings {
+  position: relative;
+  margin-left: 20px;
+}
+
+.header-settings-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1040;
+}
+
+.header-settings-panel {
+  position: absolute;
+  top: calc(100% + 8px);
+  right: 0;
+  z-index: 1050;
+  min-width: 280px;
+  max-width: 340px;
+  padding: 16px 18px;
+  background: #fff;
+  color: #212529;
+  border: 1px solid #dee2e6;
+  border-radius: 0.25rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.header-settings-panel.is-hidden {
+  display: none;
+}
+
+.header-settings-panel .paperStyle {
+  width: 100%;
+  max-width: 100%;
+  margin-top: 0;
+  padding-right: 0;
+}
+
+.header-settings-panel .paperStyle h4 {
+  margin-top: 0;
+  font-size: 1.1rem;
+}
+
+.header-settings-panel .paperStyle label {
+  display: block;
+  margin-top: 10px;
+  margin-bottom: 4px;
+  font-size: 0.9rem;
+}
