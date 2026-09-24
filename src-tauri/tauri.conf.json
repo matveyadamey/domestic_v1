@@ -1,7 +1,7 @@
 {
   "$schema": "../node_modules/@tauri-apps/cli/config.schema.json",
   "productName": "Domestic_v1",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "identifier": "com.matve.domestic-v1",
   "build": {
     "frontendDist": "../build",
@@ -29,6 +29,7 @@
   "bundle": {
     "active": true,
     "targets": "all",
+    "createUpdaterArtifacts": true,
     "icon": [
       "icons/32x32.png",
       "icons/128x128.png",
@@ -38,6 +39,14 @@
     ],
     "android": {
       "debugApplicationIdSuffix": ".debug"
+    }
+  },
+  "plugins": {
+    "updater": {
+      "pubkey": "dW50cnVzdGVkIGNvbW1lbnQ6IG1pbmlzaWduIHB1YmxpYyBrZXk6IDFGOUVDMDNFQjYyMDU0RDUKUldUVlZDQzJQc0NlSDBwZVhQTE9uSjRBSmRtL0RTN3Q0bGc2RHVJNnRTRk15TCs5R3NDY3BQZEkK",
+      "endpoints": [
+        "https://github.com/matveyadamey/domestic_v1/releases/latest/download/latest.json"
+      ]
     }
   }
 }
