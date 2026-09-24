@@ -85,24 +85,28 @@ jobs:
         uses: swatinem/rust-cache@v2
         with:
           workspaces: './src-tauri'
+          # Save cache even if the build step fails
+          save-if: true
 
       - name: Install frontend dependencies
         run: npm ci --legacy-peer-deps
 
-      # GitHub Secrets often append a trailing newline; Tauri treats the value as
-      # raw base64 and fails with "Invalid symbol 10" if CR/LF are present.
+      # Trim CR/LF from GitHub Secrets; use a real OS path (bash MSYS paths break on Windows).
       - name: Prepare updater signing key
-        shell: bash
+        shell: pwsh
         env:
           RAW_KEY: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY }}
         run: |
-          if [ -z "$RAW_KEY" ]; then
-            echo "TAURI_SIGNING_PRIVATE_KEY secret is missing" >&2
-            exit 1
-          fi
-          KEY="$(printf '%s' "$RAW_KEY" | tr -d '\r\n')"
-          printf '%s' "$KEY" > "${RUNNER_TEMP}/tauri.key"
-          echo "TAURI_SIGNING_PRIVATE_KEY_PATH=${RUNNER_TEMP}/tauri.key" >> "$GITHUB_ENV"
+          if ([string]::IsNullOrWhiteSpace($env:RAW_KEY)) {
+            throw "TAURI_SIGNING_PRIVATE_KEY secret is missing"
+          }
+          $key = ($env:RAW_KEY -replace "[\r\n]", "").Trim()
+          $path = Join-Path $env:RUNNER_TEMP "tauri.key"
+          [System.IO.File]::WriteAllText($path, $key)
+          Add-Content -Path $env:GITHUB_ENV -Value "TAURI_SIGNING_PRIVATE_KEY_PATH=$path"
+          Add-Content -Path $env:GITHUB_ENV -Value "TAURI_SIGNING_PRIVATE_KEY<<__TAURI_KEY__"
+          Add-Content -Path $env:GITHUB_ENV -Value $key
+          Add-Content -Path $env:GITHUB_ENV -Value "__TAURI_KEY__"
 
       - name: Build Tauri app
         uses: tauri-apps/tauri-action@v0
@@ -119,6 +123,5 @@ jobs:
             Install once; later versions install automatically on launch.
           releaseDraft: false
           prerelease: false
-          uploadReleaseAssets: true
-          uploadUpdaterJson: true
+          includeUpdaterJson: true
           updaterJsonPreferNsis: true
