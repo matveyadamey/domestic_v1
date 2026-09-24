@@ -63,11 +63,25 @@ jobs:
       - name: Install frontend dependencies
         run: npm ci --legacy-peer-deps
 
+      # GitHub Secrets often append a trailing newline; Tauri treats the value as
+      # raw base64 and fails with "Invalid symbol 10" if CR/LF are present.
+      - name: Prepare updater signing key
+        shell: bash
+        env:
+          RAW_KEY: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY }}
+        run: |
+          if [ -z "$RAW_KEY" ]; then
+            echo "TAURI_SIGNING_PRIVATE_KEY secret is missing" >&2
+            exit 1
+          fi
+          KEY="$(printf '%s' "$RAW_KEY" | tr -d '\r\n')"
+          printf '%s' "$KEY" > "${RUNNER_TEMP}/tauri.key"
+          echo "TAURI_SIGNING_PRIVATE_KEY_PATH=${RUNNER_TEMP}/tauri.key" >> "$GITHUB_ENV"
+
       - name: Build Tauri app
         uses: tauri-apps/tauri-action@v0
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          TAURI_SIGNING_PRIVATE_KEY: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY }}
           TAURI_SIGNING_PRIVATE_KEY_PASSWORD: ${{ secrets.TAURI_SIGNING_PRIVATE_KEY_PASSWORD }}
         with:
           includeDebug: false
