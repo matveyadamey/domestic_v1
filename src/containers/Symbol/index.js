@@ -34,9 +34,6 @@ class Symbol extends Component { // eslint-disable-line
           data-html="true"
           title={`${name}, помета: ${pitch}`}
         />
-        <div className="sourceHtml">
-          {value}
-        </div>
       </div>
     )
   }

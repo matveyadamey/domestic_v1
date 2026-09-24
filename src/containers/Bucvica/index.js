@@ -1,10 +1,9 @@
 import React, { PureComponent } from 'react'
 import PropTypes from 'react-proptypes'
-import MusicStaff from '../../components/MusicStaff'
 
 import './style.css'
 
-/** Fallback when a bucvica is not followed by a kruk. */
+/** Fallback when a bucvica is not followed by a kruk (no staff — staff comes with kruki). */
 class Bucvica extends PureComponent {
   removeLastSyllable() {
     const { removeSyllablebyIndex, changePage, index, pageIndex } = this.props
@@ -26,7 +25,6 @@ class Bucvica extends PureComponent {
         data-index={index}
       >
         <div className="symbol bucvica-symbol" aria-hidden="true" />
-        <MusicStaff />
         <div className="text bucvica-letter">{text}</div>
         <button
           type="button"

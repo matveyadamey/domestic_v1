@@ -2,12 +2,12 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
-import { saveAs } from 'file-saver'
 import { setSyllables } from '../../actions'
 import { Help } from './../index'
 import PaperStyle from '../../components/PaperStyle'
 import { exportPagesToPdf } from '../../utils/exportPdf'
 import { prepareLoadedSyllables } from '../../utils/paginateOverflow'
+import { saveWithDialog } from '../../utils/saveFile'
 import './style.css'
 
 class HeaderButtons extends Component {
@@ -69,8 +69,15 @@ class HeaderButtons extends Component {
   downloadFile = () => {
     const { paper } = this.props
     const dataToDownload = JSON.stringify({ syllables: paper.syllables }, null, 2)
-    const blob = new Blob([dataToDownload], { type: 'application/json; charset=utf-8' })
-    saveAs(blob, 'domestikos.json')
+    saveWithDialog({
+      defaultName: 'domestikos.json',
+      data: dataToDownload,
+      mimeType: 'application/json;charset=utf-8',
+      filters: [{ name: 'JSON', extensions: ['json'] }],
+    }).catch((err) => {
+      console.error(err)
+      window.alert(err.message || 'Не удалось сохранить файл')
+    })
   }
 
   exportPdf = () => {

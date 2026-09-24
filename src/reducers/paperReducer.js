@@ -56,6 +56,11 @@ export default (state = initialState, action) => {
         currentSyllablesWithNew = [...currentParagraph, action.payload]
       }
       const newSyllables = Array.from(syllables)
+      if (!newSyllables[currentPageNum]) {
+        newSyllables[currentPageNum] = []
+      } else {
+        newSyllables[currentPageNum] = Array.from(newSyllables[currentPageNum])
+      }
       newSyllables[currentPageNum][currentParagraphNum] = currentSyllablesWithNew
       localStorage.setItem('pages', JSON.stringify(newSyllables))
       return {

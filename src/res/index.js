@@ -413,6 +413,6 @@ export const GUIDE_STEPS = [
   },
   {
     selector: '.button-help',
-    content: 'Вот и все) Если вы что-то забудете или не поймете, заглядывайте в раздел "Помощь", или пишите на почту gladishevvasiliy@gmail.com. Бог Вам в помощь!',
+    content: 'Вот и все) Если вы что-то забудете или не поймете, заглядывайте в раздел "Помощь", или пишите на почту gladishevvasiliy@gmail.com или matveyadamey@yandex.ru. Бог Вам в помощь!',
   },
 ]

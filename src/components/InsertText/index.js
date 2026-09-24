@@ -9,25 +9,46 @@ import { changeParagraph, addSyllable, toggleShowPagination } from '../../action
 class InsertText extends Component {
   constructor(props) {
     super(props)
-    this.state = {}
+    this.bucvicaInput = null
+    this.textInput = null
   }
 
-  addBucvica = (e) => {
-    if (e.key === 'Enter') {
-      e.preventDefault()
-      const { actions } = this.props
-      const bucvica = { value: '', text: e.target.value, type: 'BUCVICA' }
-      actions.addSyllable(bucvica)
-    }
+  preventSubmit = (e) => {
+    e.preventDefault()
   }
 
-  addText = (e) => {
-    if (e.key === 'Enter') {
-      e.preventDefault()
-      const { actions } = this.props
-      const text = { value: '', text: e.target.value, type: 'TEXT' }
-      actions.addSyllable(text)
-    }
+  insertBucvica = () => {
+    const input = this.bucvicaInput
+    if (!input) return
+    const value = (input.value || '').trim()
+    if (!value) return
+    const { actions } = this.props
+    actions.addSyllable({ value: '', text: value, type: 'BUCVICA' })
+    input.value = ''
+    input.focus()
+  }
+
+  insertText = () => {
+    const input = this.textInput
+    if (!input) return
+    const value = (input.value || '').trim()
+    if (!value) return
+    const { actions } = this.props
+    actions.addSyllable({ value: '', text: value, type: 'TEXT' })
+    input.value = ''
+    input.focus()
+  }
+
+  onBucvicaKeyDown = (e) => {
+    if (e.key !== 'Enter') return
+    e.preventDefault()
+    this.insertBucvica()
+  }
+
+  onTextKeyDown = (e) => {
+    if (e.key !== 'Enter') return
+    e.preventDefault()
+    this.insertText()
   }
 
   newParagraph = () => {
@@ -49,29 +70,51 @@ class InsertText extends Component {
     return (
       <div className="insert-text text-left">
         <h4>Вставка текста</h4>
-        <form onKeyPress={this.addBucvica}>  {/* eslint-disable-line */}
-          <div className="field" >
-            <label htmlFor="Name">Вставить буквицу</label>
-            <input
-              label="Буквица"
-              name="bucvica"
-              className="form-control"
-            />
+        <form onSubmit={this.preventSubmit}>
+          <div className="field">
+            <label htmlFor="bucvica">Вставить буквицу</label>
+            <div className="insert-text-row">
+              <input
+                id="bucvica"
+                name="bucvica"
+                className="form-control"
+                ref={(el) => { this.bucvicaInput = el }}
+                onKeyDown={this.onBucvicaKeyDown}
+              />
+              <button
+                type="button"
+                className="btn btn-primary insert-text-btn"
+                onClick={this.insertBucvica}
+              >
+                Вставить
+              </button>
+            </div>
           </div>
         </form>
-        <form onKeyPress={this.addText}>  {/* eslint-disable-line */}
-          <div className="field" >
-            <label htmlFor="Name">Вставить текст</label>
-            <input
-              label="Текст"
-              name="text"
-              className="form-control ucs-text"
-            />
+        <form onSubmit={this.preventSubmit}>
+          <div className="field">
+            <label htmlFor="insert-text-field">Вставить текст</label>
+            <div className="insert-text-row">
+              <input
+                id="insert-text-field"
+                name="text"
+                className="form-control ucs-text"
+                ref={(el) => { this.textInput = el }}
+                onKeyDown={this.onTextKeyDown}
+              />
+              <button
+                type="button"
+                className="btn btn-primary insert-text-btn"
+                onClick={this.insertText}
+              >
+                Вставить
+              </button>
+            </div>
           </div>
         </form>
         <button
           type="button"
-          className="btn btn-primary"
+          className="btn btn-secondary insert-text-new-para"
           onClick={this.newParagraph}
         >
           Новый абзац
@@ -88,7 +131,7 @@ class InsertText extends Component {
             className="custom-control-label"
             htmlFor="showPagination"
           >
-          Отображать номера страниц
+            Отображать номера страниц
           </label>
         </div>
       </div>

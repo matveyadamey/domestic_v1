@@ -4,6 +4,8 @@
   "private": true,
   "homepage": "./",
   "dependencies": {
+    "@tauri-apps/plugin-dialog": "^2.7.3",
+    "@tauri-apps/plugin-fs": "^2.5.2",
     "accept-language": "^3.0.17",
     "axios": "^0.18.0",
     "babel-core": "^6.25.0",

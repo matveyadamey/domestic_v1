@@ -65,7 +65,9 @@
 
 .b-ledger {
   z-index: 1;
-  left: calc(50% - 4px) !important;
+  /* Stem-up noteheads sit left of the glyph box; pull ledger to match the oval */
+  left: 50% !important;
+  transform: translateX(calc(-50% - 6px)) !important;
 }
 
 .b-acc {

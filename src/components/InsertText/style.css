@@ -8,6 +8,7 @@
     font-size: 24pt !important;
     color: red !important;
 }
+
 .insert-text {
     width: 100%;
     max-width: 100%;
@@ -15,6 +16,27 @@
     padding-right: 8px;
 }
 
-.toggleShowPagination{
+.insert-text-row {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.insert-text-row .form-control {
+    flex: 1;
+    min-width: 0;
+}
+
+.insert-text-btn {
+    flex-shrink: 0;
+    white-space: nowrap;
+}
+
+.insert-text-new-para {
+    display: block;
+    margin-top: 12px;
+}
+
+.toggleShowPagination {
     margin-top: 20px;
 }

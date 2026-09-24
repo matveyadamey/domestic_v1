@@ -1,4 +1,9 @@
 jest.mock('file-saver', () => ({ saveAs: jest.fn() }), { virtual: true })
+jest.mock('@tauri-apps/plugin-dialog', () => ({ save: jest.fn() }), { virtual: true })
+jest.mock('@tauri-apps/plugin-fs', () => ({
+  writeFile: jest.fn(() => Promise.resolve()),
+  writeTextFile: jest.fn(() => Promise.resolve()),
+}), { virtual: true })
 jest.mock('html2canvas', () => jest.fn(() => Promise.resolve({
   toDataURL: () => 'data:image/jpeg;base64,xx',
 })), { virtual: true })
@@ -98,7 +103,7 @@ describe('exportPagesToPdf', () => {
 
   it('falls back to saveAs when File System Access API is unavailable', () => {
     return exportPagesToPdf('test.pdf').then((result) => {
-      expect(result).toBeNull()
+      expect(result).toBe(true)
       expect(saveAs).toHaveBeenCalled()
       expect(saveAs.mock.calls[0][1]).toBe('test.pdf')
     })

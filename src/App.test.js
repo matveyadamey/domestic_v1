@@ -1,4 +1,9 @@
 jest.mock('file-saver', () => ({ saveAs: jest.fn() }), { virtual: true })
+jest.mock('@tauri-apps/plugin-dialog', () => ({ save: jest.fn() }), { virtual: true })
+jest.mock('@tauri-apps/plugin-fs', () => ({
+  writeFile: jest.fn(() => Promise.resolve()),
+  writeTextFile: jest.fn(() => Promise.resolve()),
+}), { virtual: true })
 jest.mock('html2canvas', () => jest.fn(() => Promise.resolve({
   toDataURL: () => 'data:image/jpeg;base64,xx',
 })), { virtual: true })

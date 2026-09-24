@@ -1,6 +1,6 @@
 import html2canvas from 'html2canvas'
 import jsPDF from 'jspdf'
-import { saveAs } from 'file-saver'
+import { saveWithDialog } from './saveFile'
 
 const UI_SELECTORS = [
   '.page-remove-button',
@@ -77,6 +77,7 @@ function cleanClone(page) {
 }
 
 function pickSaveFile(defaultName) {
+  // Kept for API compatibility; real save goes through saveWithDialog.
   if (typeof window.showSaveFilePicker !== 'function') {
     return Promise.resolve(null)
   }
@@ -155,12 +156,29 @@ function buildPdfFromPages(pages) {
 
 /**
  * Export A4 pages to PDF with a native Save As dialog when available.
- * Dialog is opened first (user gesture), then the PDF is generated and written.
+ * Browser: dialog first (user gesture), then generate. Tauri: generate, then native dialog.
  */
 export function exportPagesToPdf(defaultName = 'domestikos.pdf') {
   const pages = Array.from(document.querySelectorAll('.paperArea .a4'))
   if (!pages.length) {
     return Promise.reject(new Error('Нет страниц для экспорта'))
+  }
+
+  const filters = [{ name: 'PDF', extensions: ['pdf'] }]
+  const inTauri = typeof window !== 'undefined' && !!(
+    window.__TAURI_INTERNALS__ || window.__TAURI__ || window.__TAURI_METADATA__
+  )
+
+  if (inTauri) {
+    return buildPdfFromPages(pages).then((pdf) => {
+      const buffer = pdf.output('arraybuffer')
+      return saveWithDialog({
+        defaultName,
+        data: new Uint8Array(buffer),
+        mimeType: 'application/pdf',
+        filters,
+      })
+    })
   }
 
   return pickSaveFile(defaultName).then((fileHandle) => {
@@ -170,17 +188,19 @@ export function exportPagesToPdf(defaultName = 'domestikos.pdf') {
 
     return buildPdfFromPages(pages).then((pdf) => {
       const buffer = pdf.output('arraybuffer')
-      const blob = new Blob([buffer], { type: 'application/pdf' })
 
       if (fileHandle) {
         return fileHandle.createWritable().then((writable) => (
-          // Write raw bytes — more reliable than Blob for File System Access API
           Promise.resolve(writable.write(buffer)).then(() => writable.close())
         ))
       }
 
-      saveAs(blob, defaultName)
-      return null
+      return saveWithDialog({
+        defaultName,
+        data: new Uint8Array(buffer),
+        mimeType: 'application/pdf',
+        filters,
+      })
     })
   })
 }
