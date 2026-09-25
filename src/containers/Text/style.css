@@ -5,12 +5,12 @@
 
 .text-line {
     text-align: left;
-    font-size: 24pt;
     font-family: GrebnevUCS;
     color:red;
     width: 100%;
     position: relative;
-    line-height: 52pt;
+    margin: 0 0 4px;
+    padding: 0;
 }
 
 .text-line:hover .text-remove-button {

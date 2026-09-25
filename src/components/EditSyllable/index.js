@@ -5,7 +5,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 
 import { hideModal } from '../../actions'
-import { InsertSyllable } from '../index'
+import { InsertSyllable, CurrentSymbols } from '../index'
 
 
 class EditSyllable extends Component {
@@ -21,6 +21,7 @@ class EditSyllable extends Component {
         <ModalHeader toggle={this.hideModal}>Редактирование</ModalHeader>
         <ModalBody>
           <InsertSyllable />
+          <CurrentSymbols />
         </ModalBody>
         <ModalFooter>
           <Button color="secondary" onClick={actions.hideModal}>Отмена</Button>

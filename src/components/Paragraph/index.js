@@ -12,14 +12,16 @@ class Paragraph extends Component {
   }
 
   render() {
-    const { className, onClick, children } = this.props
+    const { className, onClick, children, showDvoeznamennik } = this.props
     return (
       <div
         className={className}
         onClick={onClick}
         ref={this.paragraphRef}
       >
-        <ParagraphClefs paragraphRef={this.state.node} />
+        {showDvoeznamennik ? (
+          <ParagraphClefs paragraphRef={this.state.node} />
+        ) : null}
         {children}
       </div>
     )
@@ -30,6 +32,11 @@ Paragraph.propTypes = {
   className: PropTypes.string,
   onClick: PropTypes.func,
   children: PropTypes.node,
+  showDvoeznamennik: PropTypes.bool,
+}
+
+Paragraph.defaultProps = {
+  showDvoeznamennik: true,
 }
 
 export default Paragraph

@@ -4,6 +4,7 @@ import PropTypes from 'react-proptypes'
 const RangeInput = ({ input, type, className, id, min, max, step }) => (
   <input
     type={type}
+    value={input.value}
     onChange={input.onChange}
     className={className}
     id={id}

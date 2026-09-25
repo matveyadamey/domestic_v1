@@ -148,6 +148,20 @@ function onWheel(e) {
     return
   }
 
+  // Hamburger menu / settings and other nested UI panels
+  const menuPanel = e.target.closest('.app-menu-panel')
+  if (menuPanel && canScrollVertically(menuPanel)) {
+    const { scrollTop, scrollHeight, clientHeight } = menuPanel
+    const atTop = scrollTop <= 0
+    const atBottom = scrollTop + clientHeight >= scrollHeight - 1
+    if ((e.deltaY < 0 && !atTop) || (e.deltaY > 0 && !atBottom)) {
+      e.preventDefault()
+      e.stopPropagation()
+      menuPanel.scrollTop += e.deltaY
+    }
+    return
+  }
+
   const scrollable = findScrollableAncestor(e.target, document.documentElement)
 
   if (!scrollable || !scrollable.classList.contains('paperArea')) {

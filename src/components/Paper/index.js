@@ -56,7 +56,7 @@ class Paper extends Component {
             <div className="control-block">
               <InsertComposition />
             </div>
-            <div className="control-block control-block-last">
+            <div className="control-block control-block-last control-block-fit">
               <InsertText />
             </div>
           </div>

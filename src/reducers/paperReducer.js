@@ -22,19 +22,33 @@ import {
   SHOW_MODAL_DELETE_PARAGRAPH,
   CHECK_PARAGRAPH_IS_EMPTY,
   TOGGLE_SHOW_PAGINATION,
+  TOGGLE_SHOW_DVOEZNAMENNIK,
+  SET_INSERT_CARET,
   TOGGLE_MODAL_DELETE_PAGE,
 } from '../constants/'
+import {
+  flattenToOnePage,
+  normalizeSyllables,
+  mergeMelismaParagraphs,
+} from '../utils/paginateOverflow'
 
 let document = [[]]
 if (!isNil(localStorage.getItem('pages'))) {
   document = JSON.parse(localStorage.getItem('pages'))
 }
 
+const storedDvoeznamennik = localStorage.getItem('showDvoeznamennik')
+const initialShowDvoeznamennik = storedDvoeznamennik === null
+  ? true
+  : storedDvoeznamennik === 'true'
+
 const initialState = {
   syllables: document,
   currentPageNum: document.length === 0 ? 0 : document.length - 1,
   currentParagraphNum: isNil(document[document.length - 1]) ? 0 : document[document.length - 1].length === 0 ? 0 : document[document.length - 1].length - 1, // eslint-disable-line
   showPagination: true,
+  showDvoeznamennik: initialShowDvoeznamennik,
+  caretIndex: null,
   showModalDeletePage: false,
 }
 
@@ -49,23 +63,39 @@ export default (state = initialState, action) => {
 
   switch (action.type) {
     case ADD_SYLLABLE: {
-      let currentSyllablesWithNew = []
-      if (isNil(currentParagraph)) {
-        currentSyllablesWithNew = [action.payload]
-      } else {
-        currentSyllablesWithNew = [...currentParagraph, action.payload]
+      const raw = action.payload || {}
+      // Support { syllable, pageIndex, paragraphIndex, caretIndex } or plain syllable
+      const hasNested = raw.syllable && typeof raw.syllable === 'object'
+      const syllable = hasNested ? raw.syllable : raw
+      const pageIdx = hasNested && raw.pageIndex != null ? raw.pageIndex : currentPageNum
+      const paraIdx = hasNested && raw.paragraphIndex != null ? raw.paragraphIndex : currentParagraphNum
+      const page = syllables[pageIdx]
+      const para = page && page[paraIdx]
+      const base = isNil(para) ? [] : Array.from(para)
+      const len = base.length
+      let at = hasNested && raw.caretIndex != null ? raw.caretIndex : state.caretIndex
+      if (isNil(at) || at < 0 || at > len) {
+        at = len
       }
+      base.splice(at, 0, syllable)
       const newSyllables = Array.from(syllables)
-      if (!newSyllables[currentPageNum]) {
-        newSyllables[currentPageNum] = []
+      if (!newSyllables[pageIdx]) {
+        newSyllables[pageIdx] = []
       } else {
-        newSyllables[currentPageNum] = Array.from(newSyllables[currentPageNum])
+        newSyllables[pageIdx] = Array.from(newSyllables[pageIdx] || [])
       }
-      newSyllables[currentPageNum][currentParagraphNum] = currentSyllablesWithNew
+      // Ensure paragraph slot exists
+      while (newSyllables[pageIdx].length <= paraIdx) {
+        newSyllables[pageIdx].push([])
+      }
+      newSyllables[pageIdx][paraIdx] = base
       localStorage.setItem('pages', JSON.stringify(newSyllables))
       return {
         ...state,
         syllables: newSyllables,
+        currentPageNum: pageIdx,
+        currentParagraphNum: paraIdx,
+        caretIndex: at + 1,
       }
     }
 
@@ -81,15 +111,30 @@ export default (state = initialState, action) => {
     }
 
     case REMOVE_SYLLABLE_BY_INDEX: {
-      const index = action.payload
-      const newCurrentParagraph = Array.from(currentParagraph)
-      newCurrentParagraph.splice(index, 1) // remove from current page
+      const payload = action.payload || {}
+      const index = typeof action.payload === 'number' ? action.payload : payload.index
+      const pageIdx = payload.pageIndex != null ? payload.pageIndex : currentPageNum
+      const paraIdx = payload.paragraphIndex != null ? payload.paragraphIndex : currentParagraphNum
+      const page = syllables[pageIdx]
+      const para = page && page[paraIdx]
+      if (index == null || !Array.isArray(para) || !para[index]) {
+        return state
+      }
+      const newPara = Array.from(para)
+      newPara.splice(index, 1)
       const newSyllables = Array.from(syllables)
-      newSyllables[currentPageNum][currentParagraphNum] = newCurrentParagraph
+      newSyllables[pageIdx] = Array.from(page)
+      newSyllables[pageIdx][paraIdx] = newPara
       localStorage.setItem('pages', JSON.stringify(newSyllables))
+      // Keep caret in the gap where the item was removed
+      let nextCaret = index
+      if (nextCaret > newPara.length) nextCaret = newPara.length
       return {
         ...state,
         syllables: newSyllables,
+        currentPageNum: pageIdx,
+        currentParagraphNum: paraIdx,
+        caretIndex: nextCaret,
       }
     }
 
@@ -155,7 +200,7 @@ export default (state = initialState, action) => {
     case INSERT_SYLLABLE: {
       const { index, syllable } = action.payload
       const currentParagraphWithInsert = Array.from(currentParagraph)
-      const afterIndex = parseInt(index) + 1 // eslint-disable-line
+      const afterIndex = parseInt(index, 10) + 1
       currentParagraphWithInsert.splice(afterIndex, 0, syllable)
       const newSyllables = Array.from(syllables)
       newSyllables[currentPageNum][currentParagraphNum] = currentParagraphWithInsert
@@ -164,6 +209,7 @@ export default (state = initialState, action) => {
       return {
         ...state,
         syllables: newSyllables,
+        caretIndex: afterIndex + 1,
       }
     }
 
@@ -182,16 +228,34 @@ export default (state = initialState, action) => {
     }
 
     case EDIT_TEXT: {
-      const newText = action.payload
-      const { indexOfEditableText } = state
-      const currentParagraphEditText = Array.from(currentParagraph)
-      currentParagraphEditText[indexOfEditableText].text = newText
+      const payload = action.payload || {}
+      const newText = payload.text
+      const editIndex = payload.index != null ? payload.index : state.indexOfEditableText
+      const pageIdx = payload.pageIndex != null ? payload.pageIndex : currentPageNum
+      const paraIdx = payload.paragraphIndex != null ? payload.paragraphIndex : currentParagraphNum
+      const page = syllables[pageIdx]
+      const para = page && page[paraIdx]
+      if (editIndex == null || !Array.isArray(para) || !para[editIndex]) {
+        return {
+          ...state,
+          showModalEditText: false,
+          indexOfEditableText: null,
+        }
+      }
+
       const newSyllables = Array.from(syllables)
-      newSyllables[currentPageNum][currentParagraphNum] = currentParagraphEditText
+      newSyllables[pageIdx] = Array.from(page)
+      const nextPara = Array.from(para)
+      nextPara[editIndex] = { ...para[editIndex], text: newText == null ? '' : newText }
+      newSyllables[pageIdx][paraIdx] = nextPara
       localStorage.setItem('pages', JSON.stringify(newSyllables))
       return {
         ...state,
         syllables: newSyllables,
+        currentPageNum: pageIdx,
+        currentParagraphNum: paraIdx,
+        showModalEditText: false,
+        indexOfEditableText: null,
       }
     }
 
@@ -207,11 +271,19 @@ export default (state = initialState, action) => {
       const clampedPara = paraCount === 0
         ? 0
         : Math.min(currentParagraphNum, paraCount - 1)
+      const para = paraCount > 0 ? page[clampedPara] : null
+      let nextCaret = state.caretIndex
+      if (nextCaret != null && Array.isArray(para)) {
+        nextCaret = Math.max(0, Math.min(nextCaret, para.length))
+      } else if (!Array.isArray(para)) {
+        nextCaret = null
+      }
       return {
         ...state,
         syllables: syllablesForSetting,
         currentPageNum: clampedPage,
         currentParagraphNum: clampedPara,
+        caretIndex: nextCaret,
       }
     }
 
@@ -237,14 +309,29 @@ export default (state = initialState, action) => {
       return {
         ...state,
         currentPageNum: pageIndex,
+        caretIndex: null,
       }
     }
 
     case CHANGE_PARAGRAPH: {
       const paragraphIndex = action.payload
+      const same = paragraphIndex === currentParagraphNum
       return {
         ...state,
         currentParagraphNum: paragraphIndex,
+        // Keep caret when re-clicking the active paragraph (syllable click stops bubble;
+        // empty-area click on same para should not wipe a just-set caret from race)
+        caretIndex: same ? state.caretIndex : null,
+      }
+    }
+
+    case SET_INSERT_CARET: {
+      const { pageIndex, paragraphIndex, caretIndex } = action.payload
+      return {
+        ...state,
+        currentPageNum: pageIndex,
+        currentParagraphNum: paragraphIndex,
+        caretIndex,
       }
     }
 
@@ -271,12 +358,22 @@ export default (state = initialState, action) => {
     case DELETE_PARAGRAPH: {
       const paragraphIndex = action.payload
       const newSyllables = Array.from(syllables)
-      newSyllables[currentPageNum].splice(paragraphIndex, 1) // choose page, and remove paragraph
+      const page = Array.isArray(newSyllables[currentPageNum])
+        ? Array.from(newSyllables[currentPageNum])
+        : []
+      page.splice(paragraphIndex, 1)
+      newSyllables[currentPageNum] = page
       localStorage.setItem('pages', JSON.stringify(newSyllables))
+
+      const nextPara = page.length === 0
+        ? 0
+        : Math.min(currentParagraphNum, page.length - 1)
 
       return {
         ...state,
         syllables: newSyllables,
+        currentParagraphNum: nextPara,
+        caretIndex: null,
       }
     }
 
@@ -323,6 +420,24 @@ export default (state = initialState, action) => {
       return {
         ...state,
         showPagination: true,
+      }
+    }
+
+    case TOGGLE_SHOW_DVOEZNAMENNIK: {
+      const next = !state.showDvoeznamennik
+      localStorage.setItem('showDvoeznamennik', String(next))
+      // Staff on/off changes row height — collapse pages so AreaOfSymbols can re-spill
+      const flat = mergeMelismaParagraphs(
+        normalizeSyllables(flattenToOnePage(state.syllables)),
+      )
+      localStorage.setItem('pages', JSON.stringify(flat))
+      return {
+        ...state,
+        showDvoeznamennik: next,
+        syllables: flat,
+        currentPageNum: 0,
+        currentParagraphNum: 0,
+        caretIndex: null,
       }
     }
 

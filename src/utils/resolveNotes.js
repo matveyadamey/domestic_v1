@@ -42,6 +42,27 @@ const LETTER_TO_PITCH = {
   V: 'Ля высокое',
 }
 
+/**
+ * Ascending diatonic order of pometas used in the azbuka / notesIndex.
+ * Голубчик без пометы looks up the step *below* the following kruk.
+ */
+const PITCH_ASCENDING = [
+  'Ми малой',
+  'Фа малой',
+  'Ут низкое',
+  'Ре низкое',
+  'Ми низкое',
+  'Ут',
+  'Ре',
+  'Ми',
+  'Фа',
+  'Соль',
+  'Ля',
+  'Фа высокое',
+  'Соль высокое',
+  'Ля высокое',
+]
+
 const normalizePitchLetter = (ch) => {
   const map = {
     Е: 'E', Ф: 'F', Г: 'G', Н: 'N', ц: 'h', г: 'g', н: 'n', с: 's', м: 'm',
@@ -63,6 +84,14 @@ export const lastPitchFromNotes = (notesString) => {
   return last ? LETTER_TO_PITCH[last] : null
 }
 
+/** Pometa one diatonic step below (or null at the bottom of the list). */
+export const pitchBelow = (pitch) => {
+  if (!pitch || pitch === '-') return null
+  const i = PITCH_ASCENDING.indexOf(pitch)
+  if (i <= 0) return null
+  return PITCH_ASCENDING[i - 1]
+}
+
 /** Pitch "-" / empty = равенство without pometa. */
 export const isEqualityPitch = (pitch) => (
   pitch === '-' || pitch === '' || pitch == null
@@ -72,12 +101,103 @@ export const isGolubchikName = (name) => (
   typeof name === 'string' && name.indexOf('Голубчик') === 0
 )
 
+export const hasRavenstvoOpt = (opts) => (
+  Array.isArray(opts) && opts.indexOf('Равенство') !== -1
+)
+
 /**
- * Голубчик with равенство / without pometa: upper note = pometa of the *next* kruk
- * (not the previous). Chains of such golubchiks must resolve right-to-left.
+ * Голубчик без пометы (pitch «-», без опции «Равенство»): фигура к следующему
+ * крюку, ступенью ниже его пометы (перед Фа → ре–ми).
  */
-export const usesForwardEquality = (name, pitch) => (
-  isGolubchikName(name) && isEqualityPitch(pitch)
+export const usesForwardEquality = (name, pitch, opts) => (
+  isGolubchikName(name) && isEqualityPitch(pitch) && !hasRavenstvoOpt(opts)
+)
+
+/**
+ * Голубчик с равенством: подходит к помете / последней ноте *предыдущего* крюка.
+ */
+export const usesGolubchikBackwardEquality = (name, pitch, opts) => (
+  isGolubchikName(name) && isEqualityPitch(pitch) && hasRavenstvoOpt(opts)
+)
+
+export const isZmiycaName = (name) => (
+  typeof name === 'string' && name.indexOf('Змийца') === 0
+)
+
+/** Suffix families shared by many azbuka names (Малая/Средняя закрытая, стрелы…). */
+const familySuffixForPitch = (pitch) => {
+  switch (pitch) {
+    case 'Ут низкое':
+    case 'Ут':
+    case 'Фа':
+    case 'Фа высокое':
+      return ' Ут и Фа'
+    case 'Ре низкое':
+    case 'Ре':
+    case 'Соль':
+    case 'Соль высокое':
+      return ' Ре и Соль'
+    case 'Ми низкое':
+    case 'Ми':
+    case 'Ля':
+    case 'Ля высокое':
+      return ' Ми и Ля'
+    default:
+      return null
+  }
+}
+
+/**
+ * Азбучное семейство Змийцы по помете (верхняя = 2-я нота фигуры).
+ * Соль/Соль высокое в индексе лежат на «Змийца Ре».
+ */
+export const zmiycaNameForPitch = (pitch) => {
+  switch (pitch) {
+    case 'Ут низкое':
+    case 'Ут':
+    case 'Фа':
+    case 'Фа высокое':
+      return 'Змийца Ут и Фа'
+    case 'Ре низкое':
+    case 'Ре':
+    case 'Соль':
+    case 'Соль высокое':
+      return 'Змийца Ре'
+    case 'Ми низкое':
+    case 'Ми':
+    case 'Ля':
+    case 'Ля высокое':
+      return 'Змийца Ми и Ля'
+    default:
+      return null
+  }
+}
+
+/**
+ * Remap azbuka name so lookup uses the previous pometa's family.
+ * Змийца has irregular «Ре»/«Соль»; others swap Ут и Фа / Ре и Соль / Ми и Ля.
+ */
+export const equalityNameForPitch = (name, targetPitch) => {
+  if (!name || !targetPitch) return name
+  if (isZmiycaName(name)) return zmiycaNameForPitch(targetPitch) || name
+  const fam = familySuffixForPitch(targetPitch)
+  if (!fam) return name
+  const swapped = name.replace(/ Ут и Фа$| Ре и Соль$| Ми и Ля$/, fam)
+  return swapped !== name ? swapped : name
+}
+
+/**
+ * Любой крюк с «Равенство» — к предыдущему; также pitch «-» (кроме голубчика без пометы).
+ */
+export const usesBackwardEquality = (name, pitch, opts) => {
+  if (usesForwardEquality(name, pitch, opts)) return false
+  if (hasRavenstvoOpt(opts)) return true
+  return isEqualityPitch(pitch) && !isGolubchikName(name)
+}
+
+/** @deprecated use usesBackwardEquality — kept for call sites/tests */
+export const usesZmiycaBackwardEquality = (name, opts) => (
+  isZmiycaName(name) && hasRavenstvoOpt(opts)
 )
 
 export const makeNotesKey = (name, pitch, opts) => {
@@ -103,6 +223,7 @@ const lookupWithEqualityOpts = (name, targetPitch, opts) => {
 
 /**
  * Backward равенство: upper note = last note / pitch of the previous kruk.
+ * Имя семейства (Змийца / Ут и Фа / …) подбирается по целевой помете.
  */
 export const resolveEqualityNotes = ({ name, opts, prevNotes, prevPitch }) => {
   if (!name) return null
@@ -110,18 +231,24 @@ export const resolveEqualityNotes = ({ name, opts, prevNotes, prevPitch }) => {
     prevPitch && prevPitch !== '-' ? prevPitch : null
   )
   if (!targetPitch) return null
-  return lookupWithEqualityOpts(name, targetPitch, opts)
+  const lookupName = equalityNameForPitch(name, targetPitch)
+  const found = lookupWithEqualityOpts(lookupName, targetPitch, opts)
+  if (found) return found
+  if (lookupName !== name) return lookupWithEqualityOpts(name, targetPitch, opts)
+  return null
 }
 
 /**
- * Forward равенство (Голубчик): upper note = pometa of the next kruk.
- * If next is itself a resolved golubchik, use its upper (last) pitch.
+ * Forward равенство (Голубчик): look up as if pometa were one step below
+ * the next kruk (before Фа → Голубчик|Ми → н1с1 «ре ми»).
+ * If next is itself a resolved golubchik, step below its upper (last) pitch.
  */
 export const resolveForwardEqualityNotes = ({ name, opts, nextNotes, nextPitch }) => {
   if (!name) return null
-  const targetPitch = (
+  const following = (
     nextPitch && nextPitch !== '-' ? nextPitch : null
   ) || lastPitchFromNotes(nextNotes)
+  const targetPitch = pitchBelow(following)
   if (!targetPitch) return null
   return lookupWithEqualityOpts(name, targetPitch, opts)
 }
@@ -142,14 +269,14 @@ export const resolveNotesString = ({
     return null
   }
 
-  // Голубчик without pometa: upper = next kruk's pometa
-  if (name && usesForwardEquality(name, pitch)) {
+  // Голубчик без пометы: на ступень ниже следующего крюка
+  if (name && usesForwardEquality(name, pitch, opts)) {
     const fromNext = resolveForwardEqualityNotes({ name, opts, nextNotes, nextPitch })
     if (fromNext) return fromNext
   }
 
-  // Other equality without pometa: upper = last note of previous kruk
-  if (name && isEqualityPitch(pitch) && !isGolubchikName(name)) {
+  // Равенство / pitch «-»: верхняя = помета (или последняя нота) предыдущего крюка
+  if (name && usesBackwardEquality(name, pitch, opts)) {
     const fromEq = resolveEqualityNotes({ name, opts, prevNotes, prevPitch })
     if (fromEq) return fromEq
   }
@@ -161,7 +288,7 @@ export const resolveNotesString = ({
   }
   const catalog = byValue[value] || byValue[normalizeKrukHtmlValue(value)]
   if (catalog) {
-    if (usesForwardEquality(catalog.name, catalog.pitch)) {
+    if (usesForwardEquality(catalog.name, catalog.pitch, catalog.opts)) {
       const fromNext = resolveForwardEqualityNotes({
         name: catalog.name,
         opts: catalog.opts,
@@ -169,7 +296,7 @@ export const resolveNotesString = ({
         nextPitch,
       })
       if (fromNext) return fromNext
-    } else if (isEqualityPitch(catalog.pitch) && !isGolubchikName(catalog.name)) {
+    } else if (usesBackwardEquality(catalog.name, catalog.pitch, catalog.opts)) {
       const fromEq = resolveEqualityNotes({
         name: catalog.name,
         opts: catalog.opts,
@@ -245,8 +372,8 @@ export const applyCompositionNotesToParagraph = (paragraph) => {
 
 /**
  * Resolve notes for every KRUK in a paragraph.
- * Right-to-left first so Голубчик chains see the next kruk's pometa;
- * then left-to-right for backward равенство.
+ * Right-to-left first so Голубчик без пометы sees the next kruk;
+ * then left-to-right for backward равенство (включая Голубчик с равенством).
  * Returns map: paragraphIndex → notesString.
  */
 export const resolveParagraphNotesMap = (paragraph) => {
@@ -353,8 +480,12 @@ export const enrichSyllableWithNotes = (syllable, prevSyllable, nextSyllable) =>
     nextPitch,
   })
   if (!notes) return syllable
-  // Always refresh equality notes from context (stale pitch "-" must not stick)
-  if (isEqualityPitch(syllable.pitch) || !syllable.notes) {
+  // Always refresh equality notes from context (stale pitch "-" / Равенство must not stick)
+  if (
+    isEqualityPitch(syllable.pitch)
+    || hasRavenstvoOpt(syllable.opts)
+    || !syllable.notes
+  ) {
     return { ...syllable, notes }
   }
   return syllable

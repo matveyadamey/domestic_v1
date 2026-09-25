@@ -4,7 +4,7 @@ import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import './style.css'
 
-import { changeParagraph, addSyllable, toggleShowPagination } from '../../actions'
+import { changeParagraph, addSyllable } from '../../actions'
 
 class InsertText extends Component {
   constructor(props) {
@@ -20,10 +20,31 @@ class InsertText extends Component {
   insertBucvica = () => {
     const input = this.bucvicaInput
     if (!input) return
-    const value = (input.value || '').trim()
-    if (!value) return
-    const { actions } = this.props
-    actions.addSyllable({ value: '', text: value, type: 'BUCVICA' })
+    const raw = (input.value || '').trim()
+    if (!raw) return
+    const value = raw.charAt(0).toUpperCase()
+    const {
+      actions, currentPageNum, currentParagraphNum, caretIndex, syllables,
+    } = this.props
+
+    const pageIndex = currentPageNum == null ? 0 : currentPageNum
+    const paragraphIndex = currentParagraphNum == null ? 0 : currentParagraphNum
+    // Create page slot if document has no pages yet
+    if (!syllables || !syllables.length) {
+      actions.addSyllable(
+        { value: '', text: value, type: 'BUCVICA' },
+        { pageIndex: 0, paragraphIndex: 0, caretIndex: 0 },
+      )
+    } else {
+      actions.addSyllable(
+        { value: '', text: value, type: 'BUCVICA' },
+        {
+          pageIndex,
+          paragraphIndex,
+          caretIndex: caretIndex == null ? undefined : caretIndex,
+        },
+      )
+    }
     input.value = ''
     input.focus()
   }
@@ -33,8 +54,27 @@ class InsertText extends Component {
     if (!input) return
     const value = (input.value || '').trim()
     if (!value) return
-    const { actions } = this.props
-    actions.addSyllable({ value: '', text: value, type: 'TEXT' })
+    const {
+      actions, currentPageNum, currentParagraphNum, caretIndex, syllables,
+    } = this.props
+
+    const pageIndex = currentPageNum == null ? 0 : currentPageNum
+    const paragraphIndex = currentParagraphNum == null ? 0 : currentParagraphNum
+    if (!syllables || !syllables.length) {
+      actions.addSyllable(
+        { value: '', text: value, type: 'TEXT' },
+        { pageIndex: 0, paragraphIndex: 0, caretIndex: 0 },
+      )
+    } else {
+      actions.addSyllable(
+        { value: '', text: value, type: 'TEXT' },
+        {
+          pageIndex,
+          paragraphIndex,
+          caretIndex: caretIndex == null ? undefined : caretIndex,
+        },
+      )
+    }
     input.value = ''
     input.focus()
   }
@@ -61,38 +101,14 @@ class InsertText extends Component {
     actions.changeParagraph(newParagraphNum)
   }
 
-  toggleShowPagination = () => {
-    const { actions } = this.props
-    actions.toggleShowPagination()
-  }
-
   render() {
+    const { caretIndex } = this.props
+    const hasCaret = caretIndex != null
     return (
       <div className="insert-text text-left">
         <h4>Вставка текста</h4>
         <form onSubmit={this.preventSubmit}>
-          <div className="field">
-            <label htmlFor="bucvica">Вставить буквицу</label>
-            <div className="insert-text-row">
-              <input
-                id="bucvica"
-                name="bucvica"
-                className="form-control"
-                ref={(el) => { this.bucvicaInput = el }}
-                onKeyDown={this.onBucvicaKeyDown}
-              />
-              <button
-                type="button"
-                className="btn btn-primary insert-text-btn"
-                onClick={this.insertBucvica}
-              >
-                Вставить
-              </button>
-            </div>
-          </div>
-        </form>
-        <form onSubmit={this.preventSubmit}>
-          <div className="field">
+          <div className="field field-insert-text">
             <label htmlFor="insert-text-field">Вставить текст</label>
             <div className="insert-text-row">
               <input
@@ -112,6 +128,33 @@ class InsertText extends Component {
             </div>
           </div>
         </form>
+        <form onSubmit={this.preventSubmit}>
+          <div className="field field-insert-bucvica">
+            <label htmlFor="bucvica">Вставить буквицу</label>
+            <div className="insert-text-row">
+              <input
+                id="bucvica"
+                name="bucvica"
+                className="form-control"
+                ref={(el) => { this.bucvicaInput = el }}
+                onKeyDown={this.onBucvicaKeyDown}
+                placeholder="Буква"
+              />
+              <button
+                type="button"
+                className="btn btn-primary insert-text-btn insert-bucvica-btn"
+                onClick={this.insertBucvica}
+              >
+                Вставить
+              </button>
+            </div>
+            <div className="insert-bucvica-hint">
+              {hasCaret
+                ? 'Вставка перед выбранным слогом. Или клик по подписи → буква → Enter.'
+                : 'Клик по подписи под крюком → одна буква → Enter. Или введите букву здесь и нажмите «Вставить».'}
+            </div>
+          </div>
+        </form>
         <button
           type="button"
           className="btn btn-secondary insert-text-new-para"
@@ -119,21 +162,6 @@ class InsertText extends Component {
         >
           Новый абзац
         </button>
-        <div className="toggleShowPagination custom-control custom-checkbox">
-          <input
-            type="checkbox"
-            defaultChecked
-            className="custom-control-input"
-            id="showPagination"
-            onChange={this.toggleShowPagination}
-          />
-          <label
-            className="custom-control-label"
-            htmlFor="showPagination"
-          >
-            Отображать номера страниц
-          </label>
-        </div>
       </div>
     )
   }
@@ -144,12 +172,12 @@ const mapStateToProps = state => ({
   currentParagraphNum: state.paper.currentParagraphNum,
   currentPageNum: state.paper.currentPageNum,
   syllables: state.paper.syllables,
+  caretIndex: state.paper.caretIndex,
 })
 const mapDispatchToProps = dispatch => ({
   actions: bindActionCreators({
     changeParagraph,
     addSyllable,
-    toggleShowPagination,
   },
   dispatch),
 })
@@ -161,4 +189,5 @@ InsertText.propTypes = {
   currentParagraphNum: PropTypes.number,
   currentPageNum: PropTypes.number,
   syllables: PropTypes.array,
+  caretIndex: PropTypes.number,
 }

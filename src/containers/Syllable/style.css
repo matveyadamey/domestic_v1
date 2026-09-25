@@ -6,3 +6,23 @@
     color: red;
     text-transform: uppercase;
 }
+
+/* Same look as plain underlay text — only a caret while editing */
+.syllable-text-edit {
+    display: inline;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: none;
+    background: transparent;
+    color: inherit;
+    font: inherit;
+    text-align: center;
+    white-space: pre-wrap;
+    -webkit-user-modify: read-write-plaintext-only;
+}
+
+.syllable .text.text--editing,
+.syllable .text.text--editing:hover {
+    color: inherit !important;
+}

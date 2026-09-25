@@ -6,16 +6,18 @@ import { showModalDeleteParagraph, changePage } from '../../actions'
 
 class RemoveParagraphButton extends PureComponent {
   removeParagraph = (e, paragraphIndex) => {
+    e.preventDefault()
+    e.stopPropagation()
     const { actions, pageIndex } = this.props
     actions.changePage(pageIndex)
     actions.showModalDeleteParagraph(paragraphIndex)
-    e.stopPropagation()
   }
 
   render() {
     const { paragraphIndex } = this.props
     return (
       <button
+        type="button"
         name={paragraphIndex}
         onClick={e => this.removeParagraph(e, paragraphIndex)}
         className="paragraph-remove-button"

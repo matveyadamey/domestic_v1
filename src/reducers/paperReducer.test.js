@@ -6,6 +6,7 @@ import {
   CHANGE_PAGE,
   SET_SYLLABLES,
   TOGGLE_SHOW_PAGINATION,
+  TOGGLE_SHOW_DVOEZNAMENNIK,
 } from '../constants/'
 
 const baseState = {
@@ -13,6 +14,8 @@ const baseState = {
   currentPageNum: 0,
   currentParagraphNum: 0,
   showPagination: true,
+  showDvoeznamennik: true,
+  caretIndex: null,
   showModalDeletePage: false,
 }
 
@@ -30,7 +33,23 @@ describe('paperReducer', () => {
     const syllable = { type: 'KRUK', value: 'a', text: 'а' }
     const state = paperReducer(baseState, { type: ADD_SYLLABLE, payload: syllable })
     expect(state.syllables[0][0]).toEqual([syllable])
+    expect(state.caretIndex).toBe(1)
     expect(JSON.parse(localStorage.getItem('pages'))[0][0]).toHaveLength(1)
+  })
+
+  it('ADD_SYLLABLE inserts at caretIndex', () => {
+    const start = {
+      ...baseState,
+      syllables: [[[
+        { type: 'KRUK', value: 'a', text: 'а' },
+        { type: 'KRUK', value: 'c', text: 'в' },
+      ]]],
+      caretIndex: 1,
+    }
+    const mid = { type: 'KRUK', value: 'b', text: 'б' }
+    const state = paperReducer(start, { type: ADD_SYLLABLE, payload: mid })
+    expect(state.syllables[0][0].map(s => s.value)).toEqual(['a', 'b', 'c'])
+    expect(state.caretIndex).toBe(2)
   })
 
   it('REMOVE_SYLLABLE_BY_INDEX removes item', () => {
@@ -42,10 +61,12 @@ describe('paperReducer', () => {
           { type: 'KRUK', value: 'b', text: 'б' },
         ],
       ]],
+      caretIndex: 1,
     }
-    const state = paperReducer(start, { type: REMOVE_SYLLABLE_BY_INDEX, payload: 0 })
+    const state = paperReducer(start, { type: REMOVE_SYLLABLE_BY_INDEX, payload: { index: 0 } })
     expect(state.syllables[0][0]).toHaveLength(1)
     expect(state.syllables[0][0][0].value).toBe('b')
+    expect(state.caretIndex).toBe(0)
   })
 
   it('ADD_PAGE / CHANGE_PAGE update navigation', () => {
@@ -77,5 +98,31 @@ describe('paperReducer', () => {
   it('TOGGLE_SHOW_PAGINATION flips flag', () => {
     const state = paperReducer(baseState, { type: TOGGLE_SHOW_PAGINATION })
     expect(state.showPagination).toBe(false)
+  })
+
+  it('TOGGLE_SHOW_DVOEZNAMENNIK flips flag and persists', () => {
+    localStorage.removeItem('showDvoeznamennik')
+    const on = paperReducer(baseState, { type: TOGGLE_SHOW_DVOEZNAMENNIK })
+    expect(on.showDvoeznamennik).toBe(false)
+    expect(localStorage.getItem('showDvoeznamennik')).toBe('false')
+    const off = paperReducer(on, { type: TOGGLE_SHOW_DVOEZNAMENNIK })
+    expect(off.showDvoeznamennik).toBe(true)
+  })
+
+  it('TOGGLE_SHOW_DVOEZNAMENNIK flattens pages for reflow', () => {
+    const a = { type: 'KRUK', value: 'a', text: 'а' }
+    const b = { type: 'KRUK', value: 'b', text: 'б' }
+    const start = {
+      ...baseState,
+      syllables: [[[a]], [[b]]],
+      currentPageNum: 1,
+      currentParagraphNum: 0,
+      caretIndex: 1,
+    }
+    const state = paperReducer(start, { type: TOGGLE_SHOW_DVOEZNAMENNIK })
+    expect(state.syllables).toHaveLength(1)
+    expect(state.syllables[0]).toHaveLength(2)
+    expect(state.currentPageNum).toBe(0)
+    expect(state.caretIndex).toBe(null)
   })
 })

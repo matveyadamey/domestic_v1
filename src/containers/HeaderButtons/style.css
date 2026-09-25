@@ -1,18 +1,130 @@
-.btn-upload {
-  margin-right: 20px;
+.app-menu {
+  position: fixed;
+  top: 12px;
+  left: 12px;
+  z-index: 1100;
 }
 
-.import-export {
+.app-menu-chrome {
   display: flex;
+  flex-direction: row;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 0;
+  gap: 8px;
+  width: auto;
+  padding: 8px 10px;
+  background: #6c757d;
+  border: 1px solid #5a6268;
+  border-radius: 0.35rem;
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.12);
+}
+
+.app-menu-toggle {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-shrink: 0;
+  width: 36px;
+  height: 36px;
+  padding: 0;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  border-radius: 0.25rem;
+  background: rgba(255, 255, 255, 0.12);
+  cursor: pointer;
+}
+
+.app-menu-toggle:hover,
+.app-menu-toggle.is-open {
+  background: rgba(255, 255, 255, 0.22);
+  border-color: rgba(255, 255, 255, 0.55);
+}
+
+.app-menu-toggle-bar {
+  display: block;
+  width: 18px;
+  height: 2px;
+  margin: 2px 0;
+  background: #fff;
+  border-radius: 1px;
+  transition: transform 0.15s ease, opacity 0.15s ease;
+}
+
+.app-menu-toggle.is-open .app-menu-toggle-bar:nth-child(1) {
+  transform: translateY(6px) rotate(45deg);
+}
+
+.app-menu-toggle.is-open .app-menu-toggle-bar:nth-child(2) {
+  opacity: 0;
+}
+
+.app-menu-toggle.is-open .app-menu-toggle-bar:nth-child(3) {
+  transform: translateY(-6px) rotate(-45deg);
+}
+
+.app-menu-brand {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 6px;
+  text-align: left;
+  color: #fff;
+  user-select: none;
+}
+
+.app-menu-logo {
+  display: block;
+  height: 40px;
+  width: auto;
+}
+
+.app-menu-title {
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.1;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.app-menu-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 1090;
+}
+
+.app-menu-panel {
+  position: absolute;
+  top: calc(100% + 8px);
+  left: 0;
+  z-index: 1101;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  min-width: 240px;
+  max-width: min(320px, calc(100vw - 24px));
+  max-height: calc(100vh - 120px);
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 12px;
+  background: #fff;
+  color: #212529;
+  border: 1px solid #dee2e6;
+  border-radius: 0.25rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.app-menu-panel.is-hidden {
+  display: none;
+}
+
+.app-menu-item {
+  width: 100%;
+  margin: 0 !important;
+  text-align: left;
 }
 
 .file {
   position: relative;
   overflow: hidden;
-  margin-right: 20px;
 }
 
 .input-upload {
@@ -21,39 +133,78 @@
   opacity: 0;
   right: 0;
   top: 0;
+  cursor: pointer;
 }
 
-.button-download {
-  margin-right: 0;
+.header-dvoeznamennik {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0;
+  padding: 6px 12px;
+  cursor: pointer;
+  user-select: none;
 }
 
-.button-pdf {
-  margin-left: 20px;
+.header-dvoeznamennik .custom-control-label {
+  margin-bottom: 0;
+  padding-left: 0.25rem;
 }
 
-.button-help {
-  margin-left: 20px;
+/* Settings — top-right corner */
+.app-settings {
+  position: fixed;
+  top: 12px;
+  right: 36px;
+  z-index: 1100;
 }
 
-.header-settings {
-  position: relative;
-  margin-left: 20px;
+.app-settings-toggle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 52px;
+  height: 52px;
+  padding: 0;
+  border: 1px solid #5a6268;
+  border-radius: 0.35rem;
+  background: #6c757d;
+  color: #fff;
+  box-shadow: 0 0.25rem 0.75rem rgba(0, 0, 0, 0.12);
+  cursor: pointer;
 }
 
-.header-settings-backdrop {
+.app-settings-toggle:hover,
+.app-settings-toggle.is-open {
+  background: #5a6268;
+}
+
+.app-settings-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  line-height: 0;
+}
+
+.app-settings-icon svg {
+  display: block;
+}
+
+.app-settings-backdrop {
   position: fixed;
   inset: 0;
-  z-index: 1040;
+  z-index: 1090;
 }
 
-.header-settings-panel {
+.app-settings-panel {
   position: absolute;
   top: calc(100% + 8px);
   right: 0;
-  z-index: 1050;
-  min-width: 280px;
-  max-width: 340px;
-  padding: 16px 18px;
+  z-index: 1101;
+  width: min(300px, calc(100vw - 24px));
+  max-height: calc(100vh - 80px);
+  overflow-x: hidden;
+  overflow-y: auto;
+  padding: 12px 14px;
   background: #fff;
   color: #212529;
   border: 1px solid #dee2e6;
@@ -61,23 +212,23 @@
   box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
 
-.header-settings-panel.is-hidden {
+.app-settings-panel.is-hidden {
   display: none;
 }
 
-.header-settings-panel .paperStyle {
+.app-settings-panel .paperStyle {
   width: 100%;
   max-width: 100%;
   margin-top: 0;
   padding-right: 0;
 }
 
-.header-settings-panel .paperStyle h4 {
+.app-settings-panel .paperStyle h4 {
   margin-top: 0;
   font-size: 1.1rem;
 }
 
-.header-settings-panel .paperStyle label {
+.app-settings-panel .paperStyle label {
   display: block;
   margin-top: 10px;
   margin-bottom: 4px;

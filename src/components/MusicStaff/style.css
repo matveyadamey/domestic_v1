@@ -8,8 +8,8 @@
 
 .musicStaff {
   position: relative;
-  height: 56px;
-  margin: 24px 0 18px;
+  height: calc(56px * var(--notes-scale, 1));
+  margin: calc(24px * var(--notes-scale, 1)) 0 0;
   pointer-events: none;
   z-index: 2;
 }
@@ -24,21 +24,14 @@
   justify-content: center;
   align-items: flex-end;
   /* 4 × 11px staff space — notehead ≈ interline gap */
-  font-size: 44px;
+  font-size: calc(44px * var(--notes-scale, 1));
 }
 
 .bravura-note-item {
   position: relative;
-  width: 34px;
-  margin-right: -10px;
   height: 100%;
   display: inline-block;
-}
-
-/* 3+ notes: give each head room, expand the syllable column */
-.musicStaff--wide .bravura-note-item {
-  width: 26px;
-  margin-right: 0;
+  flex-shrink: 0;
 }
 
 .musicStaff--wide .bravura-note-item:last-child {
@@ -60,22 +53,22 @@
 }
 
 .b-head.is-down {
-  transform: translateX(calc(-50% + 1.5px)) !important;
+  transform: translateX(calc(-50% + 1.5px * var(--notes-scale, 1))) !important;
 }
 
 .b-ledger {
   z-index: 1;
   /* Stem-up noteheads sit left of the glyph box; pull ledger to match the oval */
   left: 50% !important;
-  transform: translateX(calc(-50% - 6px)) !important;
+  transform: translateX(calc(-50% - 6px * var(--notes-scale, 1))) !important;
 }
 
 .b-acc {
-  transform: translateX(calc(-50% - 8px)) !important;
+  transform: translateX(calc(-50% - 8px * var(--notes-scale, 1))) !important;
   z-index: 6;
 }
 
 .b-dot {
-  transform: translateX(calc(-50% + 12px)) !important;
+  transform: translateX(calc(-50% + 12px * var(--notes-scale, 1))) !important;
   z-index: 4;
 }

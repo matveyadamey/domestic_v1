@@ -12,9 +12,11 @@ class EditText extends Component { // eslint-disable-line
     if (e.key === 'Enter') {
       e.preventDefault()
 
-      const { actions } = this.props
-      actions.editText(e.target.value)
-      actions.hideModalEditText()
+      const { actions, indexOfEditableText } = this.props
+      actions.editText({
+        text: e.target.value,
+        index: indexOfEditableText,
+      })
     }
   }
 
@@ -61,5 +63,6 @@ export default connect(mapStateToProps, mapDispatchToProps)(EditText)
 
 EditText.propTypes = {
   showModalEditText: PropTypes.bool,
+  indexOfEditableText: PropTypes.number,
   actions: PropTypes.object,
 }

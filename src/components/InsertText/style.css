@@ -16,6 +16,16 @@
     padding-right: 8px;
 }
 
+/* Override global .field grid from InsertSyllable */
+.insert-text .field {
+    display: block;
+}
+
+.insert-text .field > label {
+    display: block;
+    margin-bottom: 4px;
+}
+
 .insert-text-row {
     display: flex;
     align-items: center;
@@ -37,6 +47,13 @@
     margin-top: 12px;
 }
 
-.toggleShowPagination {
-    margin-top: 20px;
+.insert-bucvica-hint {
+    width: 100%;
+    max-width: 100%;
+    box-sizing: border-box;
+    margin-top: 6px;
+    font-size: 12px;
+    color: #666;
+    line-height: 1.3;
+    white-space: normal;
 }

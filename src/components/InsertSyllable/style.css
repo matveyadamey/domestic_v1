@@ -38,16 +38,6 @@
     min-width: 0;
 }
 
-.inputTextUCS {
-    font-family: NewDamaskin;
-    font-size: 24pt !important;
-    width: 100% !important;
-    max-width: 100%;
-    box-sizing: border-box;
-    padding-top: 5px;
-    margin-top: 5px;
-}
-
 .perevodka {
     margin-left: 20%;
 }

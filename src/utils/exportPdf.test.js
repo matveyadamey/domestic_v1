@@ -1,7 +1,7 @@
 jest.mock('file-saver', () => ({ saveAs: jest.fn() }), { virtual: true })
-jest.mock('html2canvas', () => jest.fn(() => Promise.resolve({
-  toDataURL: () => 'data:image/jpeg;base64,xx',
-})), { virtual: true })
+jest.mock('html-to-image', () => ({
+  toPng: jest.fn(() => Promise.resolve('data:image/png;base64,xx')),
+}), { virtual: true })
 jest.mock('jspdf', () => {
   function JsPDF() {
     this.internal = {
@@ -22,7 +22,6 @@ jest.mock('jspdf', () => {
 import { saveAs } from 'file-saver'
 import { exportPagesToPdf } from './exportPdf'
 
-// jsdom in react-scripts 1 lacks Element.closest / reliable layout rects
 if (!Element.prototype.closest) {
   Element.prototype.closest = function closest(selector) {
     let el = this
@@ -34,34 +33,13 @@ if (!Element.prototype.closest) {
   }
 }
 
-function stubRect(el) {
-  el.getBoundingClientRect = () => ({
-    top: 0,
-    left: 0,
-    right: 10,
-    bottom: 10,
-    width: 10,
-    height: 10,
-  })
-}
-
 function makePage() {
   const page = document.createElement('div')
   page.className = 'a4'
-  const staff = document.createElement('div')
-  staff.className = 'paragraph-staff'
-  const clef = document.createElement('div')
-  clef.className = 'paragraph-clef'
-  const lines = document.createElement('div')
-  lines.className = 'paragraph-staff-lines'
   const btn = document.createElement('button')
   btn.className = 'syllable-button'
   btn.textContent = 'x'
-  staff.appendChild(clef)
-  staff.appendChild(lines)
-  staff.appendChild(btn)
-  page.appendChild(staff)
-  ;[page, staff, clef, lines].forEach(stubRect)
+  page.appendChild(btn)
   return page
 }
 

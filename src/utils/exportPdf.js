@@ -1,83 +1,62 @@
-import html2canvas from 'html2canvas'
+import { toPng } from 'html-to-image'
 import jsPDF from 'jspdf'
 import { saveWithDialog } from './saveFile'
 
-const UI_SELECTORS = [
-  '.page-remove-button',
-  '.paragraph-remove-button',
-  '.syllable-button',
-  '.bucvica-button',
-  '.text-remove-button',
-  '.add-page',
+/** Class names stripped from the capture (UI chrome, not score content). */
+const HIDDEN_UI_CLASSES = [
+  'page-remove-button',
+  'paragraph-remove-button',
+  'syllable-button',
+  'bucvica-button',
+  'text-remove-button',
+  'add-page',
+  'insert-caret',
+  'insert-caret-end',
 ]
 
 /**
- * Copy on-screen box of each matched element onto the clone (no transforms).
- * Keeps clef/staff aligned the same in PDF as in the app.
+ * Why not html2canvas: it re-rasterizes web fonts with its own baseline math.
+ * Staff lines are CSS borders (correct), Bravura notes shift by ~one step.
+ * html-to-image uses SVG foreignObject → the browser paints fonts as on screen.
  */
-function bakeScreenPositions(originalRoot, cloneRoot, selector, referenceSelector) {
-  const originals = originalRoot.querySelectorAll(selector)
-  const clones = cloneRoot.querySelectorAll(selector)
-
-  for (let i = 0; i < clones.length; i += 1) {
-    const orig = originals[i]
-    const clone = clones[i]
-    if (!orig || !clone) continue
-
-    const origRef = orig.closest(referenceSelector)
-    const cloneRef = clone.closest(referenceSelector)
-    if (!origRef || !cloneRef) continue
-
-    const refRect = origRef.getBoundingClientRect()
-    const elRect = orig.getBoundingClientRect()
-
-    clone.style.top = `${elRect.top - refRect.top}px`
-    clone.style.left = `${elRect.left - refRect.left}px`
-    clone.style.right = 'auto'
-    clone.style.bottom = 'auto'
-    clone.style.transform = 'none'
-    clone.style.webkitTransform = 'none'
-    // Staff lines keep box size; text clef must not get a clipped height
-    if (selector !== '.paragraph-clef') {
-      clone.style.width = `${elRect.width}px`
-      clone.style.height = `${elRect.height}px`
-    }
+function shouldIncludeNode(node) {
+  if (!node || node.nodeType !== 1 || !node.classList) return true
+  for (let i = 0; i < HIDDEN_UI_CLASSES.length; i += 1) {
+    if (node.classList.contains(HIDDEN_UI_CLASSES[i])) return false
   }
+  return true
 }
 
-/** Tighten accidental↔note gap only in the PDF clone (screen stays at −8px). */
-function tightenAccidentalsForPdf(cloneRoot) {
-  Array.from(cloneRoot.querySelectorAll('.b-acc')).forEach((el) => {
-    el.style.setProperty('transform', 'translateX(calc(-50% - 2px))', 'important')
-    el.style.setProperty('-webkit-transform', 'translateX(calc(-50% - 2px))', 'important')
-  })
-}
+function capturePage(page) {
+  const prevShadow = page.style.boxShadow
+  const prevBorder = page.style.border
+  page.classList.remove('activePage')
+  page.style.boxShadow = 'none'
+  page.style.border = 'none'
 
-function cleanClone(page) {
-  const clone = page.cloneNode(true)
-  UI_SELECTORS.forEach((selector) => {
-    Array.from(clone.querySelectorAll(selector)).forEach((el) => {
-      if (el.parentNode) el.parentNode.removeChild(el)
+  const fontsReady = (document.fonts && document.fonts.ready)
+    ? document.fonts.ready
+    : Promise.resolve()
+
+  return fontsReady
+    .then(() => toPng(page, {
+      pixelRatio: 4,
+      backgroundColor: '#ffffff',
+      cacheBust: true,
+      filter: shouldIncludeNode,
+    }))
+    .then((dataUrl) => {
+      page.style.boxShadow = prevShadow
+      page.style.border = prevBorder
+      return dataUrl
+    }, (err) => {
+      page.style.boxShadow = prevShadow
+      page.style.border = prevBorder
+      throw err
     })
-  })
-  clone.classList.remove('activePage')
-  Object.assign(clone.style, {
-    boxShadow: 'none',
-    border: 'none',
-    margin: '0',
-    position: 'relative',
-  })
-
-  // Bake live on-screen geometry into the clone for html2canvas
-  bakeScreenPositions(page, clone, '.paragraph-clef', '.paragraph-staff')
-  bakeScreenPositions(page, clone, '.paragraph-staff-lines', '.paragraph-staff')
-  tightenAccidentalsForPdf(clone)
-
-  return clone
 }
 
 function pickSaveFile(defaultName) {
-  // Kept for API compatibility; real save goes through saveWithDialog.
   if (typeof window.showSaveFilePicker !== 'function') {
     return Promise.resolve(null)
   }
@@ -99,17 +78,6 @@ function pickSaveFile(defaultName) {
 }
 
 function buildPdfFromPages(pages) {
-  const host = document.createElement('div')
-  Object.assign(host.style, {
-    position: 'fixed',
-    left: '-10000px',
-    top: '0',
-    width: '210mm',
-    background: '#fff',
-    zIndex: '-1',
-  })
-  document.body.appendChild(host)
-
   const pdf = new jsPDF('p', 'mm', 'a4')
   const pageWidth = pdf.internal.pageSize.getWidth
     ? pdf.internal.pageSize.getWidth()
@@ -121,37 +89,15 @@ function buildPdfFromPages(pages) {
   let chain = Promise.resolve()
 
   pages.forEach((page, index) => {
-    chain = chain.then(() => {
-      const clone = cleanClone(page)
-      host.innerHTML = ''
-      host.appendChild(clone)
-
-      return html2canvas(clone, {
-        scale: 2,
-        useCORS: true,
-        logging: false,
-        backgroundColor: '#ffffff',
-      }).then((canvas) => {
-        const imgData = canvas.toDataURL('image/jpeg', 0.95)
-        if (index > 0) {
-          pdf.addPage()
-        }
-        pdf.addImage(imgData, 'JPEG', 0, 0, pageWidth, pageHeight)
-      })
-    })
+    chain = chain.then(() => capturePage(page).then((imgData) => {
+      if (index > 0) {
+        pdf.addPage()
+      }
+      pdf.addImage(imgData, 'PNG', 0, 0, pageWidth, pageHeight)
+    }))
   })
 
-  return chain.then(() => {
-    if (host.parentNode) {
-      host.parentNode.removeChild(host)
-    }
-    return pdf
-  }, (err) => {
-    if (host.parentNode) {
-      host.parentNode.removeChild(host)
-    }
-    throw err
-  })
+  return chain.then(() => pdf)
 }
 
 /**

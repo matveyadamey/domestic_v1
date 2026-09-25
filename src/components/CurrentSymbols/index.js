@@ -1,15 +1,13 @@
 import React, { Component } from 'react'
-import { bindActionCreators } from 'redux'
 import PropTypes from 'react-proptypes'
 import { connect } from 'react-redux'
 
-import { addSyllable } from '../../actions'
 import { Symbol } from '../../containers'
 import './style.css'
 
 class CurrentSymbols extends Component { //eslint-disable-line
   render() {
-    const { currentSymbols, actions } = this.props
+    const { currentSymbols } = this.props
     return (
       <div className="currentSymbols text-left">
         <h4>Подходящие знамена</h4>
@@ -23,8 +21,6 @@ class CurrentSymbols extends Component { //eslint-disable-line
               pitch={symbol.pitch}
               opts={symbol.opts}
               notes={symbol.notes}
-              paper={this.props.paper}
-              addSyllable={actions.addSyllable}
             />
           )) }</div>}
       </div>
@@ -34,18 +30,10 @@ class CurrentSymbols extends Component { //eslint-disable-line
 
 const mapStateToProps = state => ({
   currentSymbols: state.symbols.currentSymbols,
-  paper: state.paper,
 })
 
-const mapDispatchToProps = dispatch => ({
-  actions: bindActionCreators({
-    addSyllable,
-  }, dispatch) })
-
-export default connect(mapStateToProps, mapDispatchToProps)(CurrentSymbols)
+export default connect(mapStateToProps)(CurrentSymbols)
 
 CurrentSymbols.propTypes = {
   currentSymbols: PropTypes.array,
-  paper: PropTypes.object,
 }
-

@@ -33,14 +33,24 @@ import {
   HIDE_MODAL_DELETE_PARAGRAPH,
   CHECK_PARAGRAPH_IS_EMPTY,
   TOGGLE_SHOW_PAGINATION,
+  TOGGLE_SHOW_DVOEZNAMENNIK,
+  SET_INSERT_CARET,
   TOGGLE_MODAL_DELETE_PAGE,
 } from '../constants/'
 
-export const addSyllable = syllable => ({ type: ADD_SYLLABLE, payload: syllable })
+export const addSyllable = (syllable, position) => ({
+  type: ADD_SYLLABLE,
+  payload: position
+    ? { syllable, ...position }
+    : syllable,
+})
 
 export const removeLastSyllable = syllable => ({ type: REMOVE_LAST_SYLLABLE, payload: syllable })
 
-export const removeSyllablebyIndex = index => ({ type: REMOVE_SYLLABLE_BY_INDEX, payload: index })
+export const removeSyllablebyIndex = payload => ({
+  type: REMOVE_SYLLABLE_BY_INDEX,
+  payload: typeof payload === 'number' ? { index: payload } : payload,
+})
 
 export const repeatSyllableByIndex = index => ({ type: REPEAT_SYLLABLE_BY_INDEX, payload: index })
 
@@ -78,7 +88,10 @@ export const showModalEditText = indexOfEditableText => ({ type: SHOW_MODAL_EDIT
 
 export const hideModalEditText = state => ({ type: HIDE_MODAL_EDIT_TEXT, payload: state })
 
-export const editText = newText => ({ type: EDIT_TEXT, payload: newText })
+export const editText = payload => ({
+  type: EDIT_TEXT,
+  payload: typeof payload === 'string' ? { text: payload } : payload,
+})
 
 export const createPitchList = state => ({ type: CREATE_PITCH_LIST, payload: state })
 
@@ -103,6 +116,13 @@ export const deleteParagraph = paragraphIndex => ({ type: DELETE_PARAGRAPH, payl
 export const checkParagraphIsEmpty = state => ({ type: CHECK_PARAGRAPH_IS_EMPTY, payload: state }) // eslint-disable-line max-len
 
 export const toggleShowPagination = state => ({ type: TOGGLE_SHOW_PAGINATION, payload: state }) // eslint-disable-line max-len
+
+export const toggleShowDvoeznamennik = () => ({ type: TOGGLE_SHOW_DVOEZNAMENNIK })
+
+export const setInsertCaret = (pageIndex, paragraphIndex, caretIndex) => ({
+  type: SET_INSERT_CARET,
+  payload: { pageIndex, paragraphIndex, caretIndex },
+})
 
 export const toggleModalDeletePage = pageIndex => ({ type: TOGGLE_MODAL_DELETE_PAGE, payload: pageIndex }) // eslint-disable-line max-len
 

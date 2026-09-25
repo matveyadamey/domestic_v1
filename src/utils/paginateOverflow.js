@@ -2,15 +2,15 @@
  * Auto-paginate A4 sheets after layout (staff makes hook-only JSON taller).
  *
  * - Cut only on visual row boundaries (never mid-line).
- * - Only rows near the bottom of the sheet may spill.
+ * - Spill the first row whose bottom exceeds the page content limit.
  * - Normalize removes duplicate kruk glyphs (same value back-to-back),
  *   common at old paragraph breaks (e.g. «-» + «го» both Подчашие Ми).
  */
 
 const FOOTER_RESERVE_PX = 44
-const OVERFLOW_TOLERANCE_PX = 10
-const ROW_TOP_TOLERANCE_PX = 20
-const BOTTOM_BAND_PX = 260
+const OVERFLOW_TOLERANCE_PX = 24
+/** Cluster syllables on the same flex wrap row (tops align under flex-start). */
+const ROW_TOP_TOLERANCE_PX = 28
 
 function pageContentLimit(pageEl) {
   const pageRect = pageEl.getBoundingClientRect()
@@ -23,15 +23,17 @@ function layoutTop(el) {
 }
 
 function layoutBottom(el) {
-  return el.getBoundingClientRect().top + el.offsetHeight
+  return el.getBoundingClientRect().bottom
 }
 
 function groupRows(items) {
+  // Sort by top so clustering is stable regardless of DOM order
+  const sorted = items.slice().sort((a, b) => layoutTop(a) - layoutTop(b))
   const rows = []
-  items.forEach((el) => {
+  sorted.forEach((el) => {
     const top = layoutTop(el)
-    const row = rows.find(r => Math.abs(r.top - top) < ROW_TOP_TOLERANCE_PX)
-    if (row) {
+    const row = rows.length ? rows[rows.length - 1] : null
+    if (row && Math.abs(row.top - top) < ROW_TOP_TOLERANCE_PX) {
       row.items.push(el)
       row.top = Math.min(row.top, top)
     } else {
@@ -295,16 +297,12 @@ export function findSpillElement(pageEl) {
   for (let i = 0; i < rows.length; i += 1) {
     const row = rows[i]
     const rowBottom = Math.max(...row.items.map(layoutBottom))
+    // Fits on the page — keep going
     if (rowBottom <= limit + OVERFLOW_TOLERANCE_PX) continue
-    if (row.top < limit - BOTTOM_BAND_PX) continue
+    // Never spill the first row (would empty the page)
     if (i === 0) return null
-
-    let spillRow = row
-    if (row.items.length === 1 && i >= 2) {
-      spillRow = rows[i - 1]
-    }
-    if (spillRow === rows[0]) return null
-    return spillRow.items[0]
+    // Spill from the first syllable of this overflowing row (whole row + rest of page)
+    return row.items[0]
   }
 
   return null

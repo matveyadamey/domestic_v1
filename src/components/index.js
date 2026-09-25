@@ -15,6 +15,7 @@ import RemoveParagraph from './RemoveParagraph'
 import RemovePageModal from './RemovePageModal'
 import MusicStaff from './MusicStaff'
 import Paragraph from './Paragraph'
+import InsertCaret from './InsertCaret'
 
 
 export {
@@ -35,4 +36,5 @@ export {
   RemovePageModal,
   MusicStaff,
   Paragraph,
+  InsertCaret,
 }

@@ -45,7 +45,7 @@ class EditButtons extends Component {
   render() {
     const { index } = this.props
     return (
-      <div>
+      <div onClick={e => e.stopPropagation()}>
         <React.Fragment>
           <button name={index} onClick={e => this.removeSyllablebyIndex(e)} className="syllable-button remove"><i className="icon-bin" /></button>
           <button name={index} onClick={e => this.repeatSyllableByIndex(e)} className="syllable-button repeat"><i className="icon-copy" /></button>

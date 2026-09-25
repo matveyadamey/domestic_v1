@@ -1,12 +1,13 @@
 import React, { Component } from 'react'
 import PropTypes from 'prop-types'
+import { connect } from 'react-redux'
 import { SMUFL } from '../../utils/musicMap'
 import '../MusicStaff/style.css' // Bravura Text @font-face
 
 /**
  * Continuous staff + treble clef for each visual row in a paragraph.
  * Clef uses Bravura (same as notes); positions have no CSS transforms
- * so html2canvas PDF export stays aligned.
+ * so PDF export (html-to-image) stays aligned.
  */
 class ParagraphClefs extends Component {
   state = { tops: [] }
@@ -46,15 +47,26 @@ class ParagraphClefs extends Component {
     const paragraph = this.props.paragraphRef
     if (!paragraph) return
 
+    // Cluster by syllable column tops (flex-start aligns them). Staff tops alone
+    // vary with glyph height and created extra nearly-empty staff rows.
+    const scale = (Number(this.props.notesSize) || 100) / 100
+    const rowGap = 40 * scale
     const paragraphRect = paragraph.getBoundingClientRect()
-    const staffs = paragraph.querySelectorAll('.musicStaff')
+    const items = paragraph.querySelectorAll('[data-paginate-item="1"]')
     const tops = []
+    let lastItemTop = null
 
-    staffs.forEach((staff) => {
-      const top = staff.getBoundingClientRect().top - paragraphRect.top + paragraph.scrollTop
-      const last = tops[tops.length - 1]
-      if (last === undefined || top > last + 8) {
-        tops.push(top)
+    items.forEach((el) => {
+      if (el.classList.contains('text-line')) return
+      const staff = el.querySelector('.musicStaff')
+      if (!staff || staff.classList.contains('bucvica-staff-spacer')) return
+
+      const itemTop = el.getBoundingClientRect().top - paragraphRect.top + paragraph.scrollTop
+      const staffTop = staff.getBoundingClientRect().top - paragraphRect.top + paragraph.scrollTop
+
+      if (lastItemTop === null || itemTop > lastItemTop + rowGap) {
+        tops.push(staffTop)
+        lastItemTop = itemTop
       }
     })
 
@@ -94,6 +106,18 @@ class ParagraphClefs extends Component {
 
 ParagraphClefs.propTypes = {
   paragraphRef: PropTypes.object,
+  notesSize: PropTypes.oneOfType([PropTypes.number, PropTypes.string]),
 }
 
-export default ParagraphClefs
+ParagraphClefs.defaultProps = {
+  notesSize: 100,
+}
+
+const mapStateToProps = state => ({
+  notesSize: state.form
+    && state.form.paperStyle
+    && state.form.paperStyle.values
+    && state.form.paperStyle.values.notesSize,
+})
+
+export default connect(mapStateToProps)(ParagraphClefs)
