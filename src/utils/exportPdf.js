@@ -1,4 +1,5 @@
-import { toPng } from 'html-to-image'
+// Use CJS/ES5 build — CRA 1 uglify cannot minify the package `es/` (e.g. `**`)
+import { toPng } from 'html-to-image/lib'
 import jsPDF from 'jspdf'
 import { saveWithDialog } from './saveFile'
 

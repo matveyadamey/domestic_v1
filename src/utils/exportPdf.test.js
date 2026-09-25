@@ -1,5 +1,5 @@
 jest.mock('file-saver', () => ({ saveAs: jest.fn() }), { virtual: true })
-jest.mock('html-to-image', () => ({
+jest.mock('html-to-image/lib', () => ({
   toPng: jest.fn(() => Promise.resolve('data:image/png;base64,xx')),
 }), { virtual: true })
 jest.mock('jspdf', () => {

@@ -222,7 +222,7 @@ class AreaOfSymbols extends Component {
    * onto the previous paragraph's last visual row.
    */
   pullSyllablesToPreviousLine = () => {
-    const { syllables, currentPageNum, currentParagraphNum, actions } = this.props
+    const { syllables, currentPageNum, currentParagraphNum } = this.props
     if (!syllables || !syllables[currentPageNum]) return
 
     let prevPageIdx = currentPageNum
@@ -465,7 +465,7 @@ class AreaOfSymbols extends Component {
   }
 
   renderOneParagraph = (paragraph, paragraphIndex, pageIndex) => {
-    const { form, actions, currentPageNum, currentParagraphNum, caretIndex } = this.props
+    const { actions, currentPageNum, currentParagraphNum, caretIndex } = this.props
     if (!Array.isArray(paragraph)) return null
 
     const nodes = []
