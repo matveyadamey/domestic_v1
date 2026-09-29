@@ -1,17 +1,21 @@
 .syllable.bucvica {
-    position: relative;
+    /* Out of flex flow so every kruk/text row shares the same left edge */
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: var(--paragraph-gutter, 48px);
+    max-width: var(--paragraph-gutter, 48px);
+    min-width: 0;
+    margin: 0;
+    z-index: 2;
+    overflow: visible;
     justify-content: flex-start;
     align-items: center;
-    width: max-content;
-    max-width: max-content;
-    /* Pull next kruk closer (base .syllable has 10px margin-right) */
-    margin-right: -8px;
 }
 
 /*
  * Vertical spacer must KEEP the same height as a real kruk glyph so the
- * staff (.musicStaff) lines up with neighbors — otherwise ParagraphClefs
- * and flex wrap treat it as a separate row and “break” the line.
+ * letter sits on the first row’s underlay baseline (matches in-flow syllables).
  */
 .syllable.bucvica .bucvica-symbol,
 .syllable.bucvica .symbol.bucvica-symbol {
@@ -36,16 +40,16 @@
     align-self: stretch;
 }
 
-/* Same band as underlay .text; glyph is absolutely pinned to its baseline */
+/* Underlay band height only — letter hangs in the gutter */
 .syllable.bucvica .bucvica-letter {
     position: relative;
     color: red;
     font-family: NewDamaskin, Afonit, serif;
     cursor: default;
     box-sizing: content-box;
-    width: auto;
-    max-width: none;
-    min-width: 1.25em !important;
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
     min-height: 0 !important;
     flex-shrink: 0;
     overflow: visible;
@@ -60,16 +64,16 @@
 }
 
 /*
- * Pin the em-box bottom to the underlay band bottom.
- * Do NOT use vertical offsets in glyph em — they scale with sizeOfBucvica
- * and make the letter crawl upward as it grows. Only translateX for centering.
+ * Pin to underlay baseline; right edge near content column so the letter
+ * sits in the gutter without shifting the first kruk.
  */
 .syllable.bucvica .bucvica-letter-glyph {
     position: absolute;
-    left: 50%;
+    right: 4px;
+    left: auto;
     bottom: 0;
     top: auto;
-    transform: translateX(-50%);
+    transform: none;
     color: red;
     text-transform: uppercase;
     font-family: NewDamaskin, Afonit, serif;
@@ -85,7 +89,7 @@
 .bucvica-button {
     cursor: pointer;
     position: absolute;
-    right: -4px;
+    right: 0;
     bottom: 0;
     z-index: 20;
     display: none;

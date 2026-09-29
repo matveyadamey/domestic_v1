@@ -36,6 +36,14 @@ import {
   TOGGLE_SHOW_DVOEZNAMENNIK,
   SET_INSERT_CARET,
   TOGGLE_MODAL_DELETE_PAGE,
+  UNDO,
+  SET_SELECTION,
+  CLEAR_SELECTION,
+  EXTEND_SELECTION,
+  COPY_SELECTION,
+  CUT_SELECTION,
+  PASTE_CLIPBOARD,
+  DELETE_SELECTION,
 } from '../constants/'
 
 export const addSyllable = (syllable, position) => ({
@@ -58,7 +66,11 @@ export const moveSyllable = state => ({ type: MOVE_SYLLABLE, payload: state })
 
 export const showModalInsert = index => ({ type: SHOW_MODAL_INSERT, payload: index })
 
-export const setSyllables = syllables => ({ type: SET_SYLLABLES, payload: syllables })
+export const setSyllables = (syllables, meta = {}) => ({
+  type: SET_SYLLABLES,
+  payload: syllables,
+  meta,
+})
 
 export const filterSymbolsByName = state => ({ type: FILTER_SYMBOLS_BY_NAME, payload: state })
 
@@ -125,4 +137,21 @@ export const setInsertCaret = (pageIndex, paragraphIndex, caretIndex) => ({
 })
 
 export const toggleModalDeletePage = pageIndex => ({ type: TOGGLE_MODAL_DELETE_PAGE, payload: pageIndex }) // eslint-disable-line max-len
+
+export const undo = () => ({ type: UNDO })
+
+export const setSelection = selection => ({ type: SET_SELECTION, payload: selection })
+
+export const clearSelection = () => ({ type: CLEAR_SELECTION })
+
+/** Move caret and set/extend selection in one reducer step (avoids caret clearing selection). */
+export const extendSelection = payload => ({ type: EXTEND_SELECTION, payload })
+
+export const copySelection = () => ({ type: COPY_SELECTION })
+
+export const cutSelection = () => ({ type: CUT_SELECTION })
+
+export const pasteClipboard = () => ({ type: PASTE_CLIPBOARD })
+
+export const deleteSelection = () => ({ type: DELETE_SELECTION })
 

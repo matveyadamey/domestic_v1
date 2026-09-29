@@ -17,6 +17,10 @@ import {
   setInsertCaret,
   checkParagraphIsEmpty,
   addSyllable,
+  setSelection,
+  clearSelection,
+  extendSelection,
+  deleteSelection,
 } from '../../actions'
 
 import {
@@ -38,6 +42,11 @@ import {
   syllableLayoutWidth,
   findParagraphElement,
 } from '../../utils/pullToPreviousLine'
+import {
+  markDragSelectDone,
+  paginateItemFromPoint,
+  parsePaginateItem,
+} from '../../utils/paperDragSelect'
 
 import {
   RemovePageButton,
@@ -51,7 +60,8 @@ import './style.css'
 class AreaOfSymbols extends Component {
   componentDidMount() {
     this.schedulePaginate()
-    window.addEventListener('keydown', this.handlePaperKeyDown)
+    // Capture phase: bottom-panel inputs otherwise eat Ctrl+Z / Ctrl+C/V
+    window.addEventListener('keydown', this.handlePaperKeyDown, true)
   }
 
   componentDidUpdate(prevProps) {
@@ -67,9 +77,82 @@ class AreaOfSymbols extends Component {
   }
 
   componentWillUnmount() {
-    window.removeEventListener('keydown', this.handlePaperKeyDown)
+    window.removeEventListener('keydown', this.handlePaperKeyDown, true)
+    document.removeEventListener('mousemove', this.handlePointerSelectMove)
+    document.removeEventListener('mouseup', this.handlePointerSelectEnd)
     if (this.paginateTimer) clearTimeout(this.paginateTimer)
     if (this.reflowTimer) clearTimeout(this.reflowTimer)
+  }
+
+  /** Drag across syllables to select a range (same paragraph). */
+  handlePaperMouseDown = (e) => {
+    if (e.button !== 0) return
+    if (e.target.closest && (
+      e.target.closest('.bucvica-button')
+      || e.target.closest('.text-remove-button')
+      || e.target.closest('.syllable-text-edit')
+    )) return
+    // Plain click on underlay text still opens inline edit
+    if (e.target.closest && e.target.closest('.syllable .text') && !e.shiftKey) return
+
+    const item = e.target.closest('[data-paginate-item="1"]')
+    if (!item) return
+
+    const start = parsePaginateItem(item)
+    if (!start) return
+
+    e.preventDefault()
+
+    this.pointerSelect = {
+      pageIndex: start.pageIndex,
+      paragraphIndex: start.paragraphIndex,
+      startIndex: start.index,
+      moved: false,
+    }
+    document.addEventListener('mousemove', this.handlePointerSelectMove)
+    document.addEventListener('mouseup', this.handlePointerSelectEnd)
+  }
+
+  handlePointerSelectMove = (e) => {
+    const ps = this.pointerSelect
+    if (!ps) return
+
+    const hover = paginateItemFromPoint(e.clientX, e.clientY)
+    if (!hover
+      || hover.pageIndex !== ps.pageIndex
+      || hover.paragraphIndex !== ps.paragraphIndex) return
+
+    if (hover.index !== ps.startIndex) {
+      ps.moved = true
+      if (this.paperAreaEl) {
+        this.paperAreaEl.classList.add('is-drag-selecting')
+      }
+    }
+
+    const lo = Math.min(ps.startIndex, hover.index)
+    const hi = Math.max(ps.startIndex, hover.index)
+    this.props.actions.extendSelection({
+      pageIndex: ps.pageIndex,
+      paragraphIndex: ps.paragraphIndex,
+      anchor: lo,
+      caretIndex: hi + 1,
+    })
+  }
+
+  handlePointerSelectEnd = () => {
+    document.removeEventListener('mousemove', this.handlePointerSelectMove)
+    document.removeEventListener('mouseup', this.handlePointerSelectEnd)
+
+    const ps = this.pointerSelect
+    this.pointerSelect = null
+
+    if (this.paperAreaEl) {
+      this.paperAreaEl.classList.remove('is-drag-selecting')
+    }
+
+    if (ps && ps.moved) {
+      markDragSelectDone()
+    }
   }
 
   isTypingTarget = (el) => {
@@ -83,6 +166,16 @@ class AreaOfSymbols extends Component {
       || el.closest('.app-menu-panel')
       || el.closest('.app-settings-panel')
     )) return true
+    return false
+  }
+
+  /** Block paper nav keys only while editing underlay / modal / settings. */
+  shouldIgnorePaperNav = (el) => {
+    if (!el || !el.closest) return false
+    if (el.closest('.syllable-text-edit')) return true
+    if (el.closest('.modal')) return true
+    if (el.closest('.app-menu-panel')) return true
+    if (el.closest('.app-settings-panel')) return true
     return false
   }
 
@@ -102,19 +195,30 @@ class AreaOfSymbols extends Component {
     return positions[positions.length - 1]
   }
 
+  focusPaperArea = () => {
+    if (this.paperAreaEl && typeof this.paperAreaEl.focus === 'function') {
+      this.paperAreaEl.focus({ preventScroll: true })
+    }
+  }
+
   handlePaperKeyDown = (e) => {
-    if (this.isTypingTarget(e.target)) return
+    if (this.shouldIgnorePaperNav(e.target)) return
+    // Undo / copy / cut / paste / Esc — PaperKeyboard (global, capture phase)
 
     const key = e.key
+    const {
+      syllables, currentPageNum, currentParagraphNum, caretIndex, selection, actions,
+    } = this.props
+
+    // Arrows / Backspace / Enter: don't steal from form fields
+    if (this.isTypingTarget(e.target)) return
+
     const isArrow = key === 'ArrowLeft' || key === 'ArrowRight'
       || key === 'ArrowUp' || key === 'ArrowDown'
     const isDelete = key === 'Backspace' || key === 'Delete'
     const isEnter = key === 'Enter'
     if (!isArrow && !isDelete && !isEnter) return
 
-    const {
-      syllables, currentPageNum, currentParagraphNum, caretIndex, actions,
-    } = this.props
     const page = syllables && syllables[currentPageNum]
     if (!page || !page.length) return
     const paragraph = page[currentParagraphNum]
@@ -128,7 +232,6 @@ class AreaOfSymbols extends Component {
 
     if (isEnter) {
       e.preventDefault()
-      // Soft line break: following syllables wrap to the next flex row
       actions.addSyllable(
         { value: '', text: '', type: 'BREAK' },
         {
@@ -146,7 +249,23 @@ class AreaOfSymbols extends Component {
       const nextIdx = key === 'ArrowLeft'
         ? Math.max(0, idx - 1)
         : Math.min(positions.length - 1, idx + 1)
-      actions.setInsertCaret(currentPageNum, currentParagraphNum, positions[nextIdx])
+      const nextCaret = positions[nextIdx]
+      if (e.shiftKey) {
+        const anchor = (selection
+          && selection.pageIndex === currentPageNum
+          && selection.paragraphIndex === currentParagraphNum
+          && selection.anchor != null)
+          ? selection.anchor
+          : caret
+        actions.extendSelection({
+          pageIndex: currentPageNum,
+          paragraphIndex: currentParagraphNum,
+          caretIndex: nextCaret,
+          anchor,
+        })
+      } else {
+        actions.setInsertCaret(currentPageNum, currentParagraphNum, nextCaret)
+      }
       return
     }
 
@@ -189,24 +308,26 @@ class AreaOfSymbols extends Component {
       return
     }
 
-    if (key === 'Backspace') {
+    if (key === 'Backspace' || key === 'Delete') {
       e.preventDefault()
-      if (caret <= 0) {
-        this.pullSyllablesToPreviousLine()
+      if (selection) {
+        actions.deleteSelection()
+        actions.checkParagraphIsEmpty()
         return
       }
-      const deleteIndex = caret - 1
-      actions.removeSyllablebyIndex({
-        index: deleteIndex,
-        pageIndex: currentPageNum,
-        paragraphIndex: currentParagraphNum,
-      })
-      actions.checkParagraphIsEmpty()
-      return
-    }
-
-    if (key === 'Delete') {
-      e.preventDefault()
+      if (key === 'Backspace') {
+        if (caret <= 0) {
+          this.pullSyllablesToPreviousLine()
+          return
+        }
+        actions.removeSyllablebyIndex({
+          index: caret - 1,
+          pageIndex: currentPageNum,
+          paragraphIndex: currentParagraphNum,
+        })
+        actions.checkParagraphIsEmpty()
+        return
+      }
       if (caret >= paragraph.length) return
       actions.removeSyllablebyIndex({
         index: caret,
@@ -381,7 +502,7 @@ class AreaOfSymbols extends Component {
     this.paginating = true
     // Always re-measure after layout change, even if already one page
     if (JSON.stringify(flat) !== JSON.stringify(syllables)) {
-      actions.setSyllables(flat)
+      actions.setSyllables(flat, { skipHistory: true })
     }
     setTimeout(this.finishPaginating, 450)
   }
@@ -416,7 +537,7 @@ class AreaOfSymbols extends Component {
 
     if (changed) {
       this.paginating = true
-      actions.setSyllables(next)
+      actions.setSyllables(next, { skipHistory: true })
       setTimeout(this.finishPaginating, 500)
     }
   }
@@ -621,6 +742,14 @@ class AreaOfSymbols extends Component {
     return (
       <div
         className="paperArea"
+        tabIndex={-1}
+        ref={(el) => { this.paperAreaEl = el }}
+        onMouseDown={(e) => {
+          this.handlePaperMouseDown(e)
+          if (this.isTypingTarget(e.target)) return
+          if (e.target.closest && e.target.closest('.bucvica-button')) return
+          this.focusPaperArea()
+        }}
         style={{
           '--notes-scale': notesScale,
           '--staff-text-gap': gap,
@@ -651,6 +780,8 @@ AreaOfSymbols.propTypes = {
   showDvoeznamennik: PropTypes.bool,
   caretIndex: PropTypes.number,
   currentPageNum: PropTypes.number,
+  currentParagraphNum: PropTypes.number,
+  selection: PropTypes.object,
 }
 
 const mapDispatchToProps = dispatch => (
@@ -666,6 +797,10 @@ const mapDispatchToProps = dispatch => (
     setInsertCaret,
     checkParagraphIsEmpty,
     addSyllable,
+    setSelection,
+    clearSelection,
+    extendSelection,
+    deleteSelection,
   }, dispatch) }
 )
 
@@ -679,6 +814,7 @@ const mapStateToProps = state => ({
   showPagination: state.paper.showPagination,
   showDvoeznamennik: state.paper.showDvoeznamennik,
   caretIndex: state.paper.caretIndex,
+  selection: state.paper.selection,
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(AreaOfSymbols)

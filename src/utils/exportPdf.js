@@ -7,7 +7,6 @@ import { saveWithDialog } from './saveFile'
 const HIDDEN_UI_CLASSES = [
   'page-remove-button',
   'paragraph-remove-button',
-  'syllable-button',
   'bucvica-button',
   'text-remove-button',
   'add-page',

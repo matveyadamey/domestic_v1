@@ -37,7 +37,7 @@ function makePage() {
   const page = document.createElement('div')
   page.className = 'a4'
   const btn = document.createElement('button')
-  btn.className = 'syllable-button'
+  btn.className = 'bucvica-button'
   btn.textContent = 'x'
   page.appendChild(btn)
   return page
@@ -92,7 +92,7 @@ describe('exportPagesToPdf', () => {
 
   it('keeps original page UI after export', () => {
     return exportPagesToPdf('test.pdf').then(() => {
-      expect(area.querySelector('.syllable-button')).toBeTruthy()
+      expect(area.querySelector('.bucvica-button')).toBeTruthy()
       expect(saveAs).toHaveBeenCalled()
     })
   })

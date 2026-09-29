@@ -16,6 +16,7 @@ import {
   RemoveParagraph,
   RemovePageModal,
 } from '../'
+import PaperKeyboard from '../PaperKeyboard'
 
 import { Attention } from '../../containers/'
 
@@ -39,6 +40,7 @@ class Paper extends Component {
       <div className="paperLayout">
         { (localStorage.getItem('visited') ? null : <Attention />)}
         <Header />
+        <PaperKeyboard />
         <div className="Paper">
           <AreaOfSymbols />
           <div className="control">

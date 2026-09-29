@@ -6,7 +6,6 @@ import RemovePageButton from './RemovePageButton'
 import EditText from './EditText'
 import ButtonRemove from './ButtonRemove'
 import CurrentSymbols from './CurrentSymbols'
-import EditButtons from './EditButtons'
 import InsertComposition from './InsertComposition'
 import InsertText from './InsertText'
 import PaperStyle from './PaperStyle'
@@ -27,7 +26,6 @@ export {
   EditText,
   ButtonRemove,
   CurrentSymbols,
-  EditButtons,
   InsertComposition,
   InsertText,
   PaperStyle,

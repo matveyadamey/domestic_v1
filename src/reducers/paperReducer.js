@@ -25,12 +25,103 @@ import {
   TOGGLE_SHOW_DVOEZNAMENNIK,
   SET_INSERT_CARET,
   TOGGLE_MODAL_DELETE_PAGE,
+  UNDO,
+  SET_SELECTION,
+  CLEAR_SELECTION,
+  EXTEND_SELECTION,
+  COPY_SELECTION,
+  CUT_SELECTION,
+  PASTE_CLIPBOARD,
+  DELETE_SELECTION,
 } from '../constants/'
 import {
   flattenToOnePage,
   normalizeSyllables,
   mergeMelismaParagraphs,
 } from '../utils/paginateOverflow'
+
+const HISTORY_LIMIT = 50
+
+const UNDOABLE = {
+  [ADD_SYLLABLE]: true,
+  [REMOVE_LAST_SYLLABLE]: true,
+  [REMOVE_SYLLABLE_BY_INDEX]: true,
+  [REPEAT_SYLLABLE_BY_INDEX]: true,
+  [INSERT_SYLLABLE]: true,
+  [CHANGE_SYLLABLE]: true,
+  [EDIT_TEXT]: true,
+  [SET_SYLLABLES]: true,
+  [ADD_PAGE]: true,
+  [REMOVE_PAGE]: true,
+  [DELETE_PARAGRAPH]: true,
+  [CHECK_PARAGRAPH_IS_EMPTY]: true,
+  [TOGGLE_SHOW_DVOEZNAMENNIK]: true,
+  [CUT_SELECTION]: true,
+  [PASTE_CLIPBOARD]: true,
+  [DELETE_SELECTION]: true,
+}
+
+export const normalizeSelection = (selection) => {
+  if (!selection) return null
+  const {
+    pageIndex, paragraphIndex, anchor, focus,
+  } = selection
+  if (pageIndex == null || paragraphIndex == null || anchor == null || focus == null) {
+    return null
+  }
+  const start = Math.min(anchor, focus)
+  const end = Math.max(anchor, focus)
+  if (start === end) return null
+  return {
+    pageIndex, paragraphIndex, anchor, focus, start, end,
+  }
+}
+
+const cloneDeep = value => JSON.parse(JSON.stringify(value))
+
+const takeSnapshot = state => ({
+  // Deep clone — many reducers mutate page arrays in place via shallow Array.from
+  syllables: cloneDeep(state.syllables),
+  currentPageNum: state.currentPageNum,
+  currentParagraphNum: state.currentParagraphNum,
+  caretIndex: state.caretIndex,
+})
+
+const pushPast = (state) => {
+  const past = Array.isArray(state.past) ? state.past.slice() : []
+  past.push(takeSnapshot(state))
+  if (past.length > HISTORY_LIMIT) past.shift()
+  return past
+}
+
+const getSelectionSlice = (state) => {
+  const sel = normalizeSelection(state.selection)
+  if (!sel) return null
+  const page = state.syllables[sel.pageIndex]
+  const para = page && page[sel.paragraphIndex]
+  if (!Array.isArray(para) || sel.start < 0 || sel.end > para.length) return null
+  return {
+    sel,
+    items: cloneDeep(para.slice(sel.start, sel.end)),
+  }
+}
+
+const removeSelectionRange = (state) => {
+  const packed = getSelectionSlice(state)
+  if (!packed) return null
+  const { sel, items } = packed
+  const pages = cloneDeep(state.syllables)
+  const para = pages[sel.pageIndex][sel.paragraphIndex]
+  para.splice(sel.start, sel.end - sel.start)
+  pages[sel.pageIndex][sel.paragraphIndex] = para
+  return {
+    items,
+    syllables: pages,
+    currentPageNum: sel.pageIndex,
+    currentParagraphNum: sel.paragraphIndex,
+    caretIndex: sel.start,
+  }
+}
 
 let document = [[]]
 if (!isNil(localStorage.getItem('pages'))) {
@@ -50,9 +141,12 @@ const initialState = {
   showDvoeznamennik: initialShowDvoeznamennik,
   caretIndex: null,
   showModalDeletePage: false,
+  past: [],
+  selection: null,
+  clipboard: null,
 }
 
-export default (state = initialState, action) => {
+const paperReduceCore = (state = initialState, action) => {
   const { syllables, currentPageNum, currentParagraphNum } = state
   const currentPageSyllables = state.syllables[currentPageNum] // current page
   let currentParagraph = []
@@ -102,6 +196,7 @@ export default (state = initialState, action) => {
     case REMOVE_LAST_SYLLABLE: {
       const paragraphDropRight = dropRight(currentParagraph)
       const newSyllables = Array.from(syllables)
+      newSyllables[currentPageNum] = Array.from(newSyllables[currentPageNum] || [])
       newSyllables[currentPageNum][currentParagraphNum] = paragraphDropRight
       localStorage.setItem('pages', JSON.stringify(newSyllables))
       return {
@@ -144,6 +239,7 @@ export default (state = initialState, action) => {
       // make new array with repeated syllable
       const newSyllablesWithRepeat = [...currentParagraph, syllableToRepeat]
       const newSyllables = Array.from(syllables)
+      newSyllables[currentPageNum] = Array.from(newSyllables[currentPageNum] || [])
       newSyllables[currentPageNum][currentParagraphNum] = newSyllablesWithRepeat
       localStorage.setItem('pages', JSON.stringify(newSyllables))
       return {
@@ -203,6 +299,7 @@ export default (state = initialState, action) => {
       const afterIndex = parseInt(index, 10) + 1
       currentParagraphWithInsert.splice(afterIndex, 0, syllable)
       const newSyllables = Array.from(syllables)
+      newSyllables[currentPageNum] = Array.from(newSyllables[currentPageNum] || [])
       newSyllables[currentPageNum][currentParagraphNum] = currentParagraphWithInsert
       localStorage.setItem('pages', JSON.stringify(newSyllables))
 
@@ -218,6 +315,7 @@ export default (state = initialState, action) => {
       const currentParagraphWithChange = Array.from(currentParagraph)
       currentParagraphWithChange[indexOfChangingSyllable] = syllable
       const newSyllables = Array.from(syllables)
+      newSyllables[currentPageNum] = Array.from(newSyllables[currentPageNum] || [])
       newSyllables[currentPageNum][currentParagraphNum] = currentParagraphWithChange
       localStorage.setItem('pages', JSON.stringify(newSyllables))
 
@@ -332,6 +430,7 @@ export default (state = initialState, action) => {
         currentPageNum: pageIndex,
         currentParagraphNum: paragraphIndex,
         caretIndex,
+        selection: null,
       }
     }
 
@@ -458,7 +557,157 @@ export default (state = initialState, action) => {
       }
     }
 
+    case SET_SELECTION: {
+      return {
+        ...state,
+        selection: normalizeSelection(action.payload),
+      }
+    }
+
+    case CLEAR_SELECTION: {
+      return {
+        ...state,
+        selection: null,
+      }
+    }
+
+    case EXTEND_SELECTION: {
+      const {
+        pageIndex, paragraphIndex, caretIndex, anchor,
+      } = action.payload || {}
+      return {
+        ...state,
+        currentPageNum: pageIndex,
+        currentParagraphNum: paragraphIndex,
+        caretIndex,
+        selection: normalizeSelection({
+          pageIndex,
+          paragraphIndex,
+          anchor,
+          focus: caretIndex,
+        }),
+      }
+    }
+
+    case COPY_SELECTION: {
+      const packed = getSelectionSlice(state)
+      if (!packed) return state
+      return {
+        ...state,
+        clipboard: packed.items,
+      }
+    }
+
+    case CUT_SELECTION: {
+      const removed = removeSelectionRange(state)
+      if (!removed) return state
+      localStorage.setItem('pages', JSON.stringify(removed.syllables))
+      return {
+        ...state,
+        syllables: removed.syllables,
+        clipboard: removed.items,
+        currentPageNum: removed.currentPageNum,
+        currentParagraphNum: removed.currentParagraphNum,
+        caretIndex: removed.caretIndex,
+        selection: null,
+      }
+    }
+
+    case DELETE_SELECTION: {
+      const removed = removeSelectionRange(state)
+      if (!removed) return state
+      localStorage.setItem('pages', JSON.stringify(removed.syllables))
+      return {
+        ...state,
+        syllables: removed.syllables,
+        currentPageNum: removed.currentPageNum,
+        currentParagraphNum: removed.currentParagraphNum,
+        caretIndex: removed.caretIndex,
+        selection: null,
+      }
+    }
+
+    case PASTE_CLIPBOARD: {
+      const clip = state.clipboard
+      if (!Array.isArray(clip) || !clip.length) return state
+      const pageIdx = currentPageNum
+      const paraIdx = currentParagraphNum
+      const page = syllables[pageIdx]
+      const para = page && page[paraIdx]
+      const base = isNil(para) ? [] : Array.from(para)
+      let at = state.caretIndex
+      if (isNil(at) || at < 0 || at > base.length) at = base.length
+      const insert = cloneDeep(clip)
+      const nextPara = base.slice(0, at).concat(insert, base.slice(at))
+      const newSyllables = Array.from(syllables)
+      if (!newSyllables[pageIdx]) newSyllables[pageIdx] = []
+      else newSyllables[pageIdx] = Array.from(newSyllables[pageIdx] || [])
+      while (newSyllables[pageIdx].length <= paraIdx) {
+        newSyllables[pageIdx].push([])
+      }
+      newSyllables[pageIdx][paraIdx] = nextPara
+      localStorage.setItem('pages', JSON.stringify(newSyllables))
+      return {
+        ...state,
+        syllables: newSyllables,
+        currentPageNum: pageIdx,
+        currentParagraphNum: paraIdx,
+        caretIndex: at + insert.length,
+        selection: null,
+      }
+    }
+
+    case UNDO: {
+      const past = Array.isArray(state.past) ? state.past : []
+      if (!past.length) return state
+      const previous = past[past.length - 1]
+      const nextPast = past.slice(0, -1)
+      const restored = cloneDeep(previous.syllables)
+      localStorage.setItem('pages', JSON.stringify(restored))
+      return {
+        ...state,
+        syllables: restored,
+        currentPageNum: previous.currentPageNum,
+        currentParagraphNum: previous.currentParagraphNum,
+        caretIndex: previous.caretIndex,
+        past: nextPast,
+        selection: null,
+      }
+    }
+
     default:
       return state
+  }
+}
+
+export default (state = initialState, action) => {
+  // Selection / copy / undo handled inside core; wrap undoable syllable mutations
+  if (action.type === UNDO
+    || action.type === SET_SELECTION
+    || action.type === CLEAR_SELECTION
+    || action.type === EXTEND_SELECTION
+    || action.type === COPY_SELECTION) {
+    return paperReduceCore(state, action)
+  }
+
+  const next = paperReduceCore(state, action)
+  if (next === state) return state
+
+  const skipHistory = action.meta && action.meta.skipHistory
+  const canUndo = UNDOABLE[action.type] && !skipHistory
+  const changedDoc = next.syllables !== state.syllables
+    || next.currentPageNum !== state.currentPageNum
+    || next.currentParagraphNum !== state.currentParagraphNum
+
+  if (!canUndo || !changedDoc) {
+    return next
+  }
+
+  // Don't clear selection that the action itself set; clear after edits
+  const clearSel = action.type !== SET_SELECTION
+  return {
+    ...next,
+    past: pushPast(state),
+    selection: clearSel ? null : next.selection,
   }
 }

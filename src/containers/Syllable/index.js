@@ -2,15 +2,16 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'react-proptypes'
 import { bindActionCreators } from 'redux'
-import EditButtons from '../../components/EditButtons'
 import MusicStaff from '../../components/MusicStaff'
 import InsertCaret from '../../components/InsertCaret'
 import { resolveNotesData } from '../../utils/resolveNotes'
+import { shouldSuppressItemClick } from '../../utils/paperDragSelect'
 import {
   editText,
   changePage,
   changeParagraph,
   setInsertCaret,
+  extendSelection,
   addSyllable,
 } from '../../actions'
 
@@ -171,18 +172,40 @@ class Syllable extends Component {
   }
 
   placeCaret = (e) => {
-    if (e.target.closest && e.target.closest('.syllable-button')) return
+    if (shouldSuppressItemClick()) return
     if (e.target.closest && e.target.closest('.text')) return
     e.stopPropagation()
-    const { actions, index, pageIndex, paragraphIndex } = this.props
-    actions.setInsertCaret(pageIndex, paragraphIndex, index + 1)
+    e.preventDefault()
+    const {
+      actions, index, pageIndex, paragraphIndex,
+      selection, caretIndex, currentPageNum, currentParagraphNum,
+    } = this.props
+    const nextCaret = index + 1
+    if (e.shiftKey) {
+      const samePara = selection
+        && selection.pageIndex === pageIndex
+        && selection.paragraphIndex === paragraphIndex
+      const sameCaretPara = pageIndex === currentPageNum
+        && paragraphIndex === currentParagraphNum
+      const anchor = (samePara && selection.anchor != null)
+        ? selection.anchor
+        : (sameCaretPara && caretIndex != null ? caretIndex : index)
+      actions.extendSelection({
+        pageIndex,
+        paragraphIndex,
+        caretIndex: nextCaret,
+        anchor,
+      })
+      return
+    }
+    actions.setInsertCaret(pageIndex, paragraphIndex, nextCaret)
   }
 
   render() {
     const {
       form, value, text, index, pageIndex, paragraphIndex, notes, notesFixed, name, pitch, opts,
       prevNotes, prevPitch, nextNotes, nextPitch,
-      showCaretBefore,
+      showCaretBefore, selected,
     } = this.props
     const notesData = resolveNotesData({
       notes, notesFixed, value, name, pitch, opts, prevNotes, prevPitch, nextNotes, nextPitch,
@@ -196,7 +219,7 @@ class Syllable extends Component {
 
     return (
       <div
-        className={`syllable size${fontSize} textSize${textSize}${wideNotes ? ' syllable--wide-notes' : ''}`}
+        className={`syllable size${fontSize} textSize${textSize}${wideNotes ? ' syllable--wide-notes' : ''}${selected ? ' syllable--selected' : ''}`}
         data-paginate-item="1"
         data-page={pageIndex}
         data-paragraph={paragraphIndex}
@@ -227,16 +250,30 @@ class Syllable extends Component {
             <span dangerouslySetInnerHTML={{ __html: text }} />
           )}
         </div>
-        <EditButtons index={index} pageIndex={pageIndex} paragraphIndex={paragraphIndex} />
       </div>
     )
   }
 }
 
-const mapStateToProps = state => ({
-  form: state.form,
-  showDvoeznamennik: state.paper.showDvoeznamennik,
-})
+const mapStateToProps = (state, ownProps) => {
+  const sel = state.paper.selection
+  const selected = !!(
+    sel
+    && sel.pageIndex === ownProps.pageIndex
+    && sel.paragraphIndex === ownProps.paragraphIndex
+    && ownProps.index >= sel.start
+    && ownProps.index < sel.end
+  )
+  return {
+    form: state.form,
+    showDvoeznamennik: state.paper.showDvoeznamennik,
+    selection: sel,
+    caretIndex: state.paper.caretIndex,
+    currentPageNum: state.paper.currentPageNum,
+    currentParagraphNum: state.paper.currentParagraphNum,
+    selected,
+  }
+}
 
 const mapDispatchToProps = dispatch => (
   { actions: bindActionCreators({
@@ -244,6 +281,7 @@ const mapDispatchToProps = dispatch => (
     changePage,
     changeParagraph,
     setInsertCaret,
+    extendSelection,
     addSyllable,
   }, dispatch) }
 )
@@ -269,4 +307,9 @@ Syllable.propTypes = {
   nextPitch: PropTypes.string,
   showDvoeznamennik: PropTypes.bool,
   showCaretBefore: PropTypes.bool,
+  selected: PropTypes.bool,
+  selection: PropTypes.object,
+  caretIndex: PropTypes.number,
+  currentPageNum: PropTypes.number,
+  currentParagraphNum: PropTypes.number,
 }
