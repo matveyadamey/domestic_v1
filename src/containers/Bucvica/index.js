@@ -46,7 +46,7 @@ class Bucvica extends PureComponent {
     const values = form && form.paperStyle && form.paperStyle.values
     const fontSize = (values && values.fontSize) || 40
     const bucSize = (values && values.sizeOfBucvica) || 20
-    // Underlay text band height — bucvica sits on the same baseline, grows up
+    // Underlay text band — glyph bottom pinned here; letter grows upward only
     const textSize = (values && values.textSize) || 16
 
     return (

@@ -9,6 +9,7 @@
 .Paper {
     display: grid;
     flex: 1 1 0;
+    /* Score takes remaining space; control sizes to content (no panel scrollbar) */
     grid-template-rows: minmax(0, 1fr) auto;
     min-height: 0;
     overflow: hidden;
@@ -28,13 +29,12 @@
     flex: 0 0 auto;
     flex-wrap: wrap;
     align-items: stretch;
+    align-content: flex-start;
     grid-row: 2;
-    overflow: hidden;
-    overscroll-behavior: none;
+    overflow: visible;
     background-color: #FFF;
     border-top: 1px solid #e4e4e4;
     padding: 16px 24px;
-    touch-action: pan-y;
     z-index: 10;
 }
 
@@ -76,11 +76,8 @@
     min-width: 0;
     max-width: 380px;
     height: auto;
-    max-height: 240px;
-    overflow-x: hidden;
-    overflow-y: auto;
-    overscroll-behavior: none;
-    touch-action: pan-y;
+    /* visible so react-select menus don't force a block scrollbar */
+    overflow: visible;
     box-sizing: border-box;
 }
 
@@ -104,6 +101,5 @@
 }
 
 .control-block-fit {
-    max-height: none;
     overflow: visible;
 }

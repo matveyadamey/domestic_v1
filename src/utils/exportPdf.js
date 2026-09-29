@@ -31,9 +31,20 @@ function shouldIncludeNode(node) {
 function capturePage(page) {
   const prevShadow = page.style.boxShadow
   const prevBorder = page.style.border
+  const wasActivePage = page.classList.contains('activePage')
+  const activeParagraphs = Array.from(page.querySelectorAll('.activeParagraph'))
+
   page.classList.remove('activePage')
+  activeParagraphs.forEach((el) => el.classList.remove('activeParagraph'))
   page.style.boxShadow = 'none'
   page.style.border = 'none'
+
+  const restoreUi = () => {
+    page.style.boxShadow = prevShadow
+    page.style.border = prevBorder
+    if (wasActivePage) page.classList.add('activePage')
+    activeParagraphs.forEach((el) => el.classList.add('activeParagraph'))
+  }
 
   const fontsReady = (document.fonts && document.fonts.ready)
     ? document.fonts.ready
@@ -47,12 +58,10 @@ function capturePage(page) {
       filter: shouldIncludeNode,
     }))
     .then((dataUrl) => {
-      page.style.boxShadow = prevShadow
-      page.style.border = prevBorder
+      restoreUi()
       return dataUrl
     }, (err) => {
-      page.style.boxShadow = prevShadow
-      page.style.border = prevBorder
+      restoreUi()
       throw err
     })
 }

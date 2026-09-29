@@ -2,6 +2,17 @@ import React from 'react'
 import Select from 'react-select'
 import PropTypes from 'react-proptypes'
 
+const menuPortalTarget = typeof document !== 'undefined' ? document.body : null
+
+const selectMenuProps = {
+  menuPortalTarget,
+  menuPosition: 'fixed',
+  maxMenuHeight: 220,
+  styles: {
+    menuPortal: base => ({ ...base, zIndex: 10000 }),
+  },
+}
+
 export class RFReactSelect extends React.Component {
   constructor(props) {
     super(props)
@@ -30,6 +41,7 @@ export class RFReactSelect extends React.Component {
         onBlur={() => onBlur(value)}
         onFocus={onFocus}
         className={className}
+        {...selectMenuProps}
         // ref={this.refs.myRef}
         // autoFocus={name === 'name' ? true : false} 
       />
@@ -58,6 +70,7 @@ export const RFReactMultiSelect = ({ input, options, className }) => {
       onBlur={() => onBlur(value)}
       onFocus={onFocus}
       className={className}
+      {...selectMenuProps}
     />
   )
 }

@@ -96,4 +96,26 @@ describe('exportPagesToPdf', () => {
       expect(saveAs).toHaveBeenCalled()
     })
   })
+
+  it('strips paragraph selection for capture then restores it', () => {
+    const { toPng } = require('html-to-image/lib')
+    toPng.mockClear()
+    const page = area.querySelector('.a4')
+    page.classList.add('activePage')
+    const paragraph = document.createElement('div')
+    paragraph.className = 'paragraph activeParagraph'
+    page.appendChild(paragraph)
+
+    toPng.mockImplementation((node) => {
+      expect(node.classList.contains('activePage')).toBe(false)
+      expect(node.querySelector('.activeParagraph')).toBeNull()
+      expect(paragraph.classList.contains('activeParagraph')).toBe(false)
+      return Promise.resolve('data:image/png;base64,xx')
+    })
+
+    return exportPagesToPdf('test.pdf').then(() => {
+      expect(page.classList.contains('activePage')).toBe(true)
+      expect(paragraph.classList.contains('activeParagraph')).toBe(true)
+    })
+  })
 })
