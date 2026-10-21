@@ -9,7 +9,7 @@
     color:red;
     width: 100%;
     position: relative;
-    margin: 0 0 4px;
+    margin: 0 0 calc(var(--title-banners-gap, 4) * 1px);
     padding: 0;
 }
 

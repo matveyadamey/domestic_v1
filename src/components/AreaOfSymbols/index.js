@@ -431,19 +431,20 @@ class AreaOfSymbols extends Component {
     const nextText = nextVals && nextVals.textSize
     const prevLineText = prevVals && prevVals.lineTextSize
     const nextLineText = nextVals && nextVals.lineTextSize
-    const prevBuc = prevVals && prevVals.sizeOfBucvica
-    const nextBuc = nextVals && nextVals.sizeOfBucvica
     const prevNotes = prevVals && prevVals.notesSize
     const nextNotes = nextVals && nextVals.notesSize
     const prevGap = prevVals && prevVals.staffTextGap
     const nextGap = nextVals && nextVals.staffTextGap
+    const prevTitleGap = prevVals && prevVals.titleBannersGap
+    const nextTitleGap = nextVals && nextVals.titleBannersGap
+    // sizeOfBucvica is out-of-flow (absolute) — do not paginate on it
     if (
       prevFont !== nextFont
       || prevText !== nextText
       || prevLineText !== nextLineText
-      || prevBuc !== nextBuc
       || prevNotes !== nextNotes
       || prevGap !== nextGap
+      || prevTitleGap !== nextTitleGap
     ) return true
     if (prev.showDvoeznamennik !== next.showDvoeznamennik) return true
     return false
@@ -585,6 +586,31 @@ class AreaOfSymbols extends Component {
     return syllablesTemplate
   }
 
+  /**
+   * Height of leading full-width TEXT rows before the first kruk/bucvica row.
+   * Bucvica is position:absolute at paragraph top — without this offset it sits
+   * under the title and grows into it when size increases.
+   */
+  bucvicaTopOffset = (paragraph) => {
+    const { form } = this.props
+    const values = form && form.paperStyle && form.paperStyle.values
+    const lineTextSize = Number((values && values.lineTextSize) || 24)
+    const titleGapRaw = values && values.titleBannersGap
+    const titleGap = titleGapRaw == null || titleGapRaw === '' ? 4 : Number(titleGapRaw)
+    // Count every TEXT before the first KRUK. Bucvica is out of flex flow, so
+    // it must not stop the scan — titles after the bucvica still push the kruk row down.
+    let textCount = 0
+    for (let i = 0; i < paragraph.length; i += 1) {
+      const item = paragraph[i]
+      if (!item) continue
+      if (item.type === 'KRUK') break
+      if (item.type === 'TEXT') textCount += 1
+    }
+    if (!textCount) return ''
+    // .text-line: fontSize pt × lineHeight 1.25 + margin-bottom titleBannersGap
+    return `calc(${textCount * lineTextSize * 1.25}pt + ${textCount * titleGap}px)`
+  }
+
   renderOneParagraph = (paragraph, paragraphIndex, pageIndex) => {
     const { actions, currentPageNum, currentParagraphNum, caretIndex } = this.props
     if (!Array.isArray(paragraph)) return null
@@ -595,6 +621,7 @@ class AreaOfSymbols extends Component {
     const effectiveCaret = (caretIndex == null && isCurrent)
       ? paragraph.length
       : caretIndex
+    const bucTopOffset = this.bucvicaTopOffset(paragraph)
 
     const notesMap = resolveParagraphNotesMap(paragraph)
 
@@ -635,6 +662,7 @@ class AreaOfSymbols extends Component {
             paragraphIndex={paragraphIndex}
             pageIndex={pageIndex}
             showCaretBefore={showCaretBefore}
+            topOffset={bucTopOffset}
             key={`bucvica-${pageIndex}-${paragraphIndex}-${index}`}
           />
         )
@@ -738,6 +766,8 @@ class AreaOfSymbols extends Component {
     const notesScale = Number(notesSize) / 100
     const staffTextGap = form.paperStyle.values && form.paperStyle.values.staffTextGap
     const gap = staffTextGap == null || staffTextGap === '' ? 16 : Number(staffTextGap)
+    const titleBannersGap = form.paperStyle.values && form.paperStyle.values.titleBannersGap
+    const titleGap = titleBannersGap == null || titleBannersGap === '' ? 4 : Number(titleBannersGap)
 
     return (
       <div
@@ -753,6 +783,7 @@ class AreaOfSymbols extends Component {
         style={{
           '--notes-scale': notesScale,
           '--staff-text-gap': gap,
+          '--title-banners-gap': titleGap,
         }}
       >
           <div className="areaOfSymbols mx-auto">

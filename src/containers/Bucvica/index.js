@@ -15,9 +15,19 @@ import { shouldSuppressItemClick } from '../../utils/paperDragSelect'
 
 import './style.css'
 
+/** NewDamaskin: empty space below ink inside the em-box (fontDescent / em). */
+const FONT_DESC_RATIO = 0.2
+/** Extra drop so the foot sits a bit below the underlay midline. */
+const BASELINE_NUDGE_PT = 3
+
 /**
- * Drop capital sits in the left gutter (absolute); kruk/text rows all
- * start at paragraph padding — Hidden symbol keeps first-row baseline.
+ * Drop capital in the left gutter (absolute). Spacers match the first kruk
+ * row; `topOffset` shifts the column below any leading TEXT (title).
+ *
+ * Glyph is bottom-pinned to the underlay band. Plain bottom:0 leaves a
+ * gap of ~0.2×bucSize under the ink (font metrics) so large sizes look
+ * like they crawl up. Shift by 0.2×(bucSize−textSize) keeps the ink on
+ * the same level as the underlay text at every size; growth goes up only.
  */
 class Bucvica extends PureComponent {
   removeBucvica = (e) => {
@@ -68,13 +78,15 @@ class Bucvica extends PureComponent {
 
   render() {
     const {
-      form, text, index, showDvoeznamennik, showCaretBefore, selected,
+      form, text, index, showDvoeznamennik, showCaretBefore, selected, topOffset,
     } = this.props
     const values = form && form.paperStyle && form.paperStyle.values
     const fontSize = (values && values.fontSize) || 40
-    const bucSize = (values && values.sizeOfBucvica) || 20
-    // Underlay text band — glyph bottom pinned here; letter grows upward only
-    const textSize = (values && values.textSize) || 16
+    const bucSizeRaw = Number((values && values.sizeOfBucvica) || 20)
+    const bucSize = Math.min(80, Math.max(20, bucSizeRaw))
+    const textSize = Number((values && values.textSize) || 16)
+    // Keep ink on underlay level: cancel extra gap when bucSize ≠ textSize
+    const baselineShiftPt = FONT_DESC_RATIO * (bucSize - textSize) + BASELINE_NUDGE_PT
 
     return (
       <div
@@ -84,6 +96,7 @@ class Bucvica extends PureComponent {
         data-paragraph={this.props.paragraphIndex}
         data-index={index}
         onClick={this.placeCaret}
+        style={topOffset ? { top: topOffset } : undefined}
       >
         {showCaretBefore ? <InsertCaret active /> : null}
         <div className="symbol bucvica-symbol" aria-hidden="true" />
@@ -93,13 +106,16 @@ class Bucvica extends PureComponent {
         <div
           className="text bucvica-letter"
           style={{
-            height: `${Number(textSize) * 1.2}pt`,
+            height: `${textSize * 1.2}pt`,
             fontSize: `${textSize}pt`,
           }}
         >
           <span
             className="bucvica-letter-glyph"
-            style={{ fontSize: `${bucSize}pt` }}
+            style={{
+              fontSize: `${bucSize}pt`,
+              transform: `translateY(${baselineShiftPt}pt)`,
+            }}
           >
             {text}
           </span>
@@ -163,10 +179,12 @@ Bucvica.propTypes = {
   caretIndex: PropTypes.number,
   currentPageNum: PropTypes.number,
   currentParagraphNum: PropTypes.number,
+  topOffset: PropTypes.string,
 }
 
 Bucvica.defaultProps = {
   showDvoeznamennik: true,
   showCaretBefore: false,
   selected: false,
+  topOffset: '',
 }

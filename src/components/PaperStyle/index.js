@@ -65,6 +65,17 @@ const PaperStyle = ({ showPagination, actions }) => (
       max="25"
       step="1"
     />
+    <label htmlFor="titleBannersGap">Расстояние между заголовком и знаменами</label>
+    <Field
+      name="titleBannersGap"
+      type="range"
+      className="custom-range"
+      component={RangeInput}
+      id="titleBannersGap"
+      min="0"
+      max="50"
+      step="1"
+    />
     <label htmlFor="sizeOfBucvica">Размер буквицы</label>
     <Field
       name="sizeOfBucvica"
@@ -73,7 +84,7 @@ const PaperStyle = ({ showPagination, actions }) => (
       component={RangeInput}
       id="sizeOfBucvica"
       min="20"
-      max="180"
+      max="80"
     />
     <div className="toggleShowPagination custom-control custom-checkbox">
       <input
@@ -110,6 +121,7 @@ const mapStateToProps = state => ({
     lineTextSize: 24,
     notesSize: 100,
     staffTextGap: 16,
+    titleBannersGap: 4,
     sizeOfBucvica: 20,
     sizeOfPage: 900,
   },

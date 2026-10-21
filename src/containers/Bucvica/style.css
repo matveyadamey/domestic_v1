@@ -2,7 +2,7 @@
     /* Out of flex flow so every kruk/text row shares the same left edge */
     position: absolute;
     left: 0;
-    top: 0;
+    top: 0; /* overridden inline when a leading TEXT (title) is above the banners */
     width: var(--paragraph-gutter, 48px);
     max-width: var(--paragraph-gutter, 48px);
     min-width: 0;
@@ -40,7 +40,7 @@
     align-self: stretch;
 }
 
-/* Underlay band height only — letter hangs in the gutter */
+/* Underlay band — same height/font as text under kruki */
 .syllable.bucvica .bucvica-letter {
     position: relative;
     color: red;
@@ -53,7 +53,7 @@
     min-height: 0 !important;
     flex-shrink: 0;
     overflow: visible;
-    transform: translateY(4px);
+    transform: none;
     text-align: center;
     margin-left: 0 !important;
     margin-right: 0 !important;
@@ -64,8 +64,8 @@
 }
 
 /*
- * Pin to underlay baseline; right edge near content column so the letter
- * sits in the gutter without shifting the first kruk.
+ * Em-box bottom on the band. Inline translateY(0.2×(buc−text)pt) keeps the
+ * ink on the underlay text level; letter grows upward only.
  */
 .syllable.bucvica .bucvica-letter-glyph {
     position: absolute;
@@ -73,7 +73,6 @@
     left: auto;
     bottom: 0;
     top: auto;
-    transform: none;
     color: red;
     text-transform: uppercase;
     font-family: NewDamaskin, Afonit, serif;
@@ -81,7 +80,6 @@
     white-space: nowrap;
     pointer-events: none;
 }
-
 .bucvica:hover .bucvica-button {
     display: inline-block;
 }

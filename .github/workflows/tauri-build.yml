@@ -8,7 +8,7 @@ on:
       target:
         description: Which desktop target to build
         required: true
-        default: windows
+        default: all
         type: choice
         options:
           - windows
@@ -36,7 +36,7 @@ jobs:
         env:
           CI: true
 
-  # Push → Windows only. Manual run → choice (windows / macos / all).
+  # Push → Windows + macOS universal. Manual run → choice (windows / macos / all).
   matrix:
     name: Resolve build matrix
     runs-on: ubuntu-latest
@@ -48,14 +48,15 @@ jobs:
           EVENT: ${{ github.event_name }}
           TARGET: ${{ inputs.target }}
         run: |
-          win='{"platform":"windows-latest","args":"--bundles nsis","artifactName":"domestic-windows"}'
-          mac='{"platform":"macos-latest","args":"--bundles dmg","artifactName":"domestic-macos"}'
-          if [ "$EVENT" = "push" ] || [ "$TARGET" = "windows" ]; then
-            echo "include=[$win]" >> "$GITHUB_OUTPUT"
+          win='{"platform":"windows-latest","args":"--bundles nsis","artifactName":"domestic-windows","isMac":false}'
+          # Universal: arm64 (Apple Silicon) + x86_64 (Intel) in one DMG
+          mac='{"platform":"macos-latest","args":"--target universal-apple-darwin --bundles dmg","artifactName":"domestic-macos","isMac":true}'
+          if [ "$EVENT" = "push" ] || [ "$TARGET" = "all" ]; then
+            echo "include=[$win,$mac]" >> "$GITHUB_OUTPUT"
           elif [ "$TARGET" = "macos" ]; then
             echo "include=[$mac]" >> "$GITHUB_OUTPUT"
           else
-            echo "include=[$win,$mac]" >> "$GITHUB_OUTPUT"
+            echo "include=[$win]" >> "$GITHUB_OUTPUT"
           fi
 
   build:
@@ -81,12 +82,19 @@ jobs:
       - name: Install Rust toolchain
         uses: dtolnay/rust-toolchain@stable
 
+      - name: Add macOS universal Rust targets
+        if: matrix.isMac
+        run: |
+          rustup target add aarch64-apple-darwin
+          rustup target add x86_64-apple-darwin
+
       - name: Rust cache
         uses: swatinem/rust-cache@v2
         with:
           workspaces: './src-tauri'
           # Save cache even if the build step fails
           save-if: true
+          key: ${{ matrix.artifactName }}
 
       - name: Install frontend dependencies
         run: npm ci --legacy-peer-deps
@@ -122,6 +130,9 @@ jobs:
           releaseBody: |
             Desktop build with auto-updater.
             Install once; later versions install automatically on launch.
+
+            **macOS:** universal DMG (Apple Silicon + Intel). If Gatekeeper blocks the app after download:
+            right-click → Open, or run `xattr -cr /Applications/Domestic_v1.app`.
           releaseDraft: false
           prerelease: false
           includeUpdaterJson: true
