@@ -354,57 +354,12 @@
      }
 }
 
-/* SIZES OF SYLLABLES */
+/* SIZES OF SYLLABLES — set continuously via CSS vars (utils/syllableSize) */
 
-/* SIZE 30 */
-
-
-.size30 > .symbol {
-    font-size: 30pt;
-    height: 40px;
-}
-
-/* SIZE 40 */
-
-.size40 > .symbol {
-    font-size: 40pt;
-    height: 40px;
-}
-
-/* SIZE 50 */
-
-.size50 > .symbol {
-    font-size: 50pt;
-    height: 65px;
-}
-
-/* SIZE 60 */
-
-.size60 > .symbol {
-    font-size: 60pt;
-    height: 80px;
-}
-
-/* SIZE 70 */
-
-.size70 > .symbol {
-    font-size: 70pt;
-    height: 90px;
-}
-
-/* SIZE 80 */
-
-.size80 > .symbol {
-    font-size: 80pt;
-    height: 100px;
+.syllable > .symbol {
+    font-size: var(--symbol-font-size, 40pt);
+    height: var(--symbol-height, 40px);
 }
 
 /* Independent underlay text size (pt) */
-.textSize12 > .text { font-size: 12pt; }
-.textSize16 > .text { font-size: 16pt; }
-.textSize20 > .text { font-size: 20pt; }
-.textSize24 > .text { font-size: 24pt; }
-.textSize28 > .text { font-size: 28pt; }
-.textSize32 > .text { font-size: 32pt; }
-.textSize36 > .text { font-size: 36pt; }
-.textSize40 > .text { font-size: 40pt; }
+.syllable > .text { font-size: var(--underlay-text-size, 16pt); }

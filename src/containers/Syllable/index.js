@@ -6,6 +6,7 @@ import MusicStaff from '../../components/MusicStaff'
 import InsertCaret from '../../components/InsertCaret'
 import { resolveNotesData } from '../../utils/resolveNotes'
 import { shouldSuppressItemClick } from '../../utils/paperDragSelect'
+import { syllableSizeStyle } from '../../utils/syllableSize'
 import {
   editText,
   changePage,
@@ -219,12 +220,13 @@ class Syllable extends Component {
 
     return (
       <div
-        className={`syllable size${fontSize} textSize${textSize}${wideNotes ? ' syllable--wide-notes' : ''}${selected ? ' syllable--selected' : ''}`}
+        className={`syllable${wideNotes ? ' syllable--wide-notes' : ''}${selected ? ' syllable--selected' : ''}`}
         data-paginate-item="1"
         data-page={pageIndex}
         data-paragraph={paragraphIndex}
         data-index={index}
         onClick={this.placeCaret}
+        style={syllableSizeStyle(fontSize, textSize)}
       >
         {showCaretBefore && !editing ? <InsertCaret active /> : null}
         <div className="symbol" dangerouslySetInnerHTML={{ __html: value }} />

@@ -12,6 +12,7 @@ import {
 
 import InsertCaret from '../../components/InsertCaret'
 import { shouldSuppressItemClick } from '../../utils/paperDragSelect'
+import { syllableSizeStyle } from '../../utils/syllableSize'
 
 import './style.css'
 
@@ -90,13 +91,16 @@ class Bucvica extends PureComponent {
 
     return (
       <div
-        className={`syllable bucvica size${fontSize}${selected ? ' syllable--selected' : ''}`}
+        className={`syllable bucvica${selected ? ' syllable--selected' : ''}`}
         data-paginate-item="1"
         data-page={this.props.pageIndex}
         data-paragraph={this.props.paragraphIndex}
         data-index={index}
         onClick={this.placeCaret}
-        style={topOffset ? { top: topOffset } : undefined}
+        style={{
+          ...syllableSizeStyle(fontSize),
+          ...(topOffset ? { top: topOffset } : null),
+        }}
       >
         {showCaretBefore ? <InsertCaret active /> : null}
         <div className="symbol bucvica-symbol" aria-hidden="true" />

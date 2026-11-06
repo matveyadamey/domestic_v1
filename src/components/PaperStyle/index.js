@@ -19,7 +19,7 @@ const PaperStyle = ({ showPagination, actions }) => (
       id="fontRange"
       min="30"
       max="80"
-      step="10"
+      step="0.1"
     />
     <label htmlFor="textSize">Размер текста под крюками</label>
     <Field
@@ -30,7 +30,7 @@ const PaperStyle = ({ showPagination, actions }) => (
       id="textSize"
       min="12"
       max="40"
-      step="4"
+      step="0.1"
     />
     <label htmlFor="lineTextSize">Размер текстовых строк</label>
     <Field
@@ -41,7 +41,7 @@ const PaperStyle = ({ showPagination, actions }) => (
       id="lineTextSize"
       min="12"
       max="40"
-      step="4"
+      step="0.1"
     />
     <label htmlFor="notesSize">Размер нот и нотного стана</label>
     <Field
@@ -52,7 +52,7 @@ const PaperStyle = ({ showPagination, actions }) => (
       id="notesSize"
       min="50"
       max="150"
-      step="10"
+      step="0.1"
     />
     <label htmlFor="staffTextGap">Расстояние между станом и текстом</label>
     <Field
@@ -63,7 +63,7 @@ const PaperStyle = ({ showPagination, actions }) => (
       id="staffTextGap"
       min="0"
       max="25"
-      step="1"
+      step="0.1"
     />
     <label htmlFor="titleBannersGap">Расстояние между заголовком и знаменами</label>
     <Field
@@ -74,7 +74,7 @@ const PaperStyle = ({ showPagination, actions }) => (
       id="titleBannersGap"
       min="0"
       max="50"
-      step="1"
+      step="0.1"
     />
     <label htmlFor="sizeOfBucvica">Размер буквицы</label>
     <Field
@@ -85,6 +85,7 @@ const PaperStyle = ({ showPagination, actions }) => (
       id="sizeOfBucvica"
       min="20"
       max="80"
+      step="0.1"
     />
     <div className="toggleShowPagination custom-control custom-checkbox">
       <input

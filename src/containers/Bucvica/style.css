@@ -28,7 +28,7 @@
     padding: 0 !important;
     border: 0 !important;
     overflow: hidden;
-    /* do NOT zero font-size / line-height — height comes from .sizeN > .symbol */
+    /* do NOT zero font-size / line-height — height comes from .syllable > .symbol */
 }
 
 .syllable.bucvica .bucvica-staff-spacer {
