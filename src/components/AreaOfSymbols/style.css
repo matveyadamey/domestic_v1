@@ -292,6 +292,7 @@
 
 .symbol {
     font-family: "Kruk";
+    white-space: nowrap;
 }
 
 .red {

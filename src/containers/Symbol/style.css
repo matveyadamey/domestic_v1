@@ -1,6 +1,8 @@
 .previewKruk {
     font-family: "Kruk";
     font-size: 37pt;
+    /* знамя — одна строка: помета не должна отрываться от тела */
+    white-space: nowrap;
 }
 
 .previewItem {

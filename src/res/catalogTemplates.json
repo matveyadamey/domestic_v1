@@ -1,0 +1,2227 @@
+{
+"groups": [
+{"id": 1, "label": "Крюк", "records": [
+  {"name": "Крюк {pitch}", "opts": [], "melody": "0:2", "variants": [
+    {"pitch": "Ут низкое", "value": "<span class='red'>Ã</span>k"},
+    {"pitch": "Ре низкое", "value": "<span class='red'>Í</span>j"},
+    {"pitch": "Ми низкое", "value": "<span class='red'>Ö</span>l"},
+    {"pitch": "Ут", "value": "<span class='red'>ã</span>k{"},
+    {"pitch": "Ре", "value": "<span class='red'>í</span>j{"},
+    {"pitch": "Ми", "value": "<span class='red'>ö</span>l{"},
+    {"pitch": "Фа", "value": "<span class='red'>ì</span>k("},
+    {"pitch": "Соль", "value": "<span class='red'>ï</span>Б("},
+    {"pitch": "Ля", "value": "<span class='red'>â</span>В("},
+    {"pitch": "Фа высокое", "value": "<span class='red'>Î</span>k%"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>Ï</span>Б%"},
+    {"pitch": "Ля высокое", "value": "<span class='red'>Â</span>В%"}
+  ]},
+  {"name": "Крюк Ут низкое (равенство)", "opts": ["Равенство"], "melody": "0:2", "variants": [
+    {"pitch": "Ут низкое", "value": "<span class='red'>ð</span>k"}
+  ]},
+  {"name": "Крюк Ре низкое (равенство)", "opts": ["Равенство"], "melody": "0:2", "variants": [
+    {"pitch": "Ре низкое", "value": "<span class='red'>ð</span>j"}
+  ]},
+  {"name": "Крюк Ми низкое (равенство)", "opts": ["Равенство"], "melody": "0:2", "variants": [
+    {"pitch": "Ми низкое", "value": "<span class='red'>ð</span>l"}
+  ]},
+  {"name": "Крюк Ут (равенство)", "opts": ["Равенство"], "melody": "0:2", "variants": [
+    {"pitch": "Ут", "value": "<span class='red'>ð</span>k{"}
+  ]},
+  {"name": "Крюк Ре (равенство)", "opts": ["Равенство"], "melody": "0:2", "variants": [
+    {"pitch": "Ре", "value": "<span class='red'>ð</span>j{"}
+  ]},
+  {"name": "Крюк Ми (равенство)", "opts": ["Равенство"], "melody": "0:2", "variants": [
+    {"pitch": "Ми", "value": "<span class='red'>ð</span>l{"}
+  ]},
+  {"name": "Крюк Фа (равенство)", "opts": ["Равенство"], "melody": "0:2", "variants": [
+    {"pitch": "Фа", "value": "<span class='red'>ð</span>k("}
+  ]},
+  {"name": "Крюк Соль (равенство)", "opts": ["Равенство"], "melody": "0:2", "variants": [
+    {"pitch": "Соль", "value": "<span class='red'>ð</span>Б("}
+  ]},
+  {"name": "Крюк Ля (равенство)", "opts": ["Равенство"], "melody": "0:2", "variants": [
+    {"pitch": "Ля", "value": "<span class='red'>ð</span>В("}
+  ]},
+  {"name": "Крюк Фа высокое (равенство)", "opts": ["Равенство"], "melody": "0:2", "variants": [
+    {"pitch": "Фа высокое", "value": "<span class='red'>ð</span>k%"}
+  ]},
+  {"name": "Крюк Соль высокое (равенство)", "opts": ["Равенство"], "melody": "0:2", "variants": [
+    {"pitch": "Соль высокое", "value": "<span class='red'>ð</span>Б%"}
+  ]},
+  {"name": "Крюк Ля высокое (равенство)", "opts": ["Равенство"], "melody": "0:2", "variants": [
+    {"pitch": "Ля высокое", "value": "<span class='red'>ð</span>В%"}
+  ]},
+  {"name": "Крюк {pitch}", "opts": ["Отсечка"], "melody": "0:1", "variants": [
+    {"pitch": "Ут низкое", "value": "<span class='red'>Ã</span>k)"},
+    {"pitch": "Ре низкое", "value": "<span class='red'>Í</span>j)"},
+    {"pitch": "Ми низкое", "value": "<span class='red'>Ö</span>l)"},
+    {"pitch": "Ут", "value": "<span class='red'>ã</span>k{)"},
+    {"pitch": "Ре", "value": "<span class='red'>í</span>j{)"},
+    {"pitch": "Ми", "value": "<span class='red'>ö</span>l{)"},
+    {"pitch": "Фа", "value": "<span class='red'>ì</span>k()"},
+    {"pitch": "Соль", "value": "<span class='red'>ï</span>Б()"},
+    {"pitch": "Ля", "value": "<span class='red'>â</span>В()"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>Î</span>k%)"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>Ï</span>Б%)"},
+    {"pitch": "Ля высокое", "value": "<span class='red'>Â</span>В%)"}
+  ]},
+  {"name": "Крюк {pitch}", "opts": ["Равенство", "Отсечка"], "melody": "0:1", "variants": [
+    {"pitch": "Ут низкое", "value": "<span class='red'>ð</span>k)"},
+    {"pitch": "Ре низкое", "value": "<span class='red'>ð</span>j)"},
+    {"pitch": "Ми низкое", "value": "<span class='red'>ð</span>l)"},
+    {"pitch": "Ут", "value": "<span class='red'>ð</span>k{)"},
+    {"pitch": "Ре", "value": "<span class='red'>ð</span>j{)"},
+    {"pitch": "Ми", "value": "<span class='red'>ð</span>l{)"},
+    {"pitch": "Фа", "value": "<span class='red'>ð</span>k()"},
+    {"pitch": "Соль", "value": "<span class='red'>ð</span>Б()"},
+    {"pitch": "Ля", "value": "<span class='red'>ð</span>В()"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>ð</span>k%)"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>ð</span>Б%)"},
+    {"pitch": "Ля высокое", "value": "<span class='red'>ð</span>В%)"}
+  ]},
+  {"name": "Крюк {pitch}", "opts": ["Задержка"], "melody": "0:4", "variants": [
+    {"pitch": "Ут низкое", "value": "<span class='red'>Ã</span>k2"},
+    {"pitch": "Ре низкое", "value": "<span class='red'>Í</span>j2"},
+    {"pitch": "Ми низкое", "value": "<span class='red'>Ö</span>l2"},
+    {"pitch": "Ут", "value": "<span class='red'>ã</span>k{2"},
+    {"pitch": "Ре", "value": "<span class='red'>í</span>j{2"},
+    {"pitch": "Ми", "value": "<span class='red'>ö</span>l{2"},
+    {"pitch": "Фа", "value": "<span class='red'>ì</span>k(2"},
+    {"pitch": "Соль", "value": "<span class='red'>ï</span>Б(2"},
+    {"pitch": "Ля", "value": "<span class='red'>â</span>В(2"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>Î</span>k%2"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>Ï</span>Б%2"},
+    {"pitch": "Ля высокое", "value": "<span class='red'>Â</span>В%2"}
+  ]},
+  {"name": "Крюк {pitch}", "opts": ["Равенство", "Задержка"], "melody": "0:4", "variants": [
+    {"pitch": "Ут низкое", "value": "<span class='red'>ð</span>k2"},
+    {"pitch": "Ре низкое", "value": "<span class='red'>ð</span>j2"},
+    {"pitch": "Ми низкое", "value": "<span class='red'>ð</span>l2"},
+    {"pitch": "Ут", "value": "<span class='red'>ð</span>k{2"},
+    {"pitch": "Ре", "value": "<span class='red'>ð</span>j{2"},
+    {"pitch": "Ми", "value": "<span class='red'>ð</span>l{2"},
+    {"pitch": "Фа", "value": "<span class='red'>ð</span>k(2"},
+    {"pitch": "Соль", "value": "<span class='red'>ð</span>Б(2"},
+    {"pitch": "Ля", "value": "<span class='red'>ð</span>В(2"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>ð</span>k%2"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>ð</span>Б%2"},
+    {"pitch": "Ля высокое", "value": "<span class='red'>ð</span>В%2"}
+  ]},
+  {"name": "Крюк {pitch}", "opts": ["Подчашие"], "melody": "0:2 -1:2", "variants": [
+    {"pitch": "Ут низкое", "value": "<span class='red'>Í</span>j4", "notes": "Н2Г2"},
+    {"pitch": "Ре низкое", "value": "<span class='red'>Ö</span>l4", "notes": "Н2"},
+    {"pitch": "Ре низкое", "value": "<span class='red'>Ö</span>l4<span class='red'> ø</span>", "notes": "Н2"},
+    {"pitch": "Ми низкое", "value": "<span class='red'>ã</span>k{4", "notes": "ц2Г2"},
+    {"pitch": "Ре", "value": "<span class='red'>í</span>j{4"},
+    {"pitch": "Ми", "value": "<span class='red'>ö</span>l{4"},
+    {"pitch": "Фа", "value": "<span class='red'>ì</span>k(4"},
+    {"pitch": "Соль", "value": "<span class='red'>ï</span>Б(4"},
+    {"pitch": "Ля", "value": "<span class='red'>â</span>В(4"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>Î</span>k%4"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>Ï</span>Б%4"}
+  ]},
+  {"name": "Крюк {pitch}", "opts": ["Равенство", "Подчашие"], "melody": "0:2 -1:2", "variants": [
+    {"pitch": "Ре низкое", "value": "<span class='red'>ð</span>j4"},
+    {"pitch": "Ре низкое", "value": "<span class='red'>ð</span>l4"},
+    {"pitch": "Ут", "value": "<span class='red'>ð</span>k{4"},
+    {"pitch": "Ре", "value": "<span class='red'>ð</span>j{4"},
+    {"pitch": "Ми", "value": "<span class='red'>ð</span>l{4"},
+    {"pitch": "Фа", "value": "<span class='red'>ð</span>k(4"},
+    {"pitch": "Соль", "value": "<span class='red'>ð</span>Б(4"},
+    {"pitch": "Ля", "value": "<span class='red'>ð</span>В(4"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>ð</span>k%4"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>ð</span>k%4<span class='red'> ý</span>"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>ð</span>Б%4"}
+  ]},
+  {"name": "Крюк {pitch}", "opts": ["Равенство", "Ломка", "Подчашие"], "melody": "0:2 -2:2", "variants": [
+    {"pitch": "Ре низкое", "value": "<span class='red'>ð</span>l4<span class='red'> ø</span>", "notes": "Н2"},
+    {"pitch": "Ут", "value": "<span class='red'>ð</span>k{4<span class='red'>ù</span>"},
+    {"pitch": "Ре", "value": "<span class='red'>ð</span>j{4<span class='red'>ú</span>"},
+    {"pitch": "Ми", "value": "<span class='red'>ð</span>l{4<span class='red'> ÷</span>", "notes": "м2г2"},
+    {"pitch": "Фа", "value": "<span class='red'>ð</span>k(4<span class='red'>ÿ</span>"},
+    {"pitch": "Соль", "value": "<span class='red'>ð</span>Б(4<span class='red'>û</span>"},
+    {"pitch": "Ля", "value": "<span class='red'>ð</span>В(4<span class='red'> ü</span>"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>ð</span>Б%4<span class='red'> þ</span>"}
+  ]},
+  {"name": "Крюк {pitch}", "opts": ["Ломка", "Подчашие"], "melody": "0:2 -2:2", "variants": [
+    {"pitch": "Ми низкое", "value": "<span class='red'>ã</span>k{4<span class='red'>ù</span>"},
+    {"pitch": "Ре", "value": "<span class='red'>í</span>j{4<span class='red'>ú</span>"},
+    {"pitch": "Ми", "value": "<span class='red'>ö</span>l{4<span class='red'> ÷</span>", "notes": "м2г2"},
+    {"pitch": "Фа", "value": "<span class='red'>ì</span>k(4<span class='red'>ÿ</span>"},
+    {"pitch": "Соль", "value": "<span class='red'>ï</span>Б(4<span class='red'>û</span>"},
+    {"pitch": "Ля", "value": "<span class='red'>â</span>В(4<span class='red'> ü</span>"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>Î</span>k%4<span class='red'> ý</span>"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>Ï</span>Б%4<span class='red'> þ</span>"}
+  ]},
+  {"name": "Крюк {pitch}", "opts": ["Подвертка"], "melody": "0:1 -1:1", "variants": [
+    {"pitch": "Ут низкое", "value": "<span class='red'>Í</span>j5", "notes": "Г2"},
+    {"pitch": "Ми низкое", "value": "<span class='red'>Ö</span>l5"},
+    {"pitch": "Ут", "value": "<span class='red'>ã</span>k{5"},
+    {"pitch": "Ре", "value": "<span class='red'>í</span>j{5"},
+    {"pitch": "Ми", "value": "<span class='red'>ö</span>l{5"},
+    {"pitch": "Фа", "value": "<span class='red'>ì</span>k(5"},
+    {"pitch": "Соль", "value": "<span class='red'>ï</span>Б(5"},
+    {"pitch": "Ля", "value": "<span class='red'>â</span>В(5"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>Î</span>k%5"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>Ï</span>Б%5"}
+  ]},
+  {"name": "Крюк {pitch}", "opts": ["Равенство", "Подвертка"], "melody": "0:1 -1:1", "variants": [
+    {"pitch": "Ут низкое", "value": "<span class='red'>ð</span>j5", "notes": "Г2"},
+    {"pitch": "Ми низкое", "value": "<span class='red'>ð</span>l5"},
+    {"pitch": "Ут", "value": "<span class='red'>ð</span>k{5"},
+    {"pitch": "Ре", "value": "<span class='red'>ð</span>j{5"},
+    {"pitch": "Ре", "value": "<span class='red'>ð</span>j{5<span class='red'> ú</span>"},
+    {"pitch": "Ми", "value": "<span class='red'>ð</span>l{5"},
+    {"pitch": "Фа", "value": "<span class='red'>ð</span>k(5"},
+    {"pitch": "Соль", "value": "<span class='red'>ð</span>Б(5"},
+    {"pitch": "Ля", "value": "<span class='red'>ð</span>В(5"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>ð</span>k%5"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>ð</span>Б%5"}
+  ]},
+  {"name": "Крюк {pitch}", "opts": ["Ломка", "Подвертка"], "melody": "0:1 -2:1", "variants": [
+    {"pitch": "Ми низкое", "value": "<span class='red'>Ö</span>l5<span class='red'> ø</span>"},
+    {"pitch": "Ут", "value": "<span class='red'>ã</span>k{5<span class='red'> ù</span>"},
+    {"pitch": "Ре", "value": "<span class='red'>í</span>j{5<span class='red'> ú</span>"},
+    {"pitch": "Ми", "value": "<span class='red'>ö</span>l{5<span class='red'> ÷</span>"},
+    {"pitch": "Фа", "value": "<span class='red'>ì</span>k(5<span class='red'> ÿ</span>"},
+    {"pitch": "Соль", "value": "<span class='red'>ï</span>Б(5<span class='red'>û</span>"},
+    {"pitch": "Ля", "value": "<span class='red'>â</span>В(5<span class='red'> ü</span>"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>Î</span>k%5<span class='red'> ý</span>"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>Ï</span>Б%5<span class='red'> Ā</span>", "notes": "П1М1"}
+  ]},
+  {"name": "Крюк {pitch}", "opts": ["Равенство", "Ломка", "Подвертка"], "melody": "0:1 -2:1", "variants": [
+    {"pitch": "Ми низкое", "value": "<span class='red'>ð</span>l5<span class='red'> ø</span>"},
+    {"pitch": "Ут", "value": "<span class='red'>ð</span>k{5<span class='red'> ù</span>"},
+    {"pitch": "Ми", "value": "<span class='red'>ð</span>l{5<span class='red'> ÷</span>"},
+    {"pitch": "Фа", "value": "<span class='red'>ð</span>k(5<span class='red'> ÿ</span>"},
+    {"pitch": "Соль", "value": "<span class='red'>ð</span>Б(5<span class='red'>û</span>"},
+    {"pitch": "Ля", "value": "<span class='red'>ð</span>В(5<span class='red'> ü</span>"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>ð</span>k%5<span class='red'> þ</span>"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>ð</span>Б%5<span class='red'> Ā</span>", "notes": "П1М1"}
+  ]},
+  {"name": "Крюк с ломкой", "opts": ["Ломка"], "melody": "-2:1 0:1", "variants": [
+    {"pitch": "Соль", "value": "<span class='red'>ïë</span>Б?("},
+    {"pitch": "Соль высокое", "value": "<span class='red'>Ïë</span>Б?%"}
+  ]},
+  {"name": "Крюк {pitch}", "opts": ["Подчашие", "Подвертка"], "melody": "0:1 -1:1 -2:1", "variants": [
+    {"pitch": "Фа", "value": "<span class='red'>ì</span>k(45"},
+    {"pitch": "Ми", "value": "<span class='red'>ö</span>l{45"}
+  ]},
+  {"name": "Крюк Фа с доп. пометой Ми", "opts": ["Подчашие"], "variants": [
+    {"pitch": "Фа с доп. пометой Ми", "value": "<span class='red'>ì</span>k(4<span class='red'>û</span>", "notes": "м2с2"}
+  ]}
+]},
+{"id": 2, "label": "Параклит", "records": [
+  {"name": "Параклит {pitch}", "opts": [], "melody": "0:2", "variants": [
+    {"pitch": "Ре", "value": "<span class='red'>í</span>o"},
+    {"pitch": "Ми", "value": "<span class='red'>ö</span>["},
+    {"pitch": "Фа", "value": "<span class='red'>ì</span>p"},
+    {"pitch": "Соль", "value": "<span class='red'>ï</span>o"},
+    {"pitch": "Ля", "value": "<span class='red'>â</span>["}
+  ]},
+  {"name": "Параклит {pitch}", "opts": ["Отсечка"], "melody": "0:1", "variants": [
+    {"pitch": "Ут", "value": "<span class='red'>ã</span>p)"},
+    {"pitch": "Ре", "value": "<span class='red'>í</span>o)"},
+    {"pitch": "Ми", "value": "<span class='red'>ö</span>[)"},
+    {"pitch": "Фа", "value": "<span class='red'>ì</span>p)"},
+    {"pitch": "Соль", "value": "<span class='red'>ï</span>o)"},
+    {"pitch": "Ля", "value": "<span class='red'>â</span>[)"}
+  ]},
+  {"name": "Параклит {pitch}", "opts": ["Задержка"], "melody": "0:2", "variants": [
+    {"pitch": "Ут", "value": "<span class='red'>ã</span>p2"},
+    {"pitch": "Ре", "value": "<span class='red'>í</span>o2"},
+    {"pitch": "Ми", "value": "<span class='red'>ö</span>[2"},
+    {"pitch": "Фа", "value": "<span class='red'>ì</span>p2"},
+    {"pitch": "Соль", "value": "<span class='red'>ï</span>o2"},
+    {"pitch": "Ля", "value": "<span class='red'>â</span>[2"}
+  ]},
+  {"name": "Параклит {pitch}", "opts": ["Подчашие"], "melody": "0:2 -1:2", "variants": [
+    {"pitch": "Ут", "value": "<span class='red'>ã</span>p4"},
+    {"pitch": "Ре", "value": "<span class='red'>í</span>o4"},
+    {"pitch": "Ми", "value": "<span class='red'>ö</span>[4"},
+    {"pitch": "Фа", "value": "<span class='red'>ì</span>p4"},
+    {"pitch": "Соль", "value": "<span class='red'>ï</span>o4"},
+    {"pitch": "Ля", "value": "<span class='red'>â</span>[4"}
+  ]},
+  {"name": "Параклит {pitch}", "opts": ["Ломка", "Подчашие"], "melody": "0:2 -2:2", "variants": [
+    {"pitch": "Ут", "value": "<span class='red'>ã</span>p4<span class='red'>ù</span>"},
+    {"pitch": "Ре", "value": "<span class='red'>í</span>o4<span class='red'>ú</span>"},
+    {"pitch": "Ми", "value": "<span class='red'>ö</span>[4<span class='red'> ÷</span>"},
+    {"pitch": "Фа", "value": "<span class='red'>ì</span>p4<span class='red'>ÿ</span>"},
+    {"pitch": "Соль", "value": "<span class='red'>ï</span>o4<span class='red'>û</span>"},
+    {"pitch": "Ля", "value": "<span class='red'>â</span>[4<span class='red'> ü</span>"}
+  ]},
+  {"name": "Параклит {pitch}", "opts": ["Подвертка"], "melody": "0:1 -1:1", "variants": [
+    {"pitch": "Ут", "value": "<span class='red'>ã</span>p5"},
+    {"pitch": "Ре", "value": "<span class='red'>í</span>o5"},
+    {"pitch": "Ми", "value": "<span class='red'>ö</span>[5"},
+    {"pitch": "Фа", "value": "<span class='red'>ì</span>p5"},
+    {"pitch": "Соль", "value": "<span class='red'>ï</span>o5"},
+    {"pitch": "Ля", "value": "<span class='red'>â</span>[5"}
+  ]},
+  {"name": "Параклит {pitch}", "opts": ["Ломка", "Подвертка"], "melody": "0:1 -2:1", "variants": [
+    {"pitch": "Ут", "value": "<span class='red'>ã</span>p5<span class='red'>ù</span>", "notes": "с1г1"},
+    {"pitch": "Ре", "value": "<span class='red'>í</span>o5<span class='red'>ú</span>"},
+    {"pitch": "Ут", "value": "<span class='red'>ö</span>[5<span class='red'>÷</span>", "notes": "с1г1"},
+    {"pitch": "Фа", "value": "<span class='red'>ì</span>p5<span class='red'>ÿ</span>"},
+    {"pitch": "Соль", "value": "<span class='red'>ï</span>o5<span class='red'>û</span>"},
+    {"pitch": "Ля", "value": "<span class='red'>â</span>[5<span class='red'> ü</span>"}
+  ]}
+]},
+{"id": 3, "label": "Запятая", "records": [
+  {"name": "Запятая {pitch}", "opts": [], "melody": "0:2", "variants": [
+    {"pitch": "Ут низкое", "value": "<span class='red'>Ã</span>X", "name": "Запятая Ут"},
+    {"pitch": "Ми низкое", "value": "<span class='red'>Ö</span>A", "name": "Запятая Ми"},
+    {"pitch": "Ут", "value": "<span class='red'>ã</span>X"},
+    {"pitch": "Ми", "value": "<span class='red'>ö</span>A"},
+    {"pitch": "Фа", "value": "<span class='red'>ì</span>Z"}
+  ]},
+  {"name": "Запятая {pitch}", "opts": ["Равенство"], "melody": "0:2", "variants": [
+    {"pitch": "Ут", "value": "<span class='red'>ð</span>X"},
+    {"pitch": "Ми", "value": "<span class='red'>ð</span>A"},
+    {"pitch": "Фа", "value": "<span class='red'>ð</span>Z"}
+  ]},
+  {"name": "Запятая Ре-Соль", "opts": [], "melody": "0:2", "variants": [
+    {"pitch": "Ре низкое", "value": "<span class='red'>Í</span>z"},
+    {"pitch": "Ре", "value": "<span class='red'>í</span>z"},
+    {"pitch": "Соль", "value": "<span class='red'>ï</span>z"}
+  ]},
+  {"name": "Запятая Ре-Соль", "opts": ["Равенство"], "melody": "0:2", "variants": [
+    {"pitch": "Ре", "value": "<span class='red'>ð</span>z"}
+  ]},
+  {"name": "Запятая {pitch}", "opts": ["Отсечка"], "melody": "0:1", "variants": [
+    {"pitch": "Ут низкое", "value": "<span class='red'>Ã</span>X)", "name": "Запятая Ут"},
+    {"pitch": "Ми низкое", "value": "<span class='red'>Ö</span>A)", "name": "Запятая Ми"},
+    {"pitch": "Ут", "value": "<span class='red'>ã</span>X)"},
+    {"pitch": "Ми", "value": "<span class='red'>ö</span>A)"},
+    {"pitch": "Фа", "value": "<span class='red'>ì</span>Z)"}
+  ]},
+  {"name": "Запятая {pitch}", "opts": ["Равенство", "Отсечка"], "melody": "0:1", "variants": [
+    {"pitch": "Ут", "value": "<span class='red'>ð</span>X)"},
+    {"pitch": "Ми низкое", "value": "<span class='red'>ð</span>A)", "name": "Запятая Ми"},
+    {"pitch": "Фа", "value": "<span class='red'>ð</span>Z)"}
+  ]},
+  {"name": "Запятая Ре-Соль", "opts": ["Отсечка"], "melody": "0:1", "variants": [
+    {"pitch": "Ре низкое", "value": "<span class='red'>Í</span>z)"},
+    {"pitch": "Ре", "value": "<span class='red'>í</span>z)"},
+    {"pitch": "Соль", "value": "<span class='red'>ï</span>z)"}
+  ]},
+  {"name": "Запятая Ре-Соль", "opts": ["Равенство", "Отсечка"], "melody": "0:1", "variants": [
+    {"pitch": "Ре", "value": "<span class='red'>ð</span>z)"}
+  ]}
+]},
+{"id": 4, "label": "Стопица", "records": [
+  {"name": "Стопица {pitch}", "opts": [], "melody": "0:2", "variants": [
+    {"pitch": "Ут низкое", "value": "<span class='red'>Ã</span>c", "name": "Стопица Ут и Фа"},
+    {"pitch": "Ре низкое", "value": "<span class='red'>Í</span>w", "name": "Стопица Ре"},
+    {"pitch": "Ми низкое", "value": "<span class='red'>Ö</span>v", "name": "Стопица Ми"},
+    {"pitch": "Ут", "value": "<span class='red'>ã</span>c", "name": "Стопица Ут и Фа"},
+    {"pitch": "Ре", "value": "<span class='red'>í</span>w"},
+    {"pitch": "Ми", "value": "<span class='red'>ö</span>v"},
+    {"pitch": "Фа", "value": "<span class='red'>ì</span>c", "name": "Стопица Ут и Фа"},
+    {"pitch": "Соль", "value": "<span class='red'>ï</span>x"},
+    {"pitch": "Ля", "value": "<span class='red'>â</span>u"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>Î</span>c", "name": "Стопица Ут и Фа"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>Ï</span>x", "name": "Стопица Соль"},
+    {"pitch": "Ля высокое", "value": "<span class='red'>Â</span>u", "name": "Стопица Ля"}
+  ]},
+  {"name": "Стопица {pitch}", "opts": ["Равенство"], "melody": "0:2", "variants": [
+    {"pitch": "Ут", "value": "<span class='red'>ð</span>c"},
+    {"pitch": "Фа", "value": "<span class='red'>ð</span>c"},
+    {"pitch": "Ре", "value": "<span class='red'>ð</span>w"},
+    {"pitch": "Ми", "value": "<span class='red'>ð</span>v"},
+    {"pitch": "Соль", "value": "<span class='red'>ð</span>x"},
+    {"pitch": "Ля", "value": "<span class='red'>ð</span>u"}
+  ]},
+  {"name": "Стопица {pitch}", "opts": ["Отсечка"], "melody": "0:1", "variants": [
+    {"pitch": "Ут низкое", "value": "<span class='red'>Ã</span>c)", "name": "Стопица Ут и Фа"},
+    {"pitch": "Ре низкое", "value": "<span class='red'>Í</span>w)", "name": "Стопица Ре"},
+    {"pitch": "Ми низкое", "value": "<span class='red'>Ö</span>v)", "name": "Стопица Ми"},
+    {"pitch": "Ут", "value": "<span class='red'>ã</span>c)", "name": "Стопица Ут и Фа"},
+    {"pitch": "Ре", "value": "<span class='red'>í</span>w)"},
+    {"pitch": "Ми", "value": "<span class='red'>ö</span>v)"},
+    {"pitch": "Фа", "value": "<span class='red'>ì</span>c)", "name": "Стопица Ут и Фа"},
+    {"pitch": "Соль", "value": "<span class='red'>ï</span>x)"},
+    {"pitch": "Ля", "value": "<span class='red'>â</span>u)", "notes": "В1"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>Î</span>c)", "name": "Стопица Ут и Фа"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>Ï</span>x)", "name": "Стопица Соль"},
+    {"pitch": "Ля", "value": "<span class='red'>Â</span>u)", "notes": "В1"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>Î</span>c)", "name": "Стопица Ут и Фа"}
+  ]},
+  {"name": "Стопица {pitch}", "opts": ["Равенство", "Отсечка"], "melody": "0:1", "variants": [
+    {"pitch": "Ут", "value": "<span class='red'>ð</span>c)"},
+    {"pitch": "Фа", "value": "<span class='red'>ð</span>c)"},
+    {"pitch": "Ре низкое", "value": "<span class='red'>ð</span>w)", "name": "Стопица Ре"},
+    {"pitch": "Ми", "value": "<span class='red'>ð</span>v)"},
+    {"pitch": "Соль", "value": "<span class='red'>ð</span>x)"},
+    {"pitch": "Ля", "value": "<span class='red'>ð</span>u)", "notes": "В1"}
+  ]},
+  {"name": "Стопица {pitch}", "opts": ["Отсечка", "Ударка"], "melody": "0:!", "variants": [
+    {"pitch": "Соль высокое", "value": "<span class='red'>Ïó</span>x)", "name": "Стопица Соль"},
+    {"pitch": "Ля высокое", "value": "<span class='red'>Âó</span>u)", "name": "Стопица Ля"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>Îó</span>c)", "name": "Стопица Ут и Фа"},
+    {"pitch": "Ля", "value": "<span class='red'>âó</span>u)"},
+    {"pitch": "Соль", "value": "<span class='red'>ïó</span>x)"},
+    {"pitch": "Фа", "value": "<span class='red'>ìó</span>c)", "name": "Стопица Ут и Фа"},
+    {"pitch": "Ми", "value": "<span class='red'>öó</span>v)"},
+    {"pitch": "Ре", "value": "<span class='red'>íó</span>w)"},
+    {"pitch": "Ут", "value": "<span class='red'>ãó</span>c)", "name": "Стопица Ут и Фа"}
+  ]},
+  {"name": "Стопица {pitch}", "opts": ["Равенство", "Отсечка", "Ударка"], "melody": "0:!", "variants": [
+    {"pitch": "Ут", "value": "<span class='red'>ðó</span>c)"},
+    {"pitch": "Ре", "value": "<span class='red'>ðó</span>w)"},
+    {"pitch": "Ми", "value": "<span class='red'>ðó</span>v)"},
+    {"pitch": "Фа", "value": "<span class='red'>ðó</span>c)"},
+    {"pitch": "Соль", "value": "<span class='red'>ðó</span>w)"},
+    {"pitch": "Ля", "value": "<span class='red'>ðó</span>v)"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>ðó</span>c)"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>ðó</span>w)", "name": "Стопица Ре"},
+    {"pitch": "Ля высокое", "value": "<span class='red'>ðó</span>v)"}
+  ]}
+]},
+{"id": 5, "label": "Челюстка", "records": [
+  {"name": "Челюстка {family}", "opts": [], "melody": "0:4", "variants": [
+    {"pitch": "Ут низкое", "value": "<span class='red'>Ã</span>c&"},
+    {"pitch": "Ре низкое", "value": "<span class='red'>Í</span>w&", "name": "Челюстка Ре"},
+    {"pitch": "Ми низкое", "value": "<span class='red'>Ö</span>v&", "name": "Челюстка Ми"},
+    {"pitch": "Ут", "value": "<span class='red'>ã</span>c&"},
+    {"pitch": "Ре", "value": "<span class='red'>í</span>w&", "name": "Челюстка Ре"},
+    {"pitch": "Ми", "value": "<span class='red'>ö</span>v&", "name": "Челюстка Ми"},
+    {"pitch": "Фа", "value": "<span class='red'>ì</span>c&"}
+  ]}
+]},
+{"id": 6, "label": "Ключ", "records": [
+  {"name": "Ключ {pitch}", "opts": [], "melody": "0:4", "variants": [
+    {"pitch": "Ми", "value": "<span class='red'>ö</span>В^"},
+    {"pitch": "Фа", "value": "<span class='red'>ì</span>k^"},
+    {"pitch": "Ля", "value": "<span class='red'>â</span>В^"},
+    {"pitch": "Соль", "value": "<span class='red'>ï</span>k^"}
+  ]}
+]},
+{"id": 7, "label": "Подчашие", "records": [
+  {"name": "Подчашие {pitch}", "opts": [], "melody": "0:1 -1:1", "variants": [
+    {"pitch": "Ре низкое", "value": "<span class='red'>Í</span>L=4", "name": "Подчашие Ре"},
+    {"pitch": "Ми низкое", "value": "<span class='red'>Ö</span><{4", "name": "Подчашие Ми"},
+    {"pitch": "Ут", "value": "<span class='red'>ã</span>L{4"},
+    {"pitch": "Ре", "value": "<span class='red'>í</span>L=4"},
+    {"pitch": "Ми", "value": "<span class='red'>ö</span><{4"},
+    {"pitch": "Фа", "value": "<span class='red'>ì</span>L(4"},
+    {"pitch": "Соль", "value": "<span class='red'>ï</span>LЕ4"},
+    {"pitch": "Ля", "value": "<span class='red'>â</span><(4"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>Î</span>L:4"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>Ï</span>L;4"},
+    {"pitch": "Ля высокое", "value": "<span class='red'>Â</span><:4"},
+    {"pitch": "Ми с доп. пометой Ре", "value": "<span class='red'>ö</span><{4<span class='red'>ÿ</span>", "name": "Подчашие Ми", "notes": "с1н1"}
+  ]},
+  {"name": "Подчашие {pitch}", "opts": ["Равенство"], "melody": "0:1 -1:1", "variants": [
+    {"pitch": "Ре", "value": "<span class='red'>ð</span>L=4"},
+    {"pitch": "Ми", "value": "<span class='red'>ð</span><{4"},
+    {"pitch": "Ут", "value": "<span class='red'>ð</span>L{4"},
+    {"pitch": "Фа", "value": "<span class='red'>ð</span>L(4"},
+    {"pitch": "Соль", "value": "<span class='red'>ð</span>LЕ4"},
+    {"pitch": "Ля", "value": "<span class='red'>ð</span><(4"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>ð</span>L:4"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>ð</span>L;4"},
+    {"pitch": "Ля высокое", "value": "<span class='red'>ð</span><:4"}
+  ]},
+  {"name": "Подчашие Ми с ударкой", "opts": ["Ударка"], "melody": "0:! -1:!", "variants": [
+    {"pitch": "Ми", "value": "<span class='red'>öó</span><{4"}
+  ]},
+  {"name": "Подчашие {pitch}", "opts": ["Ломка"], "melody": "0:1 -2:1", "variants": [
+    {"pitch": "Ми низкое", "value": "<span class='red'>Ö</span><{4<span class='red'> ø</span>", "name": "Подчашие Ми"},
+    {"pitch": "Ут", "value": "<span class='red'>ã</span>L{4<span class='red'> ù</span>"},
+    {"pitch": "Ре", "value": "<span class='red'>í</span>L=4<span class='red'> ú</span>"},
+    {"pitch": "Ми", "value": "<span class='red'>ö</span><{4<span class='red'> ÷</span>"},
+    {"pitch": "Фа", "value": "<span class='red'>ì</span>L(4<span class='red'> ÿ</span>"},
+    {"pitch": "Соль", "value": "<span class='red'>ï</span>LЕ4<span class='red'> û</span>"},
+    {"pitch": "Ля", "value": "<span class='red'>â</span><(4<span class='red'> ü</span>"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>Î</span>L:4<span class='red'> ý</span>"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>Ï</span>L;4<span class='red'> þ</span>"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>ð</span>L;4<span class='red'> þ</span>"},
+    {"pitch": "Ля высокое", "value": "<span class='red'>Â</span><:4<span class='red'> Ā</span>"},
+    {"pitch": "Ля высокое", "value": "<span class='red'>ð</span><:4<span class='red'> Ā</span>"}
+  ]},
+  {"name": "Подчашие {pitch}", "opts": ["Равенство", "Ломка"], "melody": "0:1 -2:1", "variants": [
+    {"pitch": "Ми низкое", "value": "<span class='red'>ð</span><{4<span class='red'> ø</span>", "name": "Подчашие Ми"},
+    {"pitch": "Ут", "value": "<span class='red'>ð</span>L{4<span class='red'> ù</span>"},
+    {"pitch": "Ре", "value": "<span class='red'>ð</span>L=4<span class='red'> ú</span>"},
+    {"pitch": "Ми", "value": "<span class='red'>ð</span><{4<span class='red'> ÷</span>"},
+    {"pitch": "Фа", "value": "<span class='red'>ð</span>L(4<span class='red'> ÿ</span>"},
+    {"pitch": "Соль", "value": "<span class='red'>ð</span>LЕ4<span class='red'> û</span>"},
+    {"pitch": "Ля", "value": "<span class='red'>ð</span><(4<span class='red'> ü</span>"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>ð</span>L:4 <span class='red'>ý</span>"}
+  ]}
+]},
+{"id": 8, "label": "Палка", "records": [
+  {"name": "Палка Ми-Ля", "opts": [], "melody": "0:2", "variants": [
+    {"pitch": "Ми низкое", "value": "<span class='red'>Ö</span>U"},
+    {"pitch": "Ми", "value": "<span class='red'>ö</span>U"},
+    {"pitch": "Ля", "value": "<span class='red'>â</span>U"}
+  ]},
+  {"name": "Палка Ми-Ля", "opts": ["Равенство"], "melody": "0:2", "variants": [
+    {"pitch": "Ля", "value": "<span class='red'>ð</span>U"}
+  ]},
+  {"name": "Палка Ут-Фа", "opts": [], "melody": "0:2", "variants": [
+    {"pitch": "Ут", "value": "<span class='red'>ã</span>R"},
+    {"pitch": "Фа", "value": "<span class='red'>ì</span>R"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>Î</span>R"}
+  ]},
+  {"name": "Палка Ут-Фа", "opts": ["Равенство"], "melody": "0:2", "variants": [
+    {"pitch": "Фа", "value": "<span class='red'>ð</span>R"}
+  ]},
+  {"name": "Палка {pitch}", "opts": [], "melody": "0:2", "variants": [
+    {"pitch": "Ре", "value": "<span class='red'>í</span>I"},
+    {"pitch": "Соль", "value": "<span class='red'>ï</span>Y"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>Ï</span>Y"}
+  ]},
+  {"name": "Палка {pitch}", "opts": ["Отсечка"], "melody": "0:1", "variants": [
+    {"pitch": "Ре", "value": "<span class='red'>í</span>I)"}
+  ]},
+  {"name": "Палка {pitch}", "opts": ["Равенство"], "melody": "0:2", "variants": [
+    {"pitch": "Ре", "value": "<span class='red'>ð</span>I"},
+    {"pitch": "Соль", "value": "<span class='red'>ð</span>Y"}
+  ]},
+  {"name": "Палка Ми-Ля", "opts": ["Отсечка"], "melody": "0:1", "variants": [
+    {"pitch": "Ми", "value": "<span class='red'>ö</span>U)"}
+  ]},
+  {"name": "Палка Ут-Фа", "opts": ["Отсечка"], "melody": "0:2", "variants": [
+    {"pitch": "Фа", "value": "<span class='red'>ì</span>R"}
+  ]},
+  {"name": "Палка Ми-Ля", "opts": ["Подвертка"], "melody": "0:1 -1:1", "variants": [
+    {"pitch": "Ми низкое", "value": "<span class='red'>Ö</span>UА"},
+    {"pitch": "Ми", "value": "<span class='red'>ö</span>UА"},
+    {"pitch": "Ля", "value": "<span class='red'>â</span>UА"}
+  ]},
+  {"name": "Палка Ми-Ля", "opts": ["Равенство", "Подвертка"], "melody": "0:1 -1:1", "variants": [
+    {"pitch": "Ля", "value": "<span class='red'>ð</span>UА"}
+  ]},
+  {"name": "Палка Ут-Фа", "opts": ["Подвертка"], "melody": "0:1 -1:1", "variants": [
+    {"pitch": "Ут", "value": "<span class='red'>ã</span>RА"},
+    {"pitch": "Фа", "value": "<span class='red'>ì</span>RА"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>Î</span>RА"}
+  ]},
+  {"name": "Палка Ут-Фа", "opts": ["Равенство", "Подвертка"], "melody": "0:1 -1:1", "variants": [
+    {"pitch": "Фа", "value": "<span class='red'>ð</span>RА"}
+  ]},
+  {"name": "Палка {pitch}", "opts": ["Подвертка"], "melody": "0:1 -1:1", "variants": [
+    {"pitch": "Ре", "value": "<span class='red'>í</span>IА"},
+    {"pitch": "Соль", "value": "<span class='red'>ï</span>YА"}
+  ]},
+  {"name": "Палка {pitch}", "opts": ["Равенство", "Подвертка"], "melody": "0:1 -1:1", "variants": [
+    {"pitch": "Ре", "value": "<span class='red'>ð</span>IА"},
+    {"pitch": "Соль", "value": "<span class='red'>ð</span>YА"}
+  ]},
+  {"name": "Палка воздернутая {pitch}", "opts": ["Воздернутая"], "melody": "0:4", "variants": [
+    {"pitch": "Ре", "value": "<span class='red'>í</span>I`"},
+    {"pitch": "Соль", "value": "<span class='red'>ï</span>Y`"}
+  ]},
+  {"name": "Палка воздернутая Ут-Фа", "opts": ["Качка", "Подвертка", "Воздернутая"], "melody": "0:1 -1:1 0:1 -1:1", "variants": [
+    {"pitch": "Ут", "value": "<span class='red'>ãê</span>RА`"}
+  ]}
+]},
+{"id": 9, "label": "Скамейца", "records": [
+  {"name": "Скамейца {family}", "opts": [], "melody": "-1:1 0:1", "variants": [
+    {"pitch": "Ре низкое", "value": "<span class='red'>Í</span>L\\9"},
+    {"pitch": "Ми низкое", "value": "<span class='red'>Ö</span><9"},
+    {"pitch": "Ут", "value": "<span class='red'>ã</span>L9"},
+    {"pitch": "Ре", "value": "<span class='red'>í</span>L\\9"},
+    {"pitch": "Ми", "value": "<span class='red'>ö</span><9"},
+    {"pitch": "Фа", "value": "<span class='red'>ì</span>L9"},
+    {"pitch": "Соль", "value": "<span class='red'>ï</span>L\\9"},
+    {"pitch": "Ля", "value": "<span class='red'>â</span><9"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>Î</span>L>", "name": "Скамейца Фа высокое"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>Ï</span>L>\\", "name": "Скамейца Соль высокое"},
+    {"pitch": "Ля высокое", "value": "<span class='red'>Â</span><>", "name": "Скамейца Ля высокое"},
+    {"pitch": "Фа с доп. пометой Ми", "value": "<span class='red'>û</span>L9<span class='red'>Ĩ</span>", "name": "Скамейца Ут и Фа", "notes": "с1м1"}
+  ]},
+  {"name": "Скамейца {family}", "opts": ["Ломка"], "melody": "-2:1 0:1", "variants": [
+    {"pitch": "Ут", "value": "<span class='red'>ùã</span>L9"},
+    {"pitch": "Ре", "value": "<span class='red'>úí</span>L\\9"},
+    {"pitch": "Ми", "value": "<span class='red'>÷ö</span><9"},
+    {"pitch": "Соль", "value": "<span class='red'>ûï</span>L\\9"},
+    {"pitch": "Ля", "value": "<span class='red'>üâ</span><9"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>Î</span>L><span class='red'>ý</span>", "name": "Скамейца Фа высокое"},
+    {"pitch": "Фа", "value": "<span class='red'>ì</span>L9<span class='red'>ÿ</span>"}
+  ]},
+  {"name": "Скамейца {family}", "opts": ["Тихая"], "melody": "-1:2 0:2", "variants": [
+    {"pitch": "Ре", "value": "<span class='red'>Í+</span>)L\\9"},
+    {"pitch": "Ми низкое", "value": "<span class='red'>Ö+</span>)<9"},
+    {"pitch": "Ут", "value": "<span class='red'>ã+</span>)L9"},
+    {"pitch": "Ре", "value": "<span class='red'>í+</span>)L\\9"},
+    {"pitch": "Ми", "value": "<span class='red'>ö+</span>)<9"},
+    {"pitch": "Фа", "value": "<span class='red'>ì+</span>)L9"},
+    {"pitch": "Соль", "value": "<span class='red'>ï+</span>)L\\9"},
+    {"pitch": "Ля", "value": "<span class='red'>â+</span>)<9"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>Î+</span>)L>", "name": "Скамейца Фа высокое"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>Ï+</span>)L>\\", "name": "Скамейца Соль высокое"},
+    {"pitch": "Ля высокое", "value": "<span class='red'>Â+</span>)<>", "name": "Скамейца Ля высокое"}
+  ]},
+  {"name": "Скамейца в лице мережа", "opts": ["В лице мережа"], "variants": [
+    {"pitch": "-", "value": "<span class='red'>ä</span>L9", "notes": null, "sounds": 2}
+  ]},
+  {"name": "Скамейца в лице мережа", "opts": ["Тихая", "Задержка"], "variants": [
+    {"pitch": "-", "value": "<span class='red'>+</span>L92", "notes": null, "sounds": 2}
+  ]},
+  {"name": "Скамейца в лице площадка", "opts": ["Тихая"], "melody": "-1:2 0:2", "variants": [
+    {"pitch": "Ми", "value": "<span class='red'>ö+</span>L9"}
+  ]},
+  {"name": "Скамейца {pitch}", "opts": ["Равенство"], "melody": "-1:1 0:1", "variants": [
+    {"pitch": "Ут", "value": "<span class='red'>ð</span>L9", "name": "Скамейца Ут равенство"},
+    {"pitch": "Ре", "value": "<span class='red'>ð</span>L\\9", "name": "Скамейца Ре равенство"},
+    {"pitch": "Ми", "value": "<span class='red'>ð</span><9", "name": "Скамейца Ми равенство"},
+    {"pitch": "Фа", "value": "<span class='red'>ð</span>L9", "name": "Скамейца Фа равенство"},
+    {"pitch": "Соль", "value": "<span class='red'>ð</span>L\\9", "name": "Скамейца Соль равенство"},
+    {"pitch": "Ля", "value": "<span class='red'>ð</span><9"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>ð</span>L9", "name": "Скамейца Фа высокое равенство"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>ð</span>L\\9", "name": "Скамейца Соль высокое равенство"},
+    {"pitch": "Ля высокое", "value": "<span class='red'>ð</span><9"}
+  ]},
+  {"name": "Скамейца {family}", "opts": ["Борзая"], "melody": "-1:! 0:!", "variants": [
+    {"pitch": "Ре низкое", "value": "<span class='red'>Íá</span>L\\7"},
+    {"pitch": "Ми низкое", "value": "<span class='red'>Öá</span><7"},
+    {"pitch": "Ут", "value": "<span class='red'>ãá</span>L7"},
+    {"pitch": "Ре", "value": "<span class='red'>íá</span>L\\7"},
+    {"pitch": "Ми", "value": "<span class='red'>öá</span><7"},
+    {"pitch": "Фа", "value": "<span class='red'>ìá</span>L7"},
+    {"pitch": "Соль", "value": "<span class='red'>ïá</span>L\\7"},
+    {"pitch": "Ля", "value": "<span class='red'>âá</span><7"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>Îá</span>L7", "name": "Скамейца Фа высокое"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>Ïá</span>L\\7", "name": "Скамейца Соль высокое"},
+    {"pitch": "Ля высокое", "value": "<span class='red'>Âá</span><7", "name": "Скамейца Ля высокое"}
+  ]}
+]},
+{"id": 10, "label": "Дербица", "records": [
+  {"name": "Дербица", "opts": ["Борзая"], "melody": "-3:1 -2:1 -1:1 0:1", "variants": [
+    {"pitch": "Ми", "value": "<span class='red'>öá</span> $U"},
+    {"pitch": "Ля", "value": "<span class='red'>âá</span> $U"}
+  ]}
+]},
+{"id": 11, "label": "Переводка", "records": [
+  {"name": "Переводка", "opts": ["Борзая"], "melody": "-1:1 0:1", "variants": [
+    {"pitch": "-", "value": "<span class='red perevodka'>á</span>P", "notes": null, "sounds": 2},
+    {"pitch": "Ми низкое", "value": "<span class='red perevodka'>áÖù</span>P"},
+    {"pitch": "Ут", "value": "<span class='red perevodka'>áãú</span>P"},
+    {"pitch": "Ре", "value": "<span class='red perevodka'>áí÷</span>P"},
+    {"pitch": "Ми", "value": "<span class='red perevodka'>áöÿ</span>P"},
+    {"pitch": "Фа", "value": "<span class='red perevodka'>ìá</span>P"}
+  ]},
+  {"name": "Переводка", "opts": ["Борзая", "Отсечка"], "melody": "-1:1 0:1", "variants": [
+    {"pitch": "Соль", "value": "<span class='red perevodka'>á</span>P)"}
+  ]},
+  {"name": "Переводка", "opts": ["Тихая"], "melody": "-1:2 0:2", "variants": [
+    {"pitch": "-", "value": "<span class='red perevodka'>+</span>P", "notes": null, "sounds": 2},
+    {"pitch": "Ми низкое", "value": "<span class='red perevodka'>+Öù</span>P"},
+    {"pitch": "Ут", "value": "<span class='red perevodka'>+ãú</span>P"},
+    {"pitch": "Ре", "value": "<span class='red perevodka'>+í÷</span>P"},
+    {"pitch": "Ми", "value": "<span class='red perevodka'>+öÿ</span>P"},
+    {"pitch": "Фа", "value": "<span class='red perevodka'>+ìû</span>P"},
+    {"pitch": "Соль", "value": "<span class='red perevodka'>+ïü</span>P"}
+  ]},
+  {"name": "Переводка в лице Скачек средний", "opts": ["Ломка"], "variants": [
+    {"pitch": "-", "value": "<span class='red perevodka'>ë</span>O", "notes": null, "sounds": 2}
+  ]},
+  {"name": "Переводка в лице Скачек средний", "opts": ["Ломка", "В лице Скачек средний"], "variants": [
+    {"pitch": "Ми", "value": "<span class='red perevodka'>Жë</span>O", "notes": null, "sounds": 2}
+  ]},
+  {"name": "Переводка", "opts": ["Ломка", "Подвертка"], "melody": "-2:1 0:1 -2:1", "variants": [
+    {"pitch": "Фа", "value": "<span class='red perevodka'>ìë</span>P|"},
+    {"pitch": "Фа высокое", "value": "<span class='red perevodka'>Îë</span>O|"},
+    {"pitch": "Ля", "value": "<span class='red perevodka'>âë</span>P|"}
+  ]},
+  {"name": "Переводка в лице Скачек большой", "opts": ["Ударка"], "variants": [
+    {"pitch": "Ми", "value": "<span class='red perevodka'>öó</span>O", "notes": null, "sounds": 3}
+  ]},
+  {"name": "Переводка", "opts": ["Ломка"], "melody": "-2:1 0:1", "variants": [
+    {"pitch": "Ми", "value": "<span class='red perevodka'>öë</span>O"}
+  ]}
+]},
+{"id": 12, "label": "Голубчик борзый", "records": [
+  {"name": "Голубчик борзый", "opts": ["Равенство"], "variants": [
+    {"pitch": "-", "value": "g", "notes": null, "sounds": 2}
+  ]},
+  {"name": "Голубчик борзый", "opts": ["Ломка", "Равенство"], "variants": [
+    {"pitch": "-", "value": "<span class='red'>ë</span>g", "notes": null, "sounds": 2}
+  ]},
+  {"name": "Голубчик борзый", "opts": ["Отсечка"], "melody": "-1:1 0:1", "variants": [
+    {"pitch": "Соль", "value": "g)"}
+  ]},
+  {"name": "Голубчик борзый", "opts": [], "melody": "-1:1 0:1", "variants": [
+    {"pitch": "Ми низкое", "value": "<span class='red'>Öù</span>g"},
+    {"pitch": "Ут", "value": "<span class='red'>ãú</span>g"},
+    {"pitch": "Ре", "value": "<span class='red'>í÷</span>g"},
+    {"pitch": "Ми", "value": "<span class='red'>öÿ</span>g"},
+    {"pitch": "Фа", "value": "<span class='red'>ìû</span>g"},
+    {"pitch": "Соль", "value": "<span class='red'>ïü</span>g"}
+  ]},
+  {"name": "Голубчик борзый", "opts": ["Ломка"], "melody": "-2:1 0:1", "variants": [
+    {"pitch": "Ми", "value": "<span class='red'>ö÷</span>g"}
+  ]}
+]},
+{"id": 13, "label": "Голубчик тихий", "records": [
+  {"name": "Голубчик тихий", "opts": ["Равенство"], "variants": [
+    {"pitch": "-", "value": "<span class='red'>-</span>G", "notes": null, "sounds": 2}
+  ]},
+  {"name": "Голубчик тихий", "opts": [], "melody": "-1:2 0:2", "variants": [
+    {"pitch": "Ми низкое", "value": "<span class='red'>Öù-</span>G"},
+    {"pitch": "Ут", "value": "<span class='red'>ãú-</span>G"},
+    {"pitch": "Ре", "value": "<span class='red'>í÷-</span>G"},
+    {"pitch": "Ми", "value": "<span class='red'>öÿ-</span>G"},
+    {"pitch": "Фа", "value": "<span class='red'>ìû-</span>G"},
+    {"pitch": "Соль", "value": "<span class='red'>ïü-</span>G"}
+  ]}
+]},
+{"id": 14, "label": "Чашка", "records": [
+  {"name": "Чашка", "opts": [], "melody": "0:1 -1:1", "variants": [
+    {"pitch": "Ми низкое", "value": "<span class='red'>Ö</span>H"},
+    {"pitch": "Ут", "value": "<span class='red'>ã</span>H"},
+    {"pitch": "Ре", "value": "<span class='red'>í</span>H"},
+    {"pitch": "Ми", "value": "<span class='red'>ö</span>H"},
+    {"pitch": "Фа", "value": "<span class='red'>ì</span>H"},
+    {"pitch": "Соль", "value": "<span class='red'>ï</span>H"},
+    {"pitch": "Ля", "value": "<span class='red'>â</span>H"}
+  ]},
+  {"name": "Чашка", "opts": ["Ломка"], "melody": "-2:1 0:1", "variants": [
+    {"pitch": "Ми низкое", "value": "<span class='red'>Öë</span>H"},
+    {"pitch": "Ми", "value": "<span class='red'>öë</span>H"},
+    {"pitch": "Ля", "value": "<span class='red'>âë</span>H"}
+  ]},
+  {"name": "Чашка полная", "opts": ["Тихая"], "melody": "0:2 -1:1 -2:1", "variants": [
+    {"pitch": "Ми", "value": "<span class='red'>ö+</span>F"}
+  ]},
+  {"name": "Чашка Ми низкое равенство", "opts": ["Равенство"], "melody": "0:1 -1:1", "variants": [
+    {"pitch": "Ми низкое", "value": "<span class='red'>ð</span>H"},
+    {"pitch": "Ут", "value": "<span class='red'>ð</span>H", "name": "Чашка Ут равенство"},
+    {"pitch": "Ре", "value": "<span class='red'>ð</span>H", "name": "Чашка Ре равенство"},
+    {"pitch": "Ми", "value": "<span class='red'>ð</span>H", "name": "Чашка Ми Равенство"},
+    {"pitch": "Фа", "value": "<span class='red'>ð</span>H", "name": "Чашка Фа равенство"},
+    {"pitch": "Соль", "value": "<span class='red'>ð</span>H", "name": "Чашка Соль равенство"},
+    {"pitch": "Ля", "value": "<span class='red'>ð</span>H", "name": "Чашка Ля равенство"}
+  ]}
+]},
+{"id": 15, "label": "Статья", "records": [
+  {"name": "Статья простая {family}", "opts": [], "melody": "0:4", "variants": [
+    {"pitch": "Ут низкое", "value": "<span class='red'>Ã</span>S"},
+    {"pitch": "Ре низкое", "value": "<span class='red'>Í</span>W"},
+    {"pitch": "Ми низкое", "value": "<span class='red'>Ö</span>D", "name": "Статья простая Ми"},
+    {"pitch": "Ут", "value": "<span class='red'>ã</span>S"},
+    {"pitch": "Ре", "value": "<span class='red'>í</span>W"},
+    {"pitch": "Ми", "value": "<span class='red'>ö</span>D", "name": "Статья простая Ми"},
+    {"pitch": "Фа", "value": "<span class='red'>ì</span>S"},
+    {"pitch": "Соль", "value": "<span class='red'>ï</span>W"}
+  ]},
+  {"name": "Статья простая {family}", "opts": ["Равенство"], "melody": "0:4", "variants": [
+    {"pitch": "Фа", "value": "<span class='red'>ð</span>S"},
+    {"pitch": "Соль", "value": "<span class='red'>ð</span>W"},
+    {"pitch": "Ми", "value": "<span class='red'>ð</span>D", "name": "Статья простая Ми"}
+  ]},
+  {"name": "Статья с подверткой", "opts": ["Тихая", "Подвертка"], "melody": "0:2 -1:2", "variants": [
+    {"pitch": "Ми", "value": "<span class='red'>ö+</span>D6"},
+    {"pitch": "Соль", "value": "<span class='red'>ï+</span>W6"}
+  ]},
+  {"name": "Статья с подверткой", "opts": ["Равенство", "Подвертка"], "melody": "0:2 -1:2", "variants": [
+    {"pitch": "Ми", "value": "<span class='red'>ð+</span>D6"}
+  ]},
+  {"name": "Статья (в попевках)", "opts": [], "variants": [
+    {"pitch": "-", "value": "S", "notes": null, "sounds": 1}
+  ]},
+  {"name": "Статья с подверткой", "opts": ["Качка", "Подвертка"], "melody": "0:2 -1:2", "variants": [
+    {"pitch": "Ми", "value": "<span class='red'>öê</span>D6"}
+  ]},
+  {"name": "Статья простая {family}", "opts": ["В кулизме"], "melody": "0:4", "variants": [
+    {"pitch": "Ут низкое", "value": "S"},
+    {"pitch": "Ре низкое", "value": "W"},
+    {"pitch": "Ми низкое", "value": "D", "name": "Статья простая Ми"},
+    {"pitch": "Ре", "value": "W"},
+    {"pitch": "Ут", "value": "S"}
+  ]},
+  {"name": "Статья с подверткой", "opts": ["Борзая", "Подвертка"], "melody": "0:2 -1:2", "variants": [
+    {"pitch": "Соль", "value": "<span class='red'>ïá</span>W6"}
+  ]},
+  {"name": "Статья простая", "opts": ["Равенство", "Подвертка", "Простая"], "variants": [
+    {"pitch": "-", "value": "<span class='red'>ð+</span>N6", "notes": null, "sounds": 2}
+  ]},
+  {"name": "Статья простая", "opts": ["Тихая", "Подвертка", "Простая"], "melody": "0:1 -1:1", "variants": [
+    {"pitch": "Ми", "value": "<span class='red'>ö+</span>N6"}
+  ]},
+  {"name": "Статья простая", "opts": ["Подвертка", "Простая"], "variants": [
+    {"pitch": "-", "value": "N6", "notes": null, "sounds": 2}
+  ]}
+]},
+{"id": 16, "label": "Статья светлая", "records": [
+  {"name": "Статья светлая {pitch}", "opts": [], "melody": "0:4", "variants": [
+    {"pitch": "Ми", "value": "<span class='red'>ö</span>SN", "name": "Статья светлая Ми и Ля"},
+    {"pitch": "Фа", "value": "<span class='red'>ì</span>Ss"},
+    {"pitch": "Соль", "value": "<span class='red'>ï</span>Ds"},
+    {"pitch": "Ля", "value": "<span class='red'>â</span>SN", "name": "Статья светлая Ми и Ля"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>Î</span>Ss", "name": "Статья светлая Фа"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>Ï</span>Ds"},
+    {"pitch": "Ля высокое", "value": "<span class='red'>Â</span>SN", "name": "Статья светлая Ми и Ля"}
+  ]},
+  {"name": "Статья светлая {pitch}", "opts": ["Равенство"], "melody": "0:4", "variants": [
+    {"pitch": "Фа высокое", "value": "<span class='red'>ð</span>Ss"},
+    {"pitch": "Фа", "value": "<span class='red'>ð</span>Ss"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>ð</span>Ds"},
+    {"pitch": "Соль", "value": "<span class='red'>ð</span>Ds"},
+    {"pitch": "Ля высокое", "value": "<span class='red'>ð</span>SN"},
+    {"pitch": "Ми", "value": "<span class='red'>ð</span>SN"},
+    {"pitch": "Ля", "value": "<span class='red'>ð</span>SN"}
+  ]},
+  {"name": "Статья светлая с облачком {pitch}", "opts": ["Равенство", "Облачко"], "melody": "0:2 0:1 -1:1", "variants": [
+    {"pitch": "Фа", "value": "<span class='red'>ìÐ</span>Ss~"},
+    {"pitch": "Соль", "value": "<span class='red'>ïÐ</span>Ds~"},
+    {"pitch": "Ля", "value": "<span class='red'>âÐ</span>SN~", "name": "Статья светлая с облачком Ми и Ля"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>ÎÐ</span>Ss~", "name": "Статья светлая с облачком Фа"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>ÏÐ</span>Ds~", "name": "Статья светлая с облачком Соль"}
+  ]},
+  {"name": "Статья светлая с облачком {pitch}", "opts": ["Равенство", "Ломка", "Облачко"], "melody": "0:2 0:1 -2:1", "variants": [
+    {"pitch": "Фа", "value": "<span class='red'>ìÐ</span>Ss~<span class='red'> ÿ</span>"},
+    {"pitch": "Соль", "value": "<span class='red'>ïÐ</span>Ds~<span class='red'> û</span>"},
+    {"pitch": "Ля", "value": "<span class='red'>âÐ</span>SN~<span class='red'> ü</span>", "name": "Статья светлая с облачком Ми и Ля"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>ÎÐ</span>Ss~<span class='red'> ý</span>", "name": "Статья светлая с облачком Фа"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>ÏÐ</span>Ds~<span class='red'> þ</span>", "name": "Статья светлая с облачком Соль"}
+  ]},
+  {"name": "Статья светлая с сорочьей ножкой {family}", "opts": ["Сорочья ножка"], "melody": "0:4", "variants": [
+    {"pitch": "Фа высокое", "value": "<span class='red'>Î</span>SsÑ", "name": "Статья светлая с сорочьей ножкой Фа"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>Ï</span>DsÑ", "name": "Статья светлая с сорочьей ножкой Соль"},
+    {"pitch": "Ля высокое", "value": "<span class='red'>Â</span>SNÑ"}
+  ]},
+  {"name": "Статья светлая с сорочьей ножкой и подверткой {pitch}", "opts": ["Сорочья ножка", "Подвертка"], "melody": "0:3 -1:1", "variants": [
+    {"pitch": "Ля", "value": "<span class='red'>â</span>SNÑ 5"}
+  ]}
+]},
+{"id": 17, "label": "Статья с запятой", "records": [
+  {"name": "Статья с запятой {pitch}", "opts": [], "melody": "0:4", "variants": [
+    {"pitch": "Ут низкое", "value": "<span class='red'>Ã</span>Sm", "name": "Статья с запятой Ут и Фа"},
+    {"pitch": "Ре низкое", "value": "<span class='red'>Í</span>Wm", "name": "Статья с запятой Ре"},
+    {"pitch": "Ми низкое", "value": "<span class='red'>Ö</span>Dm", "name": "Статья с запятой Ми"},
+    {"pitch": "Ут", "value": "<span class='red'>ã</span>Sm", "name": "Статья с запятой Ут и Фа"},
+    {"pitch": "Ре", "value": "<span class='red'>í</span>Wm"},
+    {"pitch": "Ми", "value": "<span class='red'>ö</span>Dm"},
+    {"pitch": "Ми", "value": "<span class='red'>ð</span>Dm"},
+    {"pitch": "Фа", "value": "<span class='red'>ì</span>Sm", "name": "Статья с запятой Ут и Фа"},
+    {"pitch": "Соль", "value": "<span class='red'>ï</span>Wm", "name": "Статья с запятой Ре"}
+  ]},
+  {"name": "Статья с запятой {pitch}", "opts": ["Равенство"], "melody": "0:4", "variants": [
+    {"pitch": "Фа", "value": "<span class='red'>ð</span>Sm", "name": "Статья с запятой Ут и Фа"},
+    {"pitch": "Ре", "value": "<span class='red'>ð</span>Wm"}
+  ]},
+  {"name": "Статья с запятой в лице кичиги", "opts": ["Тихая", "В попевке кичиги"], "variants": [
+    {"pitch": "Ми", "value": "<span class='red'>ö+</span>Dm", "notes": null, "sounds": 2}
+  ]},
+  {"name": "Статья с запятой (кичиги)", "opts": ["В попевке кичиги"], "variants": [
+    {"pitch": "-", "value": "Sm", "notes": null, "sounds": 1}
+  ]}
+]},
+{"id": 18, "label": "Статья мрачная", "records": [
+  {"name": "Статья мрачная {family}", "opts": [], "melody": "0:4", "variants": [
+    {"pitch": "Соль", "value": "<span class='red'>ï</span>Wa"},
+    {"pitch": "Ля", "value": "<span class='red'>â</span>SM"},
+    {"pitch": "Ре", "value": "<span class='red'>í</span>Wa"},
+    {"pitch": "Ми", "value": "<span class='red'>ö</span>SM"},
+    {"pitch": "Фа", "value": "<span class='red'>ì</span>Sa", "name": "Статья мрачная Фа"}
+  ]},
+  {"name": "Статья мрачная {family}", "opts": ["Равенство", "Облачко"], "melody": "0:2 0:1 -1:1", "variants": [
+    {"pitch": "Ре", "value": "<span class='red'>íÐ</span>Wa~"},
+    {"pitch": "Соль", "value": "<span class='red'>ïÐ</span>Wa~"}
+  ]},
+  {"name": "Статья мрачная с облачком {family}", "opts": ["Равенство", "Облачко"], "melody": "-1:1 0:2 0:1 -1:1", "variants": [
+    {"pitch": "Ми", "value": "<span class='red'>öÐ</span>SM~", "notes": "с2с1н1"},
+    {"pitch": "Фа", "value": "<span class='red'>ìÐ</span>Sa~", "name": "Статья мрачная с облачком Фа", "notes": "м2м1с1"},
+    {"pitch": "Ре низкое", "value": "<span class='red'>ÍÐ</span>DJ{"},
+    {"pitch": "Ми низкое", "value": "<span class='red'>ÖÐ</span>SK{"},
+    {"pitch": "Ут", "value": "<span class='red'>ãÐ</span>SJ{"}
+  ]},
+  {"name": "Статья мрачная {family}", "opts": ["Равенство", "Ломка", "Облачко"], "melody": "0:2 0:1 -2:1", "variants": [
+    {"pitch": "Ре", "value": "<span class='red'>íÐ</span>Wa~<span class='red'> ú</span>"},
+    {"pitch": "Соль", "value": "<span class='red'>ïÐ</span>Wa~<span class='red'> û</span>"}
+  ]},
+  {"name": "Статья мрачная с облачком {pitch}", "opts": ["Равенство", "Ломка", "Облачко"], "melody": "0:2 0:1 -2:1", "variants": [
+    {"pitch": "Ми", "value": "<span class='red'>öÐ</span>SM~<span class='red'> ÷</span>", "name": "Статья мрачная с облачком Ми и Ля"},
+    {"pitch": "Фа", "value": "<span class='red'>ìÐ</span>Sa~<span class='red'> ÿ</span>"}
+  ]},
+  {"name": "Статья мрачная с подчашием {pitch}", "opts": ["Подчашие"], "melody": "-1:2 -2:2 0:4", "variants": [
+    {"pitch": "Фа", "value": "<span class='red'>ì</span>SJ4"}
+  ]},
+  {"name": "Статья мрачная с подверткой {family}", "opts": ["Борзая", "Подвертка"], "melody": "-1:1 0:3 -1:1", "variants": [
+    {"pitch": "Ре", "value": "<span class='red'>íá</span>WJ5"},
+    {"pitch": "Соль", "value": "<span class='red'>ïá</span>DJ5"}
+  ]},
+  {"name": "Статья мрачная (кичиги)", "opts": ["В попевке кичиги"], "variants": [
+    {"pitch": "-", "value": "SK", "notes": null, "sounds": 4}
+  ]},
+  {"name": "Статья мрачная {pitch}", "opts": ["Равенство"], "melody": "0:4", "variants": [
+    {"pitch": "Ре", "value": "<span class='red'>ð</span>Wa", "name": "Статья мрачная Ре и Соль"},
+    {"pitch": "Ми", "value": "<span class='red'>ð</span>SM", "name": "Статья мрачная Ми и Ля"},
+    {"pitch": "Соль", "value": "<span class='red'>ð</span>Wa"},
+    {"pitch": "Ля", "value": "<span class='red'>ð</span>SM"},
+    {"pitch": "Фа", "value": "<span class='red'>ð</span>a"}
+  ]},
+  {"name": "Статья мрачная с равенством", "opts": ["2 равенства", "Облачко"], "melody": "0:2 0:1 -1:1", "variants": [
+    {"pitch": "Соль", "value": "<span class='red'>ðÐ</span>Wa~"}
+  ]}
+]},
+{"id": 19, "label": "Малая закрытая", "records": [
+  {"name": "Малая закрытая {family}", "opts": ["Равенство"], "melody": "0:2 0:1 -1:1", "variants": [
+    {"pitch": "Ре низкое", "value": "<span class='red'>ÍÐ</span>W y"},
+    {"pitch": "Ми низкое", "value": "<span class='red'>ÖÐ</span>D y"},
+    {"pitch": "Ут", "value": "<span class='red'>ãÐ</span>S y"},
+    {"pitch": "Ре", "value": "<span class='red'>íÐ</span>W y"},
+    {"pitch": "Ми", "value": "<span class='red'>öÐ</span>D y"},
+    {"pitch": "Фа", "value": "<span class='red'>ìÐ</span>S y"},
+    {"pitch": "Соль", "value": "<span class='red'>ïÐ</span>W y"},
+    {"pitch": "Ля", "value": "<span class='red'>âÐ</span>D y"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>ÎÐ</span>S y"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>ÏÐ</span>W y"},
+    {"pitch": "Ля высокое", "value": "<span class='red'>ÂÐ</span>D y"}
+  ]},
+  {"name": "Малая закрытая {pitch}", "opts": [], "melody": "0:2 0:1 -1:1", "variants": [
+    {"pitch": "Ут", "value": "<span class='red'>ã</span>S y", "name": "Малая закрытая Ут и Фа"},
+    {"pitch": "Ре", "value": "<span class='red'>í</span>W y"},
+    {"pitch": "Ми", "value": "<span class='red'>ö</span>D y"},
+    {"pitch": "Ми низкое", "value": "<span class='red'>Ö</span>D y", "name": "Малая закрытая Ми"}
+  ]},
+  {"name": "Малая закрытая {pitch}", "opts": ["2 равенства"], "melody": "0:2 0:1 -1:1", "variants": [
+    {"pitch": "Фа высокое", "value": "<span class='red'>ðÐ</span>S y", "name": "Малая закрытая Ут и Фа"},
+    {"pitch": "Ут", "value": "<span class='red'>ðÐ</span>S y"},
+    {"pitch": "Фа", "value": "<span class='red'>ðÐ</span>S y"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>ðÐ</span>W y"},
+    {"pitch": "Соль", "value": "<span class='red'>ðÐ</span>W y"},
+    {"pitch": "Ре", "value": "<span class='red'>ðÐ</span>W y"},
+    {"pitch": "Ля высокое", "value": "<span class='red'>ðÐ</span>D y"},
+    {"pitch": "Ми", "value": "<span class='red'>ðÐ</span>D y"},
+    {"pitch": "Ля", "value": "<span class='red'>ðÐ</span>D y"}
+  ]},
+  {"name": "Малая закрытая {family}", "opts": ["Ломка"], "melody": "0:2 0:1 -1:1", "variants": [
+    {"pitch": "Ми низкое", "value": "<span class='red'>ÖÐ</span>D y<span class='red'> ø</span>"},
+    {"pitch": "Ми низкое", "value": "<span class='red'>ðÐ</span>D y<span class='red'> ø</span>"},
+    {"pitch": "Ут", "value": "<span class='red'>ãÐ</span>S y<span class='red'> ù</span>"},
+    {"pitch": "Ут", "value": "<span class='red'>ðÐ</span>S y<span class='red'> ù</span>"},
+    {"pitch": "Ре", "value": "<span class='red'>íÐ</span>W y<span class='red'> ú</span>"},
+    {"pitch": "Ре", "value": "<span class='red'>ðÐ</span>W y<span class='red'> ú</span>"},
+    {"pitch": "Ми", "value": "<span class='red'>öÐ</span>D y<span class='red'> ÷</span>"},
+    {"pitch": "Ми", "value": "<span class='red'>ðÐ</span>D y<span class='red'> ÷</span>"},
+    {"pitch": "Фа", "value": "<span class='red'>ìÐ</span>S y<span class='red'> ÿ</span>"},
+    {"pitch": "Соль", "value": "<span class='red'>ïÐ</span>W y<span class='red'> û</span>"},
+    {"pitch": "Соль", "value": "<span class='red'>ðÐ</span>W y<span class='red'> û</span>"},
+    {"pitch": "Ля", "value": "<span class='red'>âÐ</span>D y<span class='red'> ü</span>"},
+    {"pitch": "Ля", "value": "<span class='red'>ðÐ</span>D y<span class='red'> ü</span>"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>ÎÐ</span>S y<span class='red'> ý</span>"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>ðÐ</span>S y<span class='red'> ý</span>"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>ÏÐ</span>W y<span class='red'> þ</span>"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>ðÐ</span>W y<span class='red'> þ</span>"},
+    {"pitch": "Ля высокое", "value": "<span class='red'>ÂÐ</span>D y<span class='red'> Ā</span>"},
+    {"pitch": "Ля высокое", "value": "<span class='red'>ðÐ</span>D y<span class='red'> Ā</span>"}
+  ]},
+  {"name": "Малая закрытая {family}", "opts": ["Ломка", "2 равенства"], "melody": "0:2 0:1 -1:1", "variants": [
+    {"pitch": "Фа", "value": "<span class='red'>ðÐ</span>S y<span class='red'> ÿ</span>"}
+  ]},
+  {"name": "Малая закрытая (в кулизме)", "opts": [], "variants": [
+    {"pitch": "-", "value": "S y", "notes": null, "sounds": 3}
+  ]},
+  {"name": "Малая закрытая Ут (мережа)", "opts": ["Мережа"], "melody": "0:2 0:1 -1:1", "variants": [
+    {"pitch": "Ут", "value": "<span class='red'>ã</span>S y"}
+  ]},
+  {"name": "Малая закрытая Ре (мережа)", "opts": ["Мережа"], "melody": "0:2 0:1 -1:1", "variants": [
+    {"pitch": "Ре", "value": "<span class='red'>í</span>W y"}
+  ]},
+  {"name": "Малая закрытая (мережа с поддержкой)", "opts": ["Мережа с поддержкой"], "melody": "0:2 0:1 -1:1", "variants": [
+    {"pitch": "Ми", "value": "<span class='red'>ö</span>D y"}
+  ]},
+  {"name": "Малая закрытая Фа (мережа)", "opts": ["Мережа"], "melody": "0:2 0:1 -1:1", "variants": [
+    {"pitch": "Фа", "value": "<span class='red'>ì</span>S y"}
+  ]}
+]},
+{"id": 20, "label": "Средняя закрытая", "records": [
+  {"name": "Средняя закрытая {family}", "opts": [], "melody": "0:2 0:1 -1:1", "variants": [
+    {"pitch": "Ре низкое", "value": "<span class='red'>ÍÐ</span>Way"},
+    {"pitch": "Ми низкое", "value": "<span class='red'>ÖÐ</span>SMy"},
+    {"pitch": "Ут", "value": "<span class='red'>ãÐ</span>Say"},
+    {"pitch": "Ре", "value": "<span class='red'>íÐ</span>Way"},
+    {"pitch": "Ми", "value": "<span class='red'>öÐ</span>SMy"},
+    {"pitch": "Фа", "value": "<span class='red'>ìÐ</span>Say"},
+    {"pitch": "Соль", "value": "<span class='red'>ïÐ</span>Way"},
+    {"pitch": "Ля", "value": "<span class='red'>âÐ</span>SMy"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>ÎÐ</span>Say", "notes": "М2М1п1"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>ÏÐ</span>Way"},
+    {"pitch": "Ля высокое", "value": "<span class='red'>ÂÐ</span>SMy", "name": "Средняя закрытая Ля высокое"}
+  ]},
+  {"name": "Средняя закрытая {family}", "opts": ["Равенство"], "melody": "0:2 0:1 -1:1", "variants": [
+    {"pitch": "Фа", "value": "<span class='red'>ðÐ</span>Say"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>ðÐ</span>Way"},
+    {"pitch": "Ля", "value": "<span class='red'>ðÐ</span>SMy"}
+  ]},
+  {"name": "Средняя закрытая {family}", "opts": ["Ломка"], "melody": "0:2 0:1 -1:1", "variants": [
+    {"pitch": "Ми низкое", "value": "<span class='red'>ÖÐ</span>SMy<span class='red'> ø</span>"},
+    {"pitch": "Ут", "value": "<span class='red'>ãÐ</span>Say<span class='red'> ù</span>"},
+    {"pitch": "Ре", "value": "<span class='red'>íÐ</span>Way<span class='red'> ú</span>"},
+    {"pitch": "Ми", "value": "<span class='red'>öÐ</span>SMy<span class='red'> ÷</span>"},
+    {"pitch": "Фа", "value": "<span class='red'>ìÐ</span>Say<span class='red'> ÿ</span>"},
+    {"pitch": "Соль", "value": "<span class='red'>ïÐ</span>Way<span class='red'> û</span>"},
+    {"pitch": "Ля", "value": "<span class='red'>âÐ</span>SMy<span class='red'> ü</span>"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>ÎÐ</span>Say<span class='red'> ý</span>", "notes": "М2М1п1"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>ÏÐ</span>Way<span class='red'> þ</span>"},
+    {"pitch": "Ля", "value": "<span class='red'>ÂÐ</span>SMy<span class='red'> Ā</span>"}
+  ]},
+  {"name": "Средняя закрытая {family}", "opts": ["Равенство", "Ломка"], "melody": "0:2 0:1 -1:1", "variants": [
+    {"pitch": "Ми низкое", "value": "<span class='red'>ðÐ</span>SMy<span class='red'> ø</span>"},
+    {"pitch": "Ут", "value": "<span class='red'>ðÐ</span>Say<span class='red'> ù</span>"},
+    {"pitch": "Ре", "value": "<span class='red'>ðÐ</span>Way<span class='red'> ú</span>"},
+    {"pitch": "Ми", "value": "<span class='red'>ðÐ</span>SMy<span class='red'> ÷</span>"},
+    {"pitch": "Фа", "value": "<span class='red'>ðÐ</span>Say<span class='red'> ÿ</span>"},
+    {"pitch": "Соль", "value": "<span class='red'>ðÐ</span>Way<span class='red'> û</span>"},
+    {"pitch": "Ля", "value": "<span class='red'>ðÐ</span>SMy<span class='red'> ü</span>"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>ðÐ</span>Say<span class='red'> ý</span>", "notes": "М2М1п1"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>ðÐ</span>Way<span class='red'> þ</span>"},
+    {"pitch": "Ля", "value": "<span class='red'>ðÐ</span>SMy<span class='red'> Ā</span>"}
+  ]},
+  {"name": "Средняя закрытая {family}", "opts": ["Тихая"], "melody": "0:2 0:1 -1:1", "variants": [
+    {"pitch": "Ре низкое", "value": "<span class='red'>Í+Ð</span>Way"},
+    {"pitch": "Ми низкое", "value": "<span class='red'>Ö+Ð</span>SMy"},
+    {"pitch": "Ут", "value": "<span class='red'>ã+Ð</span>Say"},
+    {"pitch": "Ре", "value": "<span class='red'>í+Ð</span>Way"},
+    {"pitch": "Ми", "value": "<span class='red'>ö+Ð</span>SMy"},
+    {"pitch": "Фа", "value": "<span class='red'>ì+Ð</span>Say"},
+    {"pitch": "Соль", "value": "<span class='red'>ï+Ð</span>Way"},
+    {"pitch": "Ля", "value": "<span class='red'>â+Ð</span>SMy"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>Î+Ð</span>Say", "notes": "М2М1п1"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>Ï+Ð</span>Way"},
+    {"pitch": "Ля", "value": "<span class='red'>Â+Ð</span>SMy"}
+  ]},
+  {"name": "Средняя закрытая {family}", "opts": ["Тихая", "Равенство"], "melody": "0:2 0:1 -1:1", "variants": [
+    {"pitch": "Фа высокое", "value": "<span class='red'>ð+Ð</span>Say", "notes": "М2М1п1"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>ð+Ð</span>Way"},
+    {"pitch": "Ля", "value": "<span class='red'>ð+Ð</span>SMy"}
+  ]}
+]},
+{"id": 21, "label": "Крыж", "records": [
+  {"name": "Крыж", "opts": [], "melody": "0:4", "variants": [
+    {"pitch": "Ут низкое", "value": "<span class='red'>Ã</span>Q"},
+    {"pitch": "Ре низкое", "value": "<span class='red'>Í</span>Q"},
+    {"pitch": "Ми низкое", "value": "<span class='red'>Ö</span>Q"},
+    {"pitch": "Ут", "value": "<span class='red'>ã</span>Q"},
+    {"pitch": "Ре", "value": "<span class='red'>í</span>Д"},
+    {"pitch": "Ми", "value": "<span class='red'>ö</span>Д"},
+    {"pitch": "Фа", "value": "<span class='red'>ì</span>Q"},
+    {"pitch": "Соль", "value": "<span class='red'>ï</span>Q"},
+    {"pitch": "Ля", "value": "<span class='red'>â</span>Q"}
+  ]},
+  {"name": "Крыж", "opts": ["Равенство"], "melody": "0:4", "variants": [
+    {"pitch": "Ля", "value": "<span class='red'>ð</span>Д"},
+    {"pitch": "Ре", "value": "<span class='red'>ð</span>Д"}
+  ]}
+]},
+{"id": 22, "label": "Рог", "records": [
+  {"name": "Рог", "opts": [], "melody": "0:4", "variants": [
+    {"pitch": "Ут низкое", "value": "<span class='red'>Ã</span>r"},
+    {"pitch": "Ре низкое", "value": "<span class='red'>Í</span>r"},
+    {"pitch": "Ми низкое", "value": "<span class='red'>Ö</span>r"},
+    {"pitch": "Ут", "value": "<span class='red'>ã</span>r"},
+    {"pitch": "Ре", "value": "<span class='red'>í</span>r"},
+    {"pitch": "Ми", "value": "<span class='red'>ö</span>r"},
+    {"pitch": "Фа", "value": "<span class='red'>ì</span>r"},
+    {"pitch": "Соль", "value": "<span class='red'>ï</span>r"},
+    {"pitch": "Ля", "value": "<span class='red'>â</span>r"}
+  ]},
+  {"name": "Рог", "opts": ["Равенство"], "melody": "0:4", "variants": [
+    {"pitch": "Ля", "value": "<span class='red'>ð</span>r"}
+  ]}
+]},
+{"id": 23, "label": "Сложитие", "records": [
+  {"name": "Сложитие простое", "opts": [], "melody": "0:1 -1:1", "variants": [
+    {"pitch": "Ре низкое", "value": "<span class='red'>Í</span>B"},
+    {"pitch": "Ми низкое", "value": "<span class='red'>Ö</span>B"},
+    {"pitch": "Ут", "value": "<span class='red'>ã</span>B"},
+    {"pitch": "Ре", "value": "<span class='red'>í</span>B"},
+    {"pitch": "Ми", "value": "<span class='red'>ö</span>B"},
+    {"pitch": "Фа", "value": "<span class='red'>ì</span>B"},
+    {"pitch": "Соль", "value": "<span class='red'>ï</span>B"},
+    {"pitch": "Ля", "value": "<span class='red'>â</span>B"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>Î</span>B"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>Ï</span>B"}
+  ]},
+  {"name": "Сложитие простое", "opts": ["Равенство"], "melody": "0:1 -1:1", "variants": [
+    {"pitch": "Соль высокое", "value": "<span class='red'>ð</span>B"},
+    {"pitch": "Ля", "value": "<span class='red'>ð</span>B"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>ð</span>B"},
+    {"pitch": "Соль", "value": "<span class='red'>ð</span>B"},
+    {"pitch": "Фа", "value": "<span class='red'>ð</span>B"},
+    {"pitch": "Ми", "value": "<span class='red'>ð</span>B"},
+    {"pitch": "Ре", "value": "<span class='red'>ð</span>B"},
+    {"pitch": "Ут", "value": "<span class='red'>ð</span>B"}
+  ]},
+  {"name": "Сложитие", "opts": ["Качка", "Задержка"], "melody": "0:! -1:2", "variants": [
+    {"pitch": "Ре низкое", "value": "<span class='red'>Íê</span>B!"},
+    {"pitch": "Ми низкое", "value": "<span class='red'>Öê</span>B!"},
+    {"pitch": "Ут", "value": "<span class='red'>ãê</span>B!"},
+    {"pitch": "Ре", "value": "<span class='red'>íê</span>B!"},
+    {"pitch": "Ми", "value": "<span class='red'>öê</span>B!"},
+    {"pitch": "Фа", "value": "<span class='red'>ìê</span>B!"},
+    {"pitch": "Соль", "value": "<span class='red'>ïê</span>B!"},
+    {"pitch": "Ля", "value": "<span class='red'>âê</span>B!"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>Îê</span>B!"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>Ïê</span>B!"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>ðê</span>B!"}
+  ]},
+  {"name": "Сложитие", "opts": ["Подвертка"], "melody": "0:1 -1:1 -2:1", "variants": [
+    {"pitch": "Ми низкое", "value": "<span class='red'>Ö</span>B6"},
+    {"pitch": "Ут", "value": "<span class='red'>ã</span>B6"},
+    {"pitch": "Ре", "value": "<span class='red'>í</span>B6"},
+    {"pitch": "Ми", "value": "<span class='red'>ö</span>B6"},
+    {"pitch": "Фа", "value": "<span class='red'>ì</span>B6"},
+    {"pitch": "Соль", "value": "<span class='red'>ï</span>B6"},
+    {"pitch": "Ля", "value": "<span class='red'>â</span>B6"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>Î</span>B6"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>Ï</span>B6"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>ð</span>B6"}
+  ]},
+  {"name": "Сложитие", "opts": ["Качка", "Подвертка"], "melody": "0:! -1:1 -2:1", "variants": [
+    {"pitch": "Ми низкое", "value": "<span class='red'>Öê</span>B6"},
+    {"pitch": "Ут", "value": "<span class='red'>ãê</span>B6"},
+    {"pitch": "Ре", "value": "<span class='red'>íê</span>B6"},
+    {"pitch": "Ми", "value": "<span class='red'>öê</span>B6"},
+    {"pitch": "Фа", "value": "<span class='red'>ìê</span>B6"},
+    {"pitch": "Соль", "value": "<span class='red'>ïê</span>B6"},
+    {"pitch": "Ля", "value": "<span class='red'>âê</span>B6"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>Îê</span>B6"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>Ïê</span>B6"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>ðê</span>B6"}
+  ]},
+  {"name": "Сложитие", "opts": ["Тихая", "Задержка"], "melody": "0:1 -1:2", "variants": [
+    {"pitch": "Ре низкое", "value": "<span class='red'>Í+</span>B!"},
+    {"pitch": "Ми низкое", "value": "<span class='red'>Ö+</span>B!"},
+    {"pitch": "Ут", "value": "<span class='red'>ã+</span>B!"},
+    {"pitch": "Ре", "value": "<span class='red'>í+</span>B!"},
+    {"pitch": "Ми", "value": "<span class='red'>ö+</span>B!"},
+    {"pitch": "Фа", "value": "<span class='red'>ì+</span>B!"},
+    {"pitch": "Соль", "value": "<span class='red'>ï+</span>B!"},
+    {"pitch": "Ля", "value": "<span class='red'>â+</span>B!"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>Î+</span>B!"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>Ï+</span>B!"}
+  ]}
+]},
+{"id": 24, "label": "Сложитие с купной", "records": [
+  {"name": "Сложитие с купной", "opts": [], "melody": "0:! -1:1", "variants": [
+    {"pitch": "Ре низкое", "value": "<span class='red'>Íê</span>B"},
+    {"pitch": "Ми низкое", "value": "<span class='red'>Öê</span>B"},
+    {"pitch": "Ут", "value": "<span class='red'>ãê</span>B"},
+    {"pitch": "Ре", "value": "<span class='red'>íê</span>B"},
+    {"pitch": "Ми", "value": "<span class='red'>öê</span>B"},
+    {"pitch": "Фа", "value": "<span class='red'>ìê</span>B"},
+    {"pitch": "Соль", "value": "<span class='red'>ïê</span>B"},
+    {"pitch": "Ля", "value": "<span class='red'>âê</span>B"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>Îê</span>B"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>Ïê</span>B"}
+  ]},
+  {"name": "Сложитие с купной", "opts": ["Равенство"], "variants": [
+    {"pitch": "-", "value": "<span class='red'>ðê</span>B", "notes": null, "sounds": 2}
+  ]}
+]},
+{"id": 25, "label": "Сложитие с запятой", "records": [
+  {"name": "Сложитие с запятой {family}", "opts": [], "melody": "0:1 -1:1 -2:2", "variants": [
+    {"pitch": "Ми низкое", "value": "<span class='red'>Ö</span>n"},
+    {"pitch": "Ут", "value": "<span class='red'>ã</span>E", "name": "Сложитие с запятой Ут"},
+    {"pitch": "Ре", "value": "<span class='red'>í</span>e"},
+    {"pitch": "Ми", "value": "<span class='red'>ö</span>n"},
+    {"pitch": "Фа", "value": "<span class='red'>ì</span>C", "name": "Сложитие с запятой Фа"},
+    {"pitch": "Соль", "value": "<span class='red'>ï</span>e"},
+    {"pitch": "Ля", "value": "<span class='red'>â</span>n"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>Î</span>C", "name": "Сложитие с запятой Фа"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>Ï</span>e"}
+  ]},
+  {"name": "Сложитие с запятой {pitch}", "opts": ["Равенство"], "melody": "0:1 -1:1 -2:2", "variants": [
+    {"pitch": "Ут", "value": "<span class='red'>ð</span>C"},
+    {"pitch": "Ре", "value": "<span class='red'>ð</span>e"},
+    {"pitch": "Ми", "value": "<span class='red'>ð</span>n"},
+    {"pitch": "Соль", "value": "<span class='red'>ð</span>e"},
+    {"pitch": "Ля", "value": "<span class='red'>ð</span>n"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>ð</span>C", "name": "Сложитие с запятой Фа"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>ð</span>e", "name": "Сложитие с запятой Ре и Соль"}
+  ]},
+  {"name": "Сложитие с запятой Ля Высокое", "opts": ["Равенство"], "melody": "0:1 -1:1 -2:2", "variants": [
+    {"pitch": "Ля высокое", "value": "<span class='red'>ð</span>n"}
+  ]},
+  {"name": "Сложитие с запятой {family}", "opts": ["Тихая"], "melody": "0:1 -1:1 -2:2", "variants": [
+    {"pitch": "Ми низкое", "value": "<span class='red'>Ö+</span>n"},
+    {"pitch": "Ут", "value": "<span class='red'>ã+</span>E", "name": "Сложитие с запятой Ут"},
+    {"pitch": "Ре", "value": "<span class='red'>í+</span>e"},
+    {"pitch": "Ми", "value": "<span class='red'>ö+</span>n"},
+    {"pitch": "Фа", "value": "<span class='red'>ì+</span>C", "name": "Сложитие с запятой Фа"},
+    {"pitch": "Соль", "value": "<span class='red'>ï+</span>e"},
+    {"pitch": "Ля", "value": "<span class='red'>â+</span>n"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>Î+</span>C", "name": "Сложитие с запятой Фа"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>Ï+</span>e"}
+  ]},
+  {"name": "Сложитие с запятойЛя", "opts": ["Тихая", "Равенство"], "melody": "0:1 -1:1 -2:2", "variants": [
+    {"pitch": "Ля", "value": "<span class='red'>ð+</span>n"}
+  ]},
+  {"name": "Сложитие с запятой {pitch}", "opts": ["Тихая", "Равенство"], "melody": "0:1 -1:1 -2:2", "variants": [
+    {"pitch": "Ми", "value": "<span class='red'>ð+</span>n"},
+    {"pitch": "Ля высокое", "value": "<span class='red'>ð+</span>n"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>ð+</span>C"},
+    {"pitch": "Фа", "value": "<span class='red'>ð+</span>C"},
+    {"pitch": "Ут", "value": "<span class='red'>ð+</span>C"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>ð+</span>e"},
+    {"pitch": "Соль", "value": "<span class='red'>ð+</span>e"},
+    {"pitch": "Ре", "value": "<span class='red'>ð+</span>e"}
+  ]},
+  {"name": "Сложитие с запятой {family}", "opts": ["Подвертка"], "melody": "0:1 -1:1 -2:1 -3:1", "variants": [
+    {"pitch": "Ут", "value": "<span class='red'>ã</span>E6"},
+    {"pitch": "Ре", "value": "<span class='red'>í</span>e6"},
+    {"pitch": "Ми", "value": "<span class='red'>ö</span>n6"},
+    {"pitch": "Фа", "value": "<span class='red'>ì</span>E6"},
+    {"pitch": "Соль", "value": "<span class='red'>ï</span>e6"},
+    {"pitch": "Ля", "value": "<span class='red'>â</span>n6"}
+  ]},
+  {"name": "Сложитие с запятой {family}", "opts": ["Равенство", "Подвертка"], "melody": "0:1 -1:1 -2:1 -3:1", "variants": [
+    {"pitch": "Фа", "value": "<span class='red'>ð</span>E6"},
+    {"pitch": "Соль", "value": "<span class='red'>ð</span>e6"},
+    {"pitch": "Ля", "value": "<span class='red'>ð</span>n6"}
+  ]},
+  {"name": "Сложитие с запятой {family}", "opts": ["Ударка", "Отсечка"], "melody": "0:! -1:! -2:1", "variants": [
+    {"pitch": "Ре", "value": "<span class='red'>íó</span>e)"},
+    {"pitch": "Ми", "value": "<span class='red'>öó</span>n)"},
+    {"pitch": "Фа", "value": "<span class='red'>ìó</span>E)"},
+    {"pitch": "Соль", "value": "<span class='red'>ïó</span>e)"}
+  ]},
+  {"name": "Сложитие с запятой с ударкой и отсечкой Ре (равенство)", "opts": ["Ударка", "Отсечка", "Равенство"], "melody": "0:! -1:! -2:1", "variants": [
+    {"pitch": "Ре", "value": "<span class='red'>ðó</span>e)"}
+  ]},
+  {"name": "Сложитие с запятой с ударкой и отсечкой Ми (равенство)", "opts": ["Ударка", "Отсечка", "Равенство"], "melody": "0:! -1:! -2:1", "variants": [
+    {"pitch": "Ми", "value": "<span class='red'>ðó</span>n)"}
+  ]},
+  {"name": "Сложитие с запятой с ударкой и отсечкой Фа (равенство)", "opts": ["Ударка", "Отсечка", "Равенство"], "melody": "0:! -1:! -2:1", "variants": [
+    {"pitch": "Фа", "value": "<span class='red'>ðó</span>C)"}
+  ]},
+  {"name": "Сложитие с запятой с ударкой и отсечкой Соль (равенство)", "opts": ["Ударка", "Отсечка", "Равенство"], "melody": "0:! -1:! -2:1", "variants": [
+    {"pitch": "Соль", "value": "<span class='red'>ðó</span>e)"}
+  ]},
+  {"name": "Сложитие с запятой с ударкой и отсечкой Ля (равенство)", "opts": ["Ударка", "Отсечка", "Равенство"], "melody": "0:! -1:! -2:1", "variants": [
+    {"pitch": "Ля", "value": "<span class='red'>ðó</span>n)"}
+  ]},
+  {"name": "Сложитие с запятой с ударкой и отсечкой Соль высокое (равенство)", "opts": ["Ударка", "Отсечка", "Равенство"], "melody": "0:! -1:! -2:1", "variants": [
+    {"pitch": "Соль высокое", "value": "<span class='red'>ðó</span>e)"}
+  ]},
+  {"name": "Сложитие с запятой с ударкой и отсечкой {pitch}", "opts": ["Ударка", "Отсечка"], "melody": "0:! -1:! -2:1", "variants": [
+    {"pitch": "Ля", "value": "<span class='red'>âó</span>n)"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>Îó</span>C)"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>Ïó</span>e)"},
+    {"pitch": "Ут", "value": "<span class='red'>ãó</span>E)"},
+    {"pitch": "Ми низкое", "value": "<span class='red'>Öó</span>n)"}
+  ]},
+  {"name": "Сложитие с запятой с ударкой и отсечкой Фа высокое (равенство)", "opts": ["Ударка", "Отсечка", "Равенство"], "melody": "0:! -1:! -2:1", "variants": [
+    {"pitch": "Фа высокое", "value": "<span class='red'>ðó</span>C)"}
+  ]},
+  {"name": "Сложитие с запятой с ударкой и отсечкой Ут (равенство)", "opts": ["Ударка", "Отсечка", "Равенство"], "melody": "0:! -1:! -2:1", "variants": [
+    {"pitch": "Ут", "value": "<span class='red'>ðó</span>Е)"}
+  ]},
+  {"name": "Сложитие с запятой с ударкой и отсечкой Ми низкое (равенство)", "opts": ["Ударка", "Отсечка", "Равенство"], "melody": "0:! -1:! -2:1", "variants": [
+    {"pitch": "Ми низкое", "value": "<span class='red'>Öó</span>n)"}
+  ]}
+]},
+{"id": 26, "label": "Полукулизма", "records": [
+  {"name": "Полукулизма большая {family}", "opts": [], "melody": "-1:1 0:1 -1:1 -2:1", "variants": [
+    {"pitch": "Ми низкое", "value": "<span class='red'>Ö</span>SM/"},
+    {"pitch": "Ут", "value": "<span class='red'>ã</span>Sa/"},
+    {"pitch": "Ре", "value": "<span class='red'>í</span>Da/"},
+    {"pitch": "Ми", "value": "<span class='red'>ö</span>SM/"},
+    {"pitch": "Фа", "value": "<span class='red'>ì</span>Sa/"},
+    {"pitch": "Соль", "value": "<span class='red'>ï</span>Da/"},
+    {"pitch": "Ля", "value": "<span class='red'>â</span>SM/"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>Î</span>Sa/"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>Ï</span>Da/"}
+  ]}
+]},
+{"id": 27, "label": "Два в челну", "records": [
+  {"name": "Два в челну {pitch}", "opts": [], "melody": "0:1 -1:1 0:2", "variants": [
+    {"pitch": "Ми низкое", "value": "<span class='red'>Öê</span>l#", "name": "Два в челну Ми"},
+    {"pitch": "Ут", "value": "<span class='red'>ãê</span>k#", "name": "Два в челну Ут и Фа"},
+    {"pitch": "Ре", "value": "<span class='red'>íê</span>j#"},
+    {"pitch": "Ми", "value": "<span class='red'>öê</span>l#"},
+    {"pitch": "Фа", "value": "<span class='red'>ìê</span>k#", "name": "Два в челну Ут и Фа"},
+    {"pitch": "Соль", "value": "<span class='red'>ïê</span>Б#"},
+    {"pitch": "Ля", "value": "<span class='red'>âê</span>В#"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>Îê</span>k#", "name": "Два в челну Ут и Фа"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>Ïê</span>Б#", "name": "Два в челну Соль"}
+  ]},
+  {"name": "Два в челну {pitch}", "opts": ["Равенство"], "melody": "0:1 -1:1 0:2", "variants": [
+    {"pitch": "Ре", "value": "<span class='red'>ðê</span>j#"},
+    {"pitch": "Ми", "value": "<span class='red'>ðê</span>l#"},
+    {"pitch": "Ля", "value": "<span class='red'>ðê</span>В#"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>ðê</span>k#", "name": "Два в челну Ут и Фа"},
+    {"pitch": "Соль", "value": "<span class='red'>ðê</span>Б#"}
+  ]},
+  {"name": "Два в челну {pitch}", "opts": ["Задержка"], "melody": "0:1 -1:1 0:4", "variants": [
+    {"pitch": "Ми низкое", "value": "<span class='red'>Öê</span>l#2", "name": "Два в челну Ми"},
+    {"pitch": "Ут", "value": "<span class='red'>ãê</span>k#2", "name": "Два в челну Ут и Фа"},
+    {"pitch": "Ре", "value": "<span class='red'>íê</span>j#2"},
+    {"pitch": "Ми", "value": "<span class='red'>öê</span>l#2"},
+    {"pitch": "Фа", "value": "<span class='red'>ìê</span>k#2", "name": "Два в челну Ут и Фа"},
+    {"pitch": "Соль", "value": "<span class='red'>ïê</span>Б#2"},
+    {"pitch": "Ля", "value": "<span class='red'>âê</span>В#2"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>Îê</span>k#2", "name": "Два в челну Ут и Фа"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>Ïê</span>Б#2", "name": "Два в челну Соль"}
+  ]},
+  {"name": "Два в челну {pitch}", "opts": ["Равенство", "Задержка"], "melody": "0:1 -1:1 0:4", "variants": [
+    {"pitch": "Ре", "value": "<span class='red'>ðê</span>j#2"},
+    {"pitch": "Ми", "value": "<span class='red'>ðê</span>l#2"},
+    {"pitch": "Ля", "value": "<span class='red'>ðê</span>В#2"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>ðê</span>k#2", "name": "Два в челну Ут и Фа"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>ðê</span>Б#2", "name": "Два в челну Соль"}
+  ]},
+  {"name": "Два в челну {pitch}", "opts": ["Отсечка"], "melody": "0:1 -1:1 0:1", "variants": [
+    {"pitch": "Ми низкое", "value": "<span class='red'>Öê</span>l#)", "name": "Два в челну Ми"},
+    {"pitch": "Ут", "value": "<span class='red'>ãê</span>k#)", "name": "Два в челну Ут и Фа"},
+    {"pitch": "Ре", "value": "<span class='red'>íê</span>j#)"},
+    {"pitch": "Ми", "value": "<span class='red'>öê</span>l#)"},
+    {"pitch": "Фа", "value": "<span class='red'>ìê</span>k#)", "name": "Два в челну Ут и Фа"},
+    {"pitch": "Соль", "value": "<span class='red'>ïê</span>Б#)"},
+    {"pitch": "Ля", "value": "<span class='red'>âê</span>В#)"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>Îê</span>k#)", "name": "Два в челну Ут и Фа"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>Ïê</span>Б#)", "name": "Два в челну Соль"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>ðê</span>Б#)", "name": "Два в челну Соль"}
+  ]},
+  {"name": "Два в челну {pitch}", "opts": ["Равенство", "Отсечка"], "melody": "0:1 -1:1 0:1", "variants": [
+    {"pitch": "Ре", "value": "<span class='red'>ðê</span>j#)"},
+    {"pitch": "Ми", "value": "<span class='red'>ðê</span>l#)"},
+    {"pitch": "Ля", "value": "<span class='red'>ðê</span>В#)"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>ðê</span>k#)", "name": "Два в челну Ут и Фа"}
+  ]},
+  {"name": "Два в челну {pitch}", "opts": ["Подвертка"], "melody": "0:1 -1:1 0:1 -1:1", "variants": [
+    {"pitch": "Ми низкое", "value": "<span class='red'>Öê</span>l#5", "name": "Два в челну Ми"},
+    {"pitch": "Ут", "value": "<span class='red'>ãê</span>k#5", "name": "Два в челну Ут и Фа"},
+    {"pitch": "Ре", "value": "<span class='red'>íê</span>j#5"},
+    {"pitch": "Ми", "value": "<span class='red'>öê</span>l#5"},
+    {"pitch": "Фа", "value": "<span class='red'>ìê</span>k#5", "name": "Два в челну Ут и Фа"},
+    {"pitch": "Соль", "value": "<span class='red'>ïê</span>Б#5"},
+    {"pitch": "Ля", "value": "<span class='red'>âê</span>В#5"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>Îê</span>k#5", "name": "Два в челну Ут и Фа"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>Ïê</span>Б#5", "name": "Два в челну Соль"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>ðê</span>Б#5", "name": "Два в челну Соль"}
+  ]},
+  {"name": "Два в челну {pitch}", "opts": ["Равенство", "Подвертка"], "melody": "0:1 -1:1 0:1 -1:1", "variants": [
+    {"pitch": "Ре", "value": "<span class='red'>ðê</span>j#5"},
+    {"pitch": "Ми", "value": "<span class='red'>ðê</span>l#5"},
+    {"pitch": "Ля", "value": "<span class='red'>ðê</span>В#5"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>ðê</span>k#5", "name": "Два в челну Ут и Фа"}
+  ]},
+  {"name": "Два в челну {pitch}", "opts": ["Подчашие"], "melody": "0:1 -1:1 0:2 -1:2", "variants": [
+    {"pitch": "Ми низкое", "value": "<span class='red'>Öê</span>l#4", "name": "Два в челну Ми"},
+    {"pitch": "Ут", "value": "<span class='red'>ãê</span>k#4", "name": "Два в челну Ут и Фа"},
+    {"pitch": "Ре", "value": "<span class='red'>íê</span>j#4"},
+    {"pitch": "Фа", "value": "<span class='red'>ìê</span>k#4", "name": "Два в челну Ут и Фа"},
+    {"pitch": "Соль", "value": "<span class='red'>ïê</span>Б#4"},
+    {"pitch": "Ля", "value": "<span class='red'>âê</span>В#4"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>Ïê</span>Б#4", "name": "Два в челну Соль"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>ðê</span>Б#4", "name": "Два в челну Соль"}
+  ]},
+  {"name": "Два в челну {pitch}", "opts": ["Равенство", "Подчашие"], "melody": "0:1 -1:1 0:2 -1:2", "variants": [
+    {"pitch": "Ре", "value": "<span class='red'>ðê</span>j#4"},
+    {"pitch": "Ми", "value": "<span class='red'>ðê</span>l#4"},
+    {"pitch": "Ля", "value": "<span class='red'>ðê</span>В#4"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>ðê</span>k#4", "name": "Два в челну Ут и Фа"}
+  ]},
+  {"name": "Два в челну {pitch}", "opts": ["Подвертка", "Подчашие"], "melody": "0:1 -1:1 0:2 -1:2", "variants": [
+    {"pitch": "Ми", "value": "<span class='red'>öê</span>l#4"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>Îê</span>k#4", "name": "Два в челну Ут и Фа"}
+  ]}
+]},
+{"id": 28, "label": "Труба", "records": [
+  {"name": "Труба", "opts": ["Борзая", "Тихая"], "melody": "-3:2 -2:1 -1:1 0:4", "variants": [
+    {"pitch": "Соль", "value": "<span class='red'>áï</span>q<span class='red'>+</span>DJ"}
+  ]},
+  {"name": "Труба", "opts": ["Борзая", "Тихая", "Облачко"], "melody": "-3:2 -2:1 -1:1 0:2 0:1 -1:1", "variants": [
+    {"pitch": "Соль", "value": "<span class='red'>áïÐ</span>q<span class='red'>+</span>DJ{}?"}
+  ]}
+]},
+{"id": 29, "label": "Дуда", "records": [
+  {"name": "Дуда", "opts": [], "melody": "-2:3 -2:1 -1:1 0:4 -1:2", "variants": [
+    {"pitch": "Фа", "value": "<span class='red'>ì</span>qSm"}
+  ]}
+]},
+{"id": 30, "label": "Мечник", "records": [
+  {"name": "Мечик", "opts": ["Ударка", "Подвертка"], "melody": "0:! -1:1 -2:1", "variants": [
+    {"pitch": "Фа", "value": "<span class='red'>ì</span>yL"},
+    {"pitch": "Фа", "value": "<span class='red'>ï</span>yL"}
+  ]}
+]},
+{"id": 31, "label": "Стрела мрачная", "records": [
+  {"name": "Стрела мрачная {family}", "opts": ["Тихая"], "melody": "-1:2 0:2", "variants": [
+    {"pitch": "Ре низкое", "value": "<span class='red'>Í+</span>DJ?{"},
+    {"pitch": "Ми низкое", "value": "<span class='red'>Ö+</span>SK{?", "name": "Стрела мрачная Ми"},
+    {"pitch": "Ут", "value": "<span class='red'>ã+</span>SJ?{"},
+    {"pitch": "Ре", "value": "<span class='red'>í+</span>DJ?{"},
+    {"pitch": "Ми", "value": "<span class='red'>ö+</span>SK{?", "name": "Стрела мрачная Ми"},
+    {"pitch": "Фа", "value": "<span class='red'>ì+</span>SJ?{"},
+    {"pitch": "Соль", "value": "<span class='red'>ï+</span>DJ?{"},
+    {"pitch": "Соль с доп. пометой Фа", "value": "<span class='red dop_pometa'>üï+</span>DJ?{", "name": "Стрела мрачная Ре и Соль", "notes": "м2п2"}
+  ]},
+  {"name": "Стрела мрачная {family}", "opts": ["Тихая", "Задержка"], "melody": "-1:2 0:4", "variants": [
+    {"pitch": "Ре низкое", "value": "<span class='red'>Í+</span>DJ?{2"},
+    {"pitch": "Ми низкое", "value": "<span class='red'>Ö+</span>SK{?2", "name": "Стрела мрачная Ми"},
+    {"pitch": "Ут", "value": "<span class='red'>ã+</span>SJ?{2"},
+    {"pitch": "Ре", "value": "<span class='red'>í+</span>DJ?{2"},
+    {"pitch": "Ми", "value": "<span class='red'>ö+</span>SK{?2", "name": "Стрела мрачная Ми"},
+    {"pitch": "Фа", "value": "<span class='red'>ì+</span>SJ?{2"},
+    {"pitch": "Соль", "value": "<span class='red'>ï+</span>DJ?{2"}
+  ]},
+  {"name": "Стрела мрачная {family}", "opts": ["Тихая", "Облачко"], "melody": "-1:2 0:1 -1:1", "variants": [
+    {"pitch": "Ре низкое", "value": "<span class='red'>Í+</span>DJ?{}"},
+    {"pitch": "Ми низкое", "value": "<span class='red'>Ö+</span>SK{?}", "name": "Стрела мрачная Ми"},
+    {"pitch": "Ут", "value": "<span class='red'>ã+</span>SJ?{}"},
+    {"pitch": "Ре", "value": "<span class='red'>í+</span>DJ?{}"},
+    {"pitch": "Ми", "value": "<span class='red'>ö+</span>SK{?}", "name": "Стрела мрачная Ми"},
+    {"pitch": "Соль", "value": "<span class='red'>ï+</span>DJ?{}"}
+  ]},
+  {"name": "Стрела тихая {family}", "opts": ["Тихая", "Облачко"], "melody": "-1:2 0:1 -1:1", "variants": [
+    {"pitch": "Фа", "value": "<span class='red'>ì+</span>SJ{}?"}
+  ]},
+  {"name": "Стрела мрачная {pitch}", "opts": [], "melody": "-1:2 0:2", "variants": [
+    {"pitch": "Фа", "value": "<span class='red'>ì</span>Sa"}
+  ]},
+  {"name": "Стрела мрачная {pitch}", "opts": ["Равенство"], "melody": "-1:2 0:2", "variants": [
+    {"pitch": "Фа", "value": "<span class='red'>ð</span>Sa"}
+  ]},
+  {"name": "Стрела мрачная {family}", "opts": ["Тихая", "Ломка"], "melody": "-2:2 0:2", "variants": [
+    {"pitch": "Фа", "value": "<span class='red'>ÿì+</span>SJ?{"}
+  ]}
+]},
+{"id": 32, "label": "Стрела крыжевая", "records": [
+  {"name": "Стрела крыжевая {family}", "opts": ["Тихая"], "melody": "-1:2 0:2", "variants": [
+    {"pitch": "Ут", "value": "<span class='red'>ã+</span>SJ{."},
+    {"pitch": "Ре", "value": "<span class='red'>í+</span>WJ.{"},
+    {"pitch": "Ми", "value": "<span class='red'>ö+</span>SK{."},
+    {"pitch": "Фа", "value": "<span class='red'>ì+</span>SJ{."},
+    {"pitch": "Соль", "value": "<span class='red'>ï+</span>DJ.{"},
+    {"pitch": "Ля", "value": "<span class='red'>â+</span>SK{."},
+    {"pitch": "Фа высокое", "value": "<span class='red'>Î+</span>SJ{."},
+    {"pitch": "Соль высокое", "value": "<span class='red'>Ï+</span>DJ.{"},
+    {"pitch": "Ля с доп. пометой Соль", "value": "<span class='red dop_pometa'>ýâ+</span>SK{.", "name": "Стрела крыжевая Ми и Ля", "notes": "п2в2"}
+  ]},
+  {"name": "Стрела крыжевая {family}", "opts": ["Тихая", "Задержка"], "melody": "-1:2 0:4", "variants": [
+    {"pitch": "Ут", "value": "<span class='red'>ã+</span>SJ{.2"},
+    {"pitch": "Ре", "value": "<span class='red'>í+</span>WJ.{2"},
+    {"pitch": "Ми", "value": "<span class='red'>ö+</span>SK{.2"},
+    {"pitch": "Фа", "value": "<span class='red'>ì+</span>SJ{.2"},
+    {"pitch": "Соль", "value": "<span class='red'>ï+</span>DJ{.2"},
+    {"pitch": "Ля", "value": "<span class='red'>â+</span>SK{.2"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>Î+</span>SJ{.2"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>Ï+</span>DJ.{2"}
+  ]},
+  {"name": "Стрела крыжевая {family}", "opts": ["Борзая"], "melody": "-1:1 0:2", "variants": [
+    {"pitch": "Ут", "value": "<span class='red'>ãá</span>SJ{."},
+    {"pitch": "Ре", "value": "<span class='red'>íá</span>WJ.{"},
+    {"pitch": "Ми", "value": "<span class='red'>öá</span>SK{."},
+    {"pitch": "Фа", "value": "<span class='red'>ìá</span>SJ{."},
+    {"pitch": "Соль", "value": "<span class='red'>ïá</span>DJ{."},
+    {"pitch": "Ля", "value": "<span class='red'>âá</span>SK{."},
+    {"pitch": "Фа высокое", "value": "<span class='red'>Îá</span>SJ{."},
+    {"pitch": "Соль высокое", "value": "<span class='red'>Ïá</span>DJ.{"}
+  ]},
+  {"name": "Стрела крыжевая {family}", "opts": ["Борзая", "Задержка"], "melody": "-1:1 0:4", "variants": [
+    {"pitch": "Ут", "value": "<span class='red'>ãá</span>SJ{.2"},
+    {"pitch": "Ре", "value": "<span class='red'>íá</span>WJ.{2"},
+    {"pitch": "Ми", "value": "<span class='red'>öá</span>SK{.2"},
+    {"pitch": "Фа", "value": "<span class='red'>ìá</span>SJ{.2"},
+    {"pitch": "Соль", "value": "<span class='red'>ïá</span>DJ{.2"},
+    {"pitch": "Ля", "value": "<span class='red'>âá</span>SK{.2"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>Îá</span>SJ{.2"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>Ïá</span>DJ.{2"},
+    {"pitch": "Соль с доп. пометой Фа", "value": "<span class='red dop_pometa'>ü ïá</span>DJ{.2", "name": "Стрела крыжевая Ре и Соль", "notes": "м1п2"}
+  ]},
+  {"name": "Стрела крыжевая {family}", "opts": ["Борзая", "Закидка", "Сорочья ножка"], "melody": "-1:1 0:3 +1:1", "variants": [
+    {"pitch": "Ут", "value": "<span class='red'>ãá</span>SJ{.ñ<span class='red'>ç</span>"},
+    {"pitch": "Ре", "value": "<span class='red'>íá</span>DJ{.ñ<span class='red'>ç</span>"},
+    {"pitch": "Ми", "value": "<span class='red'>öá</span>SK{.ñ<span class='red'>ç</span>"},
+    {"pitch": "Фа", "value": "<span class='red'>ìá</span>SJ{.ñ<span class='red'>ç</span>"},
+    {"pitch": "Соль", "value": "<span class='red'>ïá</span>DJ{.<span class='red'>ç</span>ñ"},
+    {"pitch": "Ля", "value": "<span class='red'>âá</span>SK{.ñ<span class='red'>ç</span>"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>Îá</span>SJ{.ñ<span class='red'>ç</span>"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>Ïá</span>DJ.{ñ<span class='red'>ç</span>"}
+  ]},
+  {"name": "Стрела крыжевая {family}", "opts": ["Тихая", "Облачко"], "melody": "-1:2 0:1 -1:1", "variants": [
+    {"pitch": "Ут", "value": "<span class='red'>ã+</span>SJ{.}"},
+    {"pitch": "Ре", "value": "<span class='red'>í+</span>WJ.{}"},
+    {"pitch": "Ми", "value": "<span class='red'>ö+</span>SK{.}"},
+    {"pitch": "Фа", "value": "<span class='red'>ì+</span>SJ{.}"},
+    {"pitch": "Соль", "value": "<span class='red'>ï+</span>DJ.{}"},
+    {"pitch": "Ля", "value": "<span class='red'>â+</span>SK{.}"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>Î+</span>SJ{.}"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>Ï+</span>DJ.{}"}
+  ]},
+  {"name": "Стрела крыжевая {family}", "opts": ["Борзая", "Облачко"], "melody": "-1:1 0:2 0:1 -1:1", "variants": [
+    {"pitch": "Ут", "value": "<span class='red'>ãá</span>SJ{.}"},
+    {"pitch": "Ре", "value": "<span class='red'>íá</span>WJ.{}"},
+    {"pitch": "Ми", "value": "<span class='red'>öá</span>SK{.}"},
+    {"pitch": "Фа", "value": "<span class='red'>ìá</span>SJ{.}"},
+    {"pitch": "Соль", "value": "<span class='red'>ïá</span>DJ.{}"},
+    {"pitch": "Ля", "value": "<span class='red'>âá</span>SK{.}"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>Îá</span>SJ{.}"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>Ïá</span>DJ.{}"}
+  ]},
+  {"name": "Стрела крыжевая {family}", "opts": ["Тихая", "Равенство", "Облачко"], "melody": "-1:2 0:1 -1:1", "variants": [
+    {"pitch": "Ут", "value": "<span class='red'>ã+Ð</span>SJ{.2   }"},
+    {"pitch": "Ре", "value": "<span class='red'>í+Ð</span>WJ.{}"},
+    {"pitch": "Ми", "value": "<span class='red'>ö+Ð</span>SK{.}"},
+    {"pitch": "Фа", "value": "<span class='red'>ì+Ð</span>SJ{.}"},
+    {"pitch": "Соль", "value": "<span class='red'>ï+Ð</span>DJ.{}"},
+    {"pitch": "Ля", "value": "<span class='red'>â+Ð</span>SK{.}"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>Î+Ð</span>SJ{.}"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>Ï+Ð</span>DJ.{}"}
+  ]},
+  {"name": "Стрела крыжевая {family}", "opts": ["Борзая", "Равенство", "Облачко"], "melody": "-1:1 0:2 0:1 -1:1", "variants": [
+    {"pitch": "Ут", "value": "<span class='red'>ãáÐ</span>SJ{.}"},
+    {"pitch": "Ре", "value": "<span class='red'>íáÐ</span>WJ.{}"},
+    {"pitch": "Ми", "value": "<span class='red'>öáÐ</span>SK{.}"},
+    {"pitch": "Фа", "value": "<span class='red'>ìáÐ</span>SJ{.}"},
+    {"pitch": "Соль", "value": "<span class='red'>ïáÐ</span>DJ.{}"},
+    {"pitch": "Ля", "value": "<span class='red'>âÐá</span>SK.{}"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>ÎáÐ</span>SJ{.}"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>ÏáÐ</span>DJ.{}2"}
+  ]},
+  {"name": "Стрела крыжевая {pitch}", "opts": ["Закидка", "Сорочья ножка", "Подчашие"], "melody": "-1:1 0:2 +1:1 0:2", "variants": [
+    {"pitch": "Соль", "value": "<span class='red'>ï</span>DJ{.<span class='red'>ç</span>ñ4"}
+  ]},
+  {"name": "Стрела крыжевая Ля с доп. пометой Соль", "opts": ["Борзая", "Задержка"], "variants": [
+    {"pitch": "Ля с доп. пометой Соль", "value": "<span class='red dop_pometa'>ýâá</span>SK{.2", "notes": "п1в4"}
+  ]},
+  {"name": "Стрела крыжевая Ля с доп. пометой Соль", "opts": ["Борзая"], "variants": [
+    {"pitch": "Ля с доп. пометой Соль", "value": "<span class='red dop_pometa'>ýâá</span>SK{.", "notes": "п1в2"}
+  ]},
+  {"name": "Стрела крыжевая {family}", "opts": ["Тихая", "Ломка"], "melody": "-2:2 0:2", "variants": [
+    {"pitch": "Фа", "value": "<span class='red'>ÿì+</span>SJ{."}
+  ]},
+  {"name": "Стрела крыжевая {family}", "opts": ["Тихая", "Ломка", "Задержка"], "melody": "-2:2 0:4", "variants": [
+    {"pitch": "Фа", "value": "<span class='red'>ÿì+</span>SJ{.2"}
+  ]},
+  {"name": "Стрела крыжевая Соль с доп. пометой", "opts": ["Борзая"], "variants": [
+    {"pitch": "Соль с доп помета Фа", "value": "<span class='red dop_pometa'>ü ïá</span>DJ{.", "notes": "м1п2"}
+  ]}
+]},
+{"id": 33, "label": "Стрела поводная", "records": [
+  {"name": "Стрела поводная {family}", "opts": ["Борзая"], "melody": "-2:1 -1:1 0:2", "variants": [
+    {"pitch": "Ми низкое", "value": "<span class='red'>Öá</span>SK9"},
+    {"pitch": "Ут", "value": "<span class='red'>ãá</span>SJ9"},
+    {"pitch": "Ре", "value": "<span class='red'>íá</span>WJ9", "name": "Стрела поводная Ре"},
+    {"pitch": "Ми", "value": "<span class='red'>öá</span>SK9"},
+    {"pitch": "Фа", "value": "<span class='red'>ìá</span>SJ9"},
+    {"pitch": "Соль", "value": "<span class='red'>ïá</span>DJ9", "name": "Стрела поводная Соль"},
+    {"pitch": "Ля", "value": "<span class='red'>âá</span>SK9"},
+    {"pitch": "Ля", "value": "<span class='red'>âó</span>SK9"}
+  ]},
+  {"name": "Стрела поводная {family}", "opts": ["Ударка"], "melody": "-2:1 -1:1 0:2", "variants": [
+    {"pitch": "Ми низкое", "value": "<span class='red'>Öó</span>SK9"},
+    {"pitch": "Ут", "value": "<span class='red'>ãó</span>SJ9"},
+    {"pitch": "Ре", "value": "<span class='red'>íó</span>WJ9", "name": "Стрела поводная Ре"},
+    {"pitch": "Ми", "value": "<span class='red'>öó</span>SK9"},
+    {"pitch": "Фа", "value": "<span class='red'>ìó</span>SJ9"},
+    {"pitch": "Соль", "value": "<span class='red'>ïó</span>DJ9", "name": "Стрела поводная Соль"}
+  ]},
+  {"name": "Стрела поводная {family}", "opts": ["Тихая"], "melody": "-2:1 -1:1 0:2", "variants": [
+    {"pitch": "Ми низкое", "value": "<span class='red'>Ö+</span>SK9"},
+    {"pitch": "Ут", "value": "<span class='red'>ã+</span>SJ9"},
+    {"pitch": "Ре", "value": "<span class='red'>í+</span>WJ9", "name": "Стрела поводная Ре"},
+    {"pitch": "Ми", "value": "<span class='red'>ö+</span>SK9"},
+    {"pitch": "Фа", "value": "<span class='red'>ì+</span>SJ9"},
+    {"pitch": "Соль", "value": "<span class='red'>ï+</span>DJ9", "name": "Стрела поводная Соль"},
+    {"pitch": "Ля", "value": "<span class='red'>â+</span>SK9"}
+  ]},
+  {"name": "Стрела поводная {family}", "opts": ["Тихая", "Задержка"], "melody": "-2:1 -1:1 0:2", "variants": [
+    {"pitch": "Ми низкое", "value": "<span class='red'>Ö+</span>SK92"},
+    {"pitch": "Ут", "value": "<span class='red'>ã+</span>SJ92"},
+    {"pitch": "Ре", "value": "<span class='red'>í+</span>WJ92", "name": "Стрела поводная Ре"},
+    {"pitch": "Ми", "value": "<span class='red'>ö+</span>SK92"},
+    {"pitch": "Фа", "value": "<span class='red'>ì+</span>SJ92"},
+    {"pitch": "Соль", "value": "<span class='red'>ï+</span>DJ92", "name": "Стрела поводная Соль"},
+    {"pitch": "Ля", "value": "<span class='red'>â+</span>SK92"}
+  ]},
+  {"name": "Стрела поводная {family}", "opts": ["Борзая", "Задержка"], "melody": "-2:1 -1:1 0:2", "variants": [
+    {"pitch": "Ми низкое", "value": "<span class='red'>Öá</span>SK92"},
+    {"pitch": "Ут", "value": "<span class='red'>ãá</span>SJ92"},
+    {"pitch": "Ре", "value": "<span class='red'>íá</span>WJ92", "name": "Стрела поводная Ре"},
+    {"pitch": "Ми", "value": "<span class='red'>öá</span>SK92"},
+    {"pitch": "Фа", "value": "<span class='red'>ìá</span>SJ92"},
+    {"pitch": "Соль", "value": "<span class='red'>ïá</span>DJ92", "name": "Стрела поводная Соль"},
+    {"pitch": "Ля", "value": "<span class='red'>âá</span>SK92"}
+  ]},
+  {"name": "Стрела поводная {family}", "opts": ["Борзая", "Подвертка"], "melody": "-2:1 -1:1 0:2", "variants": [
+    {"pitch": "Ми низкое", "value": "<span class='red'>Öá</span>SK95"},
+    {"pitch": "Ут", "value": "<span class='red'>ãá</span>SJ95"},
+    {"pitch": "Ре", "value": "<span class='red'>íá</span>WJ95", "name": "Стрела поводная Ре"},
+    {"pitch": "Ми", "value": "<span class='red'>öá</span>SK95"},
+    {"pitch": "Фа", "value": "<span class='red'>ìá</span>SJ95"},
+    {"pitch": "Соль", "value": "<span class='red'>ïá</span>DJ95", "name": "Стрела поводная Соль"},
+    {"pitch": "Ля", "value": "<span class='red'>âá</span>SK95"}
+  ]}
+]},
+{"id": 34, "label": "Стрела светлая", "records": [
+  {"name": "Стрела светлая {pitch}", "opts": ["Борзая"], "melody": "-2:1 -1:1 0:2", "variants": [
+    {"pitch": "Фа", "value": "<span class='red'>ìá</span>SJ("},
+    {"pitch": "Соль", "value": "<span class='red'>ïá</span>DJ("},
+    {"pitch": "Ля", "value": "<span class='red'>âá</span>SK("}
+  ]},
+  {"name": "Стрела светлая {pitch}", "opts": ["Борзая", "Задержка"], "melody": "-2:1 -1:1 0:4", "variants": [
+    {"pitch": "Фа", "value": "<span class='red'>ìá</span>SJ(2"},
+    {"pitch": "Соль", "value": "<span class='red'>ïá</span>DJ(2"},
+    {"pitch": "Ля", "value": "<span class='red'>âá</span>SK(2"}
+  ]},
+  {"name": "Стрела светлая {pitch}", "opts": ["Борзая", "Отсечка"], "melody": "-2:1 -1:1 0:1", "variants": [
+    {"pitch": "Фа", "value": "<span class='red'>ìá</span>SJ(0"},
+    {"pitch": "Соль", "value": "<span class='red'>ïá</span>DJ(0"},
+    {"pitch": "Ля", "value": "<span class='red'>âá</span>SK(0"}
+  ]},
+  {"name": "Стрела светлая {pitch}", "opts": ["Ударка"], "melody": "-2:! -1:! 0:1", "variants": [
+    {"pitch": "Фа", "value": "<span class='red'>ìó</span>SJ("},
+    {"pitch": "Соль", "value": "<span class='red'>ïó</span>DJ("},
+    {"pitch": "Ля", "value": "<span class='red'>âó</span>SK("}
+  ]},
+  {"name": "Стрела светлая {pitch}", "opts": ["Борзая", "Сорочья ножка"], "melody": "-2:1 -1:1 0:1 +1:1", "variants": [
+    {"pitch": "Фа", "value": "<span class='red'>ìá</span>SJ(ñ"},
+    {"pitch": "Соль", "value": "<span class='red'>ïá</span>DJ(ñ"},
+    {"pitch": "Ля", "value": "<span class='red'>âá</span>SK(ñ"}
+  ]},
+  {"name": "Стрела светлая {pitch}", "opts": ["Борзая", "Подвертка"], "melody": "-2:1 -1:1 0:1 -1:1", "variants": [
+    {"pitch": "Фа", "value": "<span class='red'>ìá</span>SJ(5"},
+    {"pitch": "Соль", "value": "<span class='red'>ïá</span>DJ(5"},
+    {"pitch": "Ля", "value": "<span class='red'>âá</span>SK(5"}
+  ]},
+  {"name": "Стрела светлая {pitch}", "opts": ["Борзая", "Подчашие"], "melody": "-2:1 -1:1 0:2 -1:2", "variants": [
+    {"pitch": "Фа", "value": "<span class='red'>ìá</span>SJ(4"},
+    {"pitch": "Соль", "value": "<span class='red'>ïá</span>DJ(4"},
+    {"pitch": "Ля", "value": "<span class='red'>âá</span>SK(4"}
+  ]},
+  {"name": "Стрела светлая {pitch}", "opts": ["Тихая"], "melody": "-2:2 -1:1 0:1", "variants": [
+    {"pitch": "Фа", "value": "<span class='red'>ì+</span>SJ("},
+    {"pitch": "Соль", "value": "<span class='red'>ï+</span>DJ("},
+    {"pitch": "Ля", "value": "<span class='red'>â+</span>SK("}
+  ]},
+  {"name": "Стрела светлая {pitch}", "opts": ["Тихая", "Задержка"], "melody": "-2:2 -1:2 0:4", "variants": [
+    {"pitch": "Фа", "value": "<span class='red'>ì+</span>SJ(2"},
+    {"pitch": "Соль", "value": "<span class='red'>ï+</span>DJ(2"},
+    {"pitch": "Ля", "value": "<span class='red'>â+</span>SK(2"}
+  ]},
+  {"name": "Стрела светлая {pitch}", "opts": ["Тихая", "Подчашие"], "melody": "-2:2 -1:2 0:2 -1:2", "variants": [
+    {"pitch": "Фа", "value": "<span class='red'>ì+</span>SJ(4"},
+    {"pitch": "Соль", "value": "<span class='red'>ï+</span>DJ(4"},
+    {"pitch": "Ля", "value": "<span class='red'>â+</span>SK(4"}
+  ]}
+]},
+{"id": 35, "label": "Стрела тресветлая", "records": [
+  {"name": "Стрела тресветлая Фа", "opts": ["Тихая", "Задержка"], "melody": "-2:2 -1:2 0:4", "variants": [
+    {"pitch": "Фа высокое", "value": "<span class='red'>Î+</span>SJ:2"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>Ï+</span>DJ:2", "name": "Стрела тресветлая Соль"},
+    {"pitch": "Ля высокое", "value": "<span class='red'>Â+</span>SK:2", "name": "Стрела тресветлая Ля"}
+  ]},
+  {"name": "Стрела тресветлая Фа", "opts": ["Тихая"], "melody": "-2:2 -1:2 0:2", "variants": [
+    {"pitch": "Фа высокое", "value": "<span class='red'>Î+</span>SJ:"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>Ï+</span>DJ:", "name": "Стрела тресветлая Соль"},
+    {"pitch": "Ля высокое", "value": "<span class='red'>Â+</span>SK:", "name": "Стрела тресветлая Ля"}
+  ]},
+  {"name": "Стрела тресветлая Фа", "opts": ["Борзая", "Подчашие"], "melody": "-2:1 -1:1 0:2 -1:2", "variants": [
+    {"pitch": "Фа высокое", "value": "<span class='red'>Îá</span>SJ:4"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>Ïá</span>DJ:4", "name": "Стрела тресветлая Соль"},
+    {"pitch": "Ля высокое", "value": "<span class='red'>Âá</span>SK:4", "name": "Стрела тресветлая Ля"}
+  ]},
+  {"name": "Стрела тресветлая Фа", "opts": ["Борзая", "Подвертка"], "melody": "-2:1 -1:1 0:1 -1:1", "variants": [
+    {"pitch": "Фа высокое", "value": "<span class='red'>Îá</span>SJ:5"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>Ïá</span>DJ:5", "name": "Стрела тресветлая Соль"}
+  ]},
+  {"name": "Стрела тресветлая Ля", "opts": ["Подвертка"], "melody": "-2:1 -1:1 0:1 -1:1", "variants": [
+    {"pitch": "Ля высокое", "value": "<span class='red'>Âá</span>SK:5"}
+  ]},
+  {"name": "Стрела тресветлая Фа", "opts": ["Борзая", "Сорочья ножка"], "melody": "-2:1 -1:1 0:1 +1:1", "variants": [
+    {"pitch": "Фа высокое", "value": "<span class='red'>Îá</span>SJ:ñ"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>Ïá</span>DJ:ñ", "name": "Стрела тресветлая Соль"}
+  ]},
+  {"name": "Стрела тресветлая Фа", "opts": ["Борзая"], "melody": "-2:1 -1:1 0:2", "variants": [
+    {"pitch": "Фа высокое", "value": "<span class='red'>Îá</span>SJ:"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>Ïá</span>DJ:", "name": "Стрела тресветлая Соль"},
+    {"pitch": "Ля высокое", "value": "<span class='red'>Âá</span>SK:", "name": "Стрела тресветлая Ля"}
+  ]},
+  {"name": "Стрела тресветлая Фа", "opts": ["Ударка"], "melody": "-2:! -1:! 0:1", "variants": [
+    {"pitch": "Фа высокое", "value": "<span class='red'>Îó</span>SJ:"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>Ïó</span>DJ:", "name": "Стрела тресветлая Соль"},
+    {"pitch": "Ля высокое", "value": "<span class='red'>Âó</span>SK:", "name": "Стрела тресветлая Ля"}
+  ]},
+  {"name": "Стрела тресветлая Фа", "opts": ["Борзая", "Отсечка"], "melody": "-2:1 -1:1 0:1", "variants": [
+    {"pitch": "Фа высокое", "value": "<span class='red'>Îá</span>SJ:0"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>Ïá</span>DJ:0", "name": "Стрела тресветлая Соль"},
+    {"pitch": "Ля высокое", "value": "<span class='red'>Âá</span>SK:0", "name": "Стрела тресветлая Ля"}
+  ]},
+  {"name": "Стрела тресветлая Фа", "opts": ["Борзая", "Задержка"], "melody": "-2:1 -1:1 0:4", "variants": [
+    {"pitch": "Фа высокое", "value": "<span class='red'>Îá</span>SJ:2"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>Ïá</span>DJ:2", "name": "Стрела тресветлая Соль"},
+    {"pitch": "Ля высокое", "value": "<span class='red'>Âá</span>SK:2", "name": "Стрела тресветлая Ля"}
+  ]},
+  {"name": "Стрела тресветлая Фа", "opts": ["Тихая", "Подчашие"], "melody": "-2:2 -1:2 0:2 -1:2", "variants": [
+    {"pitch": "Фа высокое", "value": "<span class='red'>Î+</span>SJ:4"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>Ï+</span>DJ:4", "name": "Стрела тресветлая Соль"},
+    {"pitch": "Ля высокое", "value": "<span class='red'>Â+</span>SK:4", "name": "Стрела тресветлая Ля"}
+  ]}
+]},
+{"id": 36, "label": "Стрела светлотихая", "records": [
+  {"name": "Стрела светлотихая {pitch}", "opts": ["Тихая"], "melody": "-2:2 -1:1 0:1", "variants": [
+    {"pitch": "Фа", "value": "<span class='red'>ì+</span>SJ(?"},
+    {"pitch": "Соль", "value": "<span class='red'>ï+</span>DJ?("},
+    {"pitch": "Ля", "value": "<span class='red'>â+</span>SK(?"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>Î+</span>SJ?:", "name": "Стрела светлотихая Фа "},
+    {"pitch": "Соль высокое", "value": "<span class='red'>Ï+</span>DJ:?", "name": "Стрела светлотихая Соль"}
+  ]},
+  {"name": "Стрела светлотихая {pitch}", "opts": ["Тихая", "Задержка"], "melody": "-2:2 -1:1 0:1", "variants": [
+    {"pitch": "Фа", "value": "<span class='red'>ì+</span>SJ(?2"},
+    {"pitch": "Соль", "value": "<span class='red'>ï+</span>DJ(?2"},
+    {"pitch": "Ля", "value": "<span class='red'>â+</span>SK(?2"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>Î+</span>SJ:?2", "name": "Стрела светлотихая Фа", "notes": "п2в2М4"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>Ï+</span>DJ:?2", "name": "Стрела светлотихая Соль"}
+  ]}
+]},
+{"id": 37, "label": "Стрела поездная", "records": [
+  {"name": "Стрела поездная {family}", "opts": ["Борзая"], "melody": "-2:1 -1:1 0:1 -1:1", "variants": [
+    {"pitch": "Ми низкое", "value": "<span class='red'>Öá</span>SK{9"},
+    {"pitch": "Ут", "value": "<span class='red'>ãá</span>SJ9{"},
+    {"pitch": "Ре", "value": "<span class='red'>íá</span>DJ9{"},
+    {"pitch": "Ми", "value": "<span class='red'>öá</span>SK{9"},
+    {"pitch": "Фа", "value": "<span class='red'>ìá</span>SJ9{"},
+    {"pitch": "Соль", "value": "<span class='red'>ïá</span>DJ9{"},
+    {"pitch": "Ля", "value": "<span class='red'>âá</span>SK{9"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>Îá</span>SJ9{"}
+  ]}
+]},
+{"id": 38, "label": "Стрела громная", "records": [
+  {"name": "Стрела громная Ре и Соль", "opts": [], "melody": "0:4", "variants": [
+    {"pitch": "Ре низкое", "value": "<span class='red'>Í</span>88J\\"},
+    {"pitch": "Ре", "value": "<span class='red'>í</span>88J\\"},
+    {"pitch": "-", "value": "88J\\", "notes": null, "sounds": 1}
+  ]},
+  {"name": "Стрела громная {family}", "opts": ["Борзая"], "melody": "-3:1 -2:1 -1:1 0:1", "variants": [
+    {"pitch": "Ре", "value": "<span class='red'>íá</span>88J\\"}
+  ]},
+  {"name": "Стрела громная {family}", "opts": ["Качка"], "melody": "0:1 -1:1 0:2", "variants": [
+    {"pitch": "Ут", "value": "<span class='red'>ãê</span>88J"},
+    {"pitch": "Ми", "value": "<span class='red'>öê</span>88K"},
+    {"pitch": "Фа", "value": "<span class='red'>ìê</span>88J"}
+  ]},
+  {"name": "Стрела громная {family}", "opts": ["Качка", "Равенство"], "melody": "0:1 -1:1 0:2", "variants": [
+    {"pitch": "Ми", "value": "<span class='red'>ðê</span>88K"},
+    {"pitch": "Фа", "value": "<span class='red'>ðê</span>88J"}
+  ]},
+  {"name": "Стрела громная {family}", "opts": ["Качка", "Задержка"], "melody": "0:1 -1:1 0:4", "variants": [
+    {"pitch": "Ут", "value": "<span class='red'>ãê</span>88J2"},
+    {"pitch": "Ми", "value": "<span class='red'>öê</span>88K2"},
+    {"pitch": "Ми", "value": "<span class='red'>ðê</span>88K2"},
+    {"pitch": "Фа", "value": "<span class='red'>ìê</span>88J2"},
+    {"pitch": "Фа", "value": "<span class='red'>ðê</span>88J2"}
+  ]},
+  {"name": "Стрела громная {family}", "opts": ["Качка", "Подчашие"], "melody": "0:1 -1:1 0:2 -1:2", "variants": [
+    {"pitch": "Ут", "value": "<span class='red'>ãê</span>88J4"},
+    {"pitch": "Ми", "value": "<span class='red'>öê</span>88K4"},
+    {"pitch": "Ми", "value": "<span class='red'>ðê</span>88K4"},
+    {"pitch": "Фа", "value": "<span class='red'>ìê</span>88J4"},
+    {"pitch": "Фа", "value": "<span class='red'>ðê</span>88J4"}
+  ]},
+  {"name": "Стрела громная {family}", "opts": ["Качка", "Подвертка"], "melody": "0:1 -1:1 0:1 -1:1", "variants": [
+    {"pitch": "Ут", "value": "<span class='red'>ãê</span>88J5"},
+    {"pitch": "Ми", "value": "<span class='red'>öê</span>88K5"},
+    {"pitch": "Ми", "value": "<span class='red'>ðê</span>88K5"},
+    {"pitch": "Фа", "value": "<span class='red'>ìê</span>88J5"},
+    {"pitch": "Фа", "value": "<span class='red'>ðê</span>88J5"}
+  ]},
+  {"name": "Стрела громная Ут и Фа", "opts": ["Качка", "Закидка", "Сорочья ножка"], "melody": "-1:1 -2:1 -1:3 0:1", "variants": [
+    {"pitch": "Ми низкое", "value": "<span class='red'>Íê</span>88J\\ñ<span class='red'>ç</span>"},
+    {"pitch": "Ут", "value": "<span class='red'>Öê</span>88Kñ<span class='red'>ç</span>", "name": "Стрела громная Ми и Ля"},
+    {"pitch": "Ре", "value": "<span class='red'>ãê</span>88Jñ<span class='red'>ç</span>"},
+    {"pitch": "Ми", "value": "<span class='red'>íê</span>88J\\ñ<span class='red'>ç</span>"},
+    {"pitch": "Ми", "value": "<span class='red'>öê</span>88Kñ<span class='red'>ç</span>", "name": "Стрела громная Ми и Ля", "notes": "с1н1с2"},
+    {"pitch": "Соль", "value": "<span class='red'>ìê</span>88Jñ<span class='red'>ç</span>"},
+    {"pitch": "Ля", "value": "<span class='red'>ïê</span>88J\\ñ<span class='red'>ç</span>"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>âê</span>88Kñ<span class='red'>ç</span>", "name": "Стрела громная Ми и Ля"}
+  ]}
+]},
+{"id": 39, "label": "Стрела громосветлая", "records": [
+  {"name": "Стрела громосветлая {pitch}", "opts": ["Борзая"], "melody": "-2:1 -1:1 0:2", "variants": [
+    {"pitch": "Фа", "value": "<span class='red'>ìá</span>88J("},
+    {"pitch": "Соль", "value": "<span class='red'>ïá</span>88JЕ"},
+    {"pitch": "Ля", "value": "<span class='red'>âá</span>88K("}
+  ]},
+  {"name": "Стрела громосветлая {pitch}", "opts": ["Борзая", "Задержка"], "melody": "-2:1 -1:1 0:4", "variants": [
+    {"pitch": "Фа", "value": "<span class='red'>ìá</span>88J(2"},
+    {"pitch": "Соль", "value": "<span class='red'>ïá</span>88JЕ2"},
+    {"pitch": "Ля", "value": "<span class='red'>âá</span>88K(2"}
+  ]},
+  {"name": "Стрела громосветлая {pitch}", "opts": ["Борзая", "Отсечка"], "melody": "-2:1 -1:1 0:1", "variants": [
+    {"pitch": "Фа", "value": "<span class='red'>ìá</span>88J(0"},
+    {"pitch": "Соль", "value": "<span class='red'>ïá</span>88JЕ0"},
+    {"pitch": "Ля", "value": "<span class='red'>âá</span>88K(0"}
+  ]},
+  {"name": "Стрела громосветлая {pitch}", "opts": ["Борзая", "Подчашие"], "melody": "-2:1 -1:1 0:2 -1:2", "variants": [
+    {"pitch": "Фа", "value": "<span class='red'>ìá</span>88J(4"},
+    {"pitch": "Соль", "value": "<span class='red'>ïá</span>88JЕ4"},
+    {"pitch": "Ля", "value": "<span class='red'>âá</span>88K(4"},
+    {"pitch": "Фа", "value": "<span class='red'>öá</span>88K(ñ"}
+  ]},
+  {"name": "Стрела громосветлая {pitch}", "opts": ["Борзая", "Подвертка"], "melody": "-2:1 -1:1 0:1 -1:1", "variants": [
+    {"pitch": "Фа", "value": "<span class='red'>ìá</span>88J(5"},
+    {"pitch": "Соль", "value": "<span class='red'>ïá</span>88JЕ5"},
+    {"pitch": "Ля", "value": "<span class='red'>âá</span>88K(5"}
+  ]},
+  {"name": "Стрела громосветлая {pitch}", "opts": ["Борзая", "Сорочья ножка"], "melody": "-2:1 -1:1 0:1 +1:1", "variants": [
+    {"pitch": "Ре", "value": "<span class='red'>íá</span>88JЕñ"},
+    {"pitch": "Фа", "value": "<span class='red'>ìá</span>88J(ñ"},
+    {"pitch": "Соль", "value": "<span class='red'>ïá</span>88JЕñ"},
+    {"pitch": "Ми", "value": "<span class='red'>öá</span>88K(ñ"},
+    {"pitch": "Ля", "value": "<span class='red'>âá</span>88K(ñ"}
+  ]},
+  {"name": "Стрела громосветлая {pitch}", "opts": ["Тихая", "Задержка"], "melody": "-2:2 -1:2 0:4", "variants": [
+    {"pitch": "Фа", "value": "<span class='red'>ì+</span>88J(2"},
+    {"pitch": "Соль", "value": "<span class='red'>ï+</span>88JЕ2"},
+    {"pitch": "Ля", "value": "<span class='red'>â+</span>88K(2"}
+  ]},
+  {"name": "Стрела громосветлая {pitch}", "opts": ["Ударка", "Отсечка"], "melody": "-2:! -1:! 0:1", "variants": [
+    {"pitch": "Ля", "value": "<span class='red'>âó</span>88K(0"}
+  ]},
+  {"name": "Стрела громосветлая с ударкой и отсечкой {pitch}", "opts": ["Ударка", "Отсечка"], "melody": "-2:! -1:! 0:1", "variants": [
+    {"pitch": "Фа", "value": "<span class='red'>ìó</span>88J(0"},
+    {"pitch": "Соль", "value": "<span class='red'>ïó</span>88JЕ0"}
+  ]},
+  {"name": "Стрела громосветлая с ударкой и задержкой {pitch}", "opts": ["Ударка", "Задержка"], "melody": "-2:! -1:! 0:4", "variants": [
+    {"pitch": "Фа", "value": "<span class='red'>ìó</span>88J(2"},
+    {"pitch": "Соль", "value": "<span class='red'>ïó</span>88JЕ2"},
+    {"pitch": "Ля", "value": "<span class='red'>âó</span>88K(2"}
+  ]}
+]},
+{"id": 40, "label": "Стрела громотресветлая", "records": [
+  {"name": "Стрела громотресветлая Фа", "opts": ["Борзая"], "melody": "-2:1 -1:1 0:2", "variants": [
+    {"pitch": "Фа высокое", "value": "<span class='red'>Îá</span>88J:"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>Ïá</span>88J;", "name": "Стрела громотресветлая Соль"},
+    {"pitch": "Ля высокое", "value": "<span class='red'>Âá</span>88K:", "name": "Стрела громотресветлая Ля"}
+  ]},
+  {"name": "Стрела громотресветлая Фа", "opts": ["Борзая", "Задержка"], "melody": "-2:1 -1:1 0:2", "variants": [
+    {"pitch": "Фа высокое", "value": "<span class='red'>Îá</span>88J:2"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>Ïá</span>88J;2", "name": "Стрела громотресветлая Соль"},
+    {"pitch": "Ля высокое", "value": "<span class='red'>Âá</span>88K:2", "name": "Стрела громотресветлая Ля"}
+  ]},
+  {"name": "Стрела громотресветлая Фа", "opts": ["Борзая", "Отсечка"], "melody": "-2:1 -1:1 0:2", "variants": [
+    {"pitch": "Фа высокое", "value": "<span class='red'>Îá</span>88J:0"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>Ïá</span>88J;0", "name": "Стрела громотресветлая Соль"},
+    {"pitch": "Ля высокое", "value": "<span class='red'>Âá</span>88K:0", "name": "Стрела громотресветлая Ля"}
+  ]},
+  {"name": "Стрела громотресветлая Фа", "opts": ["Борзая", "Подчашие"], "melody": "-2:1 -1:1 0:2", "variants": [
+    {"pitch": "Фа высокое", "value": "<span class='red'>Îá</span>88J:4"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>Ïá</span>88J;4", "name": "Стрела громотресветлая Соль"},
+    {"pitch": "Ля высокое", "value": "<span class='red'>Âá</span>88K:4", "name": "Стрела громотресветлая Ля"}
+  ]},
+  {"name": "Стрела громотресветлая Фа", "opts": ["Борзая", "Подвертка"], "melody": "-2:1 -1:1 0:2", "variants": [
+    {"pitch": "Фа высокое", "value": "<span class='red'>Îá</span>88J:5"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>Ïá</span>88J;5", "name": "Стрела громотресветлая Соль"},
+    {"pitch": "Ля высокое", "value": "<span class='red'>Âá</span>88K:5", "name": "Стрела громотресветлая Ля"}
+  ]},
+  {"name": "Стрела громотресветлая Фа", "opts": ["Тихая", "Задержка"], "melody": "-2:1 -1:1 0:2", "variants": [
+    {"pitch": "Фа высокое", "value": "<span class='red'>Î+</span>88J:2"}
+  ]},
+  {"name": "Стрела громотресветлая с ударкой и отсечкой {pitch}", "opts": ["Ударка", "Отсечка"], "melody": "-2:! -1:! 0:1", "variants": [
+    {"pitch": "Фа высокое", "value": "<span class='red'>Îó</span>88J:0"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>Ïó</span>88J;0"},
+    {"pitch": "Ля высокое", "value": "<span class='red'>Âó</span>88K:0"}
+  ]},
+  {"name": "Стрела громотресветлая с ударкой и задержкой {pitch}", "opts": ["Ударка", "Задержка"], "melody": "-2:! -1:! 0:4", "variants": [
+    {"pitch": "Фа высокое", "value": "<span class='red'>Îó</span>88J:2"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>Ïó</span>88J;2"},
+    {"pitch": "Ля высокое", "value": "<span class='red'>Âó</span>88K:2"}
+  ]}
+]},
+{"id": 41, "label": "Стрела возводная", "records": [
+  {"name": "Стрела возводная {family}", "opts": ["Борзая"], "melody": "-2:1 -1:1 0:2", "variants": [
+    {"pitch": "Ми низкое", "value": "<span class='red'>Öá</span>88K9"},
+    {"pitch": "Ут", "value": "<span class='red'>ãá</span>88J9"},
+    {"pitch": "Ре", "value": "<span class='red'>íá</span>88J9\\"},
+    {"pitch": "Ми", "value": "<span class='red'>öá</span>88K9"},
+    {"pitch": "Фа", "value": "<span class='red'>ìá</span>88J9"},
+    {"pitch": "Соль", "value": "<span class='red'>ïá</span>88J9\\"},
+    {"pitch": "Ля", "value": "<span class='red'>âá</span>88K9"}
+  ]},
+  {"name": "Стрела возводная {family}", "opts": ["Борзая", "Задержка"], "melody": "-2:1 -1:1 0:4", "variants": [
+    {"pitch": "Ми низкое", "value": "<span class='red'>Öá</span>88K92"},
+    {"pitch": "Ут", "value": "<span class='red'>ãá</span>88J92"},
+    {"pitch": "Ре", "value": "<span class='red'>íá</span>88J9\\2"},
+    {"pitch": "Ми", "value": "<span class='red'>öá</span>88K92"},
+    {"pitch": "Фа", "value": "<span class='red'>ìá</span>88J92"},
+    {"pitch": "Соль", "value": "<span class='red'>ïá</span>88J9\\2"},
+    {"pitch": "Ля", "value": "<span class='red'>âá</span>88K92"}
+  ]},
+  {"name": "Стрела возводная {family}", "opts": ["Борзая", "Отсечка"], "melody": "-2:1 -1:1 0:1", "variants": [
+    {"pitch": "Ми низкое", "value": "<span class='red'>Öá</span>88K90"},
+    {"pitch": "Ут", "value": "<span class='red'>ãá</span>88J90"},
+    {"pitch": "Ре", "value": "<span class='red'>íá</span>88J9\\0"},
+    {"pitch": "Ми", "value": "<span class='red'>öá</span>88K90"},
+    {"pitch": "Фа", "value": "<span class='red'>ìá</span>88J90"},
+    {"pitch": "Соль", "value": "<span class='red'>ïá</span>88J9\\0"},
+    {"pitch": "Ля", "value": "<span class='red'>âá</span>88K90"}
+  ]},
+  {"name": "Стрела возводная {family}", "opts": ["Борзая", "Подвертка"], "melody": "-2:1 -1:1 0:1 -1:1", "variants": [
+    {"pitch": "Ми низкое", "value": "<span class='red'>Öá</span>88K95"},
+    {"pitch": "Ут", "value": "<span class='red'>ãá</span>88J95"},
+    {"pitch": "Ре", "value": "<span class='red'>íá</span>88J9\\5"},
+    {"pitch": "Ми", "value": "<span class='red'>öá</span>88K95"},
+    {"pitch": "Фа", "value": "<span class='red'>ìá</span>88J95"},
+    {"pitch": "Соль", "value": "<span class='red'>ïá</span>88J9\\5"},
+    {"pitch": "Ля", "value": "<span class='red'>âá</span>88K95"}
+  ]},
+  {"name": "Стрела возводная {family}", "opts": ["Тихая"], "melody": "-2:2 -1:2 0:2", "variants": [
+    {"pitch": "Ми низкое", "value": "<span class='red'>Ö+</span>88K9"},
+    {"pitch": "Ут", "value": "<span class='red'>ã+</span>88J9"},
+    {"pitch": "Ре", "value": "<span class='red'>í+</span>88J9\\"},
+    {"pitch": "Ми", "value": "<span class='red'>ö+</span>88K9"},
+    {"pitch": "Фа", "value": "<span class='red'>ì+</span>88J9"},
+    {"pitch": "Соль", "value": "<span class='red'>ï+</span>88J9\\"},
+    {"pitch": "Ля", "value": "<span class='red'>â+</span>88K9"}
+  ]}
+]},
+{"id": 42, "label": "Стрела громокрыжная", "records": [
+  {"name": "Стрела громокрыжная {pitch}", "opts": ["Борзая"], "melody": "-2:2 -1:1 0:2", "variants": [
+    {"pitch": "Ми", "value": "<span class='red'>öá</span>8'J("},
+    {"pitch": "Фа", "value": "<span class='red'>ìá</span>8'J("},
+    {"pitch": "Соль", "value": "<span class='red'>ïá</span>8'JЕ"},
+    {"pitch": "Ля", "value": "<span class='red'>âá</span>8'K("},
+    {"pitch": "Фа высокое", "value": "<span class='red'>Îá</span>8'J:"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>Ïá</span>8'J;"}
+  ]},
+  {"name": "Стрела громокрыжная {pitch}", "opts": ["Борзая", "Задержка"], "melody": "-2:2 -1:1 0:4", "variants": [
+    {"pitch": "Фа", "value": "<span class='red'>ìá</span>8'J(2"},
+    {"pitch": "Соль", "value": "<span class='red'>ïá</span>8'JЕ2"},
+    {"pitch": "Ля", "value": "<span class='red'>âá</span>8'K(2"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>Îá</span>8'J:2"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>Ïá</span>8'J;2"}
+  ]},
+  {"name": "Стрела громокрыжная {pitch}", "opts": ["Борзая", "Отсечка"], "melody": "-2:2 -1:1 0:1", "variants": [
+    {"pitch": "Фа", "value": "<span class='red'>ìá</span>8'J(0"},
+    {"pitch": "Соль", "value": "<span class='red'>ïá</span>8'JЕ0"},
+    {"pitch": "Ля", "value": "<span class='red'>âá</span>8'K(0"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>Îá</span>8'J:0"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>Ïá</span>8'J;0"}
+  ]},
+  {"name": "Стрела громокрыжная {pitch}", "opts": ["Борзая", "Подвертка"], "melody": "-2:2 -1:1 0:1 -1:1", "variants": [
+    {"pitch": "Фа", "value": "<span class='red'>ìá</span>8'J(5"},
+    {"pitch": "Соль", "value": "<span class='red'>ïá</span>8'JЕ5"},
+    {"pitch": "Ля", "value": "<span class='red'>âá</span>8'K(5"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>Îá</span>8'J:5"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>Ïá</span>8'J;5"}
+  ]},
+  {"name": "Стрела громокрыжная {pitch}", "opts": ["Борзая", "Подчашие"], "melody": "-2:2 -1:1 0:2 -1:2", "variants": [
+    {"pitch": "Фа", "value": "<span class='red'>ìá</span>8'J(4"},
+    {"pitch": "Соль", "value": "<span class='red'>ïá</span>8'JЕ4"},
+    {"pitch": "Ля", "value": "<span class='red'>âá</span>8'K(4"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>Îá</span>8'J:4"},
+    {"pitch": "Соль", "value": "<span class='red'>Ïá</span>8'J;4", "name": "Стрела громокрыжная Соль высокое", "notes": "в2М1П2М2"}
+  ]},
+  {"name": "Стрела громокрыжная {pitch}", "opts": ["Борзая", "Сорочья ножка"], "melody": "-2:2 -1:1 0:1 +1:1", "variants": [
+    {"pitch": "Фа", "value": "<span class='red'>ìá</span>8'J(ñ"},
+    {"pitch": "Соль", "value": "<span class='red'>ïá</span>8'JЕñ"},
+    {"pitch": "Ля", "value": "<span class='red'>âá</span>8'K(ñ"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>Îá</span>8'J:ñ"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>Ïá</span>8'J;ñ"}
+  ]}
+]},
+{"id": 43, "label": "Стрела трясосветлая", "records": [
+  {"name": "Стрела трясосветлая", "opts": ["Ударка"], "melody": "0:! -1:! -2:1 -1:2", "variants": [
+    {"pitch": "Ми", "value": "<span class='red'>öó</span>BK"},
+    {"pitch": "Ля", "value": "<span class='red'>âó</span>BK"}
+  ]},
+  {"name": "Стрела трясосветлая", "opts": ["Ударка", "Подвертка"], "melody": "0:! -1:! -2:1 -1:1 -2:1", "variants": [
+    {"pitch": "Ми", "value": "<span class='red'>öó</span>BK5"},
+    {"pitch": "Ля", "value": "<span class='red'>âó</span>BK5"}
+  ]},
+  {"name": "Стрела трясосветлая", "opts": ["Ударка", "Подчашие"], "melody": "0:! -1:! -2:1 -1:2 -2:2", "variants": [
+    {"pitch": "Ми", "value": "<span class='red'>öó</span>BK4"},
+    {"pitch": "Ля", "value": "<span class='red'>âó</span>BK4"}
+  ]},
+  {"name": "Стрела трясосветлая", "opts": ["Ударка", "Равенство"], "melody": "0:! -1:! -2:1 -1:2", "variants": [
+    {"pitch": "Ля", "value": "<span class='red'>ðó</span>BJ"}
+  ]},
+  {"name": "Стрела трясосветлая", "opts": ["Ударка", "Равенство", "Подвертка"], "melody": "0:! -1:! -2:1 -1:1 -2:1", "variants": [
+    {"pitch": "Ля", "value": "<span class='red'>ðó</span>BK5"}
+  ]},
+  {"name": "Стрела трясосветлая", "opts": ["Ударка", "Равенство", "Подчашие"], "melody": "0:! -1:! -2:1 -1:2 -2:2", "variants": [
+    {"pitch": "Ля", "value": "<span class='red'>ðó</span>BK4"}
+  ]}
+]},
+{"id": 44, "label": "Хамило", "records": [
+  {"name": "Хамило", "opts": [], "melody": "0:2 -1:1 -1:1 -2:2", "variants": [
+    {"pitch": "Ми", "value": "h", "notes": "с2н1г1н2"},
+    {"pitch": "Ут", "value": "h"},
+    {"pitch": "Фа", "value": "h"}
+  ]}
+]},
+{"id": 45, "label": "Паук малый", "records": [
+  {"name": "Паук малый", "opts": [], "melody": "-2:1 -1:1 0:2 -1:2 -2:2", "variants": [
+    {"pitch": "Соль", "value": "À"}
+  ]}
+]},
+{"id": 46, "label": "Паук большой", "records": [
+  {"name": "Паук большой", "opts": ["Борзая"], "melody": "-2:1 -1:1 0:1 -1:1 -2:2 -1:4", "variants": [
+    {"pitch": "Ми", "value": "<span class='red'>öá</span>SÀ"}
+  ]}
+]},
+{"id": 48, "label": "Полукулизма малая", "records": [
+  {"name": "Полукулизма малая", "opts": ["Качка"], "melody": "-1:! -2:! -3:1 -2:1 -3:1", "variants": [
+    {"pitch": "Ми", "value": "<span class='red'>öê</span>D6"},
+    {"pitch": "Ля", "value": "<span class='red'>âê</span>D6"}
+  ]},
+  {"name": "Полукулизма малая Фа (долинка)", "opts": ["Борзая"], "melody": "-1:1 0:3 -1:1", "variants": [
+    {"pitch": "Фа", "value": "<span class='red'>ìá</span>S6"}
+  ]},
+  {"name": "Полукулизма малая Соль (долинка)", "opts": ["Борзая"], "variants": [
+    {"pitch": "Cоль", "value": "<span class='red'>ïá</span>W6", "notes": "м1п3м1"}
+  ]},
+  {"name": "Полукулизма малая", "opts": ["Борзая"], "melody": "-1:1 0:3 -1:1", "variants": [
+    {"pitch": "Ля", "value": "<span class='red'>âá</span>D6"}
+  ]},
+  {"name": "Полукулизма малая", "opts": ["Ударка"], "melody": "0:! -1:! -2:1 -1:1 -2:1", "variants": [
+    {"pitch": "Ре", "value": "<span class='red'>íó</span>W6"},
+    {"pitch": "Соль", "value": "<span class='red'>ïó</span>D6"}
+  ]},
+  {"name": "Полукулизма малая (в кулизме)", "opts": [], "variants": [
+    {"pitch": "-", "value": "S6", "notes": null, "sounds": 3}
+  ]},
+  {"name": "Полукулизма малая Фа (в кулизме)", "opts": [], "melody": "0:2 -1:2", "variants": [
+    {"pitch": "Фа", "value": "<span class='red'>ì</span>S /"}
+  ]},
+  {"name": "Полукулизма малая Фа высокое (в кулизме)", "opts": [], "melody": "0:2 -1:2", "variants": [
+    {"pitch": "Фа высокое", "value": "<span class='red'>Î</span>S /"}
+  ]},
+  {"name": "Полукулизма малая с равенством (кулизма в конце)", "opts": ["Равенство"], "variants": [
+    {"pitch": "-", "value": "<span class='red'>ð</span>S /", "notes": null, "sounds": 3}
+  ]},
+  {"name": "Полукулизма малая Соль (в кулизме)", "opts": [], "melody": "0:2 -1:2", "variants": [
+    {"pitch": "Соль", "value": "<span class='red'>ï</span>W /"}
+  ]}
+]},
+{"id": 49, "label": "Фотиза", "records": [
+  {"name": "Фотиза", "opts": [], "melody": "0:2 -1:4 -2:2 -2:1 -3:1 -2:1 -1:4 -2:4", "variants": [
+    {"pitch": "Фа", "value": "<span class='red'>+Ð</span>Saô"}
+  ]}
+]},
+{"id": 50, "label": "Змийца", "records": [
+  {"name": "Змийца {family}", "opts": [], "melody": "-1:1 0:1 -1:1 -2:1", "variants": [
+    {"pitch": "Ми низкое", "value": "<span class='red'>Ö</span>d"},
+    {"pitch": "Ут", "value": "<span class='red'>ã</span>b"},
+    {"pitch": "Ре", "value": "<span class='red'>í</span>T", "name": "Змийца Ре"},
+    {"pitch": "Ми", "value": "<span class='red'>ö</span>d"},
+    {"pitch": "Фа", "value": "<span class='red'>ì</span>b"},
+    {"pitch": "Соль", "value": "<span class='red'>ï</span>t", "name": "Змийца Соль"},
+    {"pitch": "Ля", "value": "<span class='red'>â</span>d"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>Î</span>b"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>Ï</span>t", "name": "Змийца Соль"},
+    {"pitch": "Фа с доп. пометами Ми, Ми, Ре", "value": "<span class='red'>ûì</span>b<span class='red'>ìÿ</span>", "name": "Змийца Ут и Фа", "notes": "с1м1с1н1"}
+  ]},
+  {"name": "Змийца {family}", "opts": ["Равенство"], "melody": "-1:1 0:1 -1:1 -2:1", "variants": [
+    {"pitch": "Ут низкое", "value": "<span class='red'>ð</span>b"},
+    {"pitch": "Ре низкое", "value": "<span class='red'>ð</span>T", "name": "Змийца Ре"},
+    {"pitch": "Ми низкое", "value": "<span class='red'>ð</span>d"},
+    {"pitch": "Ут", "value": "<span class='red'>ð</span>b"},
+    {"pitch": "Ре", "value": "<span class='red'>ð</span>T", "name": "Змийца Ре"},
+    {"pitch": "Ми", "value": "<span class='red'>ð</span>d"},
+    {"pitch": "Фа", "value": "<span class='red'>ð</span>b"},
+    {"pitch": "Соль", "value": "<span class='red'>ð</span>T", "name": "Змийца Ре"},
+    {"pitch": "Ля", "value": "<span class='red'>ð</span>d"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>ð</span>b"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>ð</span>T", "name": "Змийца Ре"},
+    {"pitch": "Ля высокое", "value": "<span class='red'>ð</span>d"}
+  ]},
+  {"name": "Змийца Соль с доп. пометами Фа, Фа, Ми", "opts": [], "variants": [
+    {"pitch": "Соль с доп. пометами Фа, Фа, Ми", "value": "<span class='red'>ïü</span>t<span class='red'>ìû</span>", "notes": "м1п1м1с1"}
+  ]}
+]},
+{"id": 51, "label": "Статья с крыжом", "records": [
+  {"name": "Статья с крыжем", "opts": [], "melody": "0:4", "variants": [
+    {"pitch": "Ре низкое", "value": "<span class='red'>Í</span>S,"},
+    {"pitch": "Ре", "value": "<span class='red'>í</span>W,"},
+    {"pitch": "Фа", "value": "<span class='red'>ì</span>S,", "name": "Статья с крыжем Фа"},
+    {"pitch": "Соль", "value": "<span class='red'>ï</span>W,"}
+  ]},
+  {"name": "Статья с крыжем", "opts": ["Равенство"], "melody": "0:4", "variants": [
+    {"pitch": "Соль", "value": "<span class='red'>ð</span>W,"}
+  ]}
+]},
+{"id": 52, "label": "Статья в кулизме", "records": [
+  {"name": "Статья простая (в кулизме)", "opts": [], "variants": [
+    {"pitch": "Соль", "value": "S", "notes": null, "sounds": 1}
+  ]}
+]},
+{"id": 53, "label": "Запятая с крыжом", "records": [
+  {"name": "Запятая Ут с крыжом", "opts": [], "melody": "0:2", "variants": [
+    {"pitch": "Ут низкое", "value": "<span class='red'>Ã</span>X'"},
+    {"pitch": "Ут", "value": "<span class='red'>ã</span>X'"}
+  ]},
+  {"name": "Запятая Ут с крыжом", "opts": ["Равенство"], "melody": "0:2", "variants": [
+    {"pitch": "Ут низкое", "value": "<span class='red'>ð</span>X'"}
+  ]},
+  {"name": "Запятая Ре с крыжом", "opts": [], "melody": "0:2", "variants": [
+    {"pitch": "Ре низкое", "value": "<span class='red'>Í</span>z'"},
+    {"pitch": "Ре", "value": "<span class='red'>í</span>z'"}
+  ]},
+  {"name": "Запятая Ре с крыжом", "opts": ["Равенство"], "melody": "0:2", "variants": [
+    {"pitch": "Ре", "value": "<span class='red'>ð</span>z'"}
+  ]},
+  {"name": "Запятая Ми с крыжом", "opts": [], "melody": "0:2", "variants": [
+    {"pitch": "Ми низкое", "value": "<span class='red'>Ö</span>A'"},
+    {"pitch": "Ми", "value": "<span class='red'>ö</span>A'"}
+  ]},
+  {"name": "Запятая Ми c крыжом", "opts": ["Равенство"], "melody": "0:2", "variants": [
+    {"pitch": "Ми низкое", "value": "<span class='red'>ð</span>A'"}
+  ]},
+  {"name": "Запятая Фа с крыжом", "opts": [], "melody": "0:2", "variants": [
+    {"pitch": "Фа", "value": "<span class='red'>ì</span>Z'"}
+  ]},
+  {"name": "Запятая Фа с крыжом", "opts": ["Равенство"], "melody": "0:2", "variants": [
+    {"pitch": "Фа", "value": "<span class='red'>ð</span>Z'"}
+  ]},
+  {"name": "Запятая Соль с крыжом", "opts": [], "melody": "0:2", "variants": [
+    {"pitch": "Соль", "value": "<span class='red'>ï</span>z'"}
+  ]}
+]},
+{"id": 54, "label": "Стрела простая", "records": [
+  {"name": "Статья мрачная (стрела простая) {family}", "opts": [], "melody": "0:4", "variants": [
+    {"pitch": "Ут низкое", "value": "<span class='red'>Ã</span>SJ"},
+    {"pitch": "Ре низкое", "value": "<span class='red'>Í</span>WJ"},
+    {"pitch": "Ми низкое", "value": "<span class='red'>Ö</span>SK", "name": "Статья мрачная (стрела простая) Ми"},
+    {"pitch": "Ут", "value": "<span class='red'>ã</span>SJ"},
+    {"pitch": "Ре", "value": "<span class='red'>í</span>WJ"},
+    {"pitch": "Ми", "value": "<span class='red'>ö</span>SK", "name": "Статья мрачная (стрела простая) Ми"},
+    {"pitch": "Фа", "value": "<span class='red'>ì</span>SJ"},
+    {"pitch": "Соль", "value": "<span class='red'>ï</span>DJ"},
+    {"pitch": "Ля", "value": "<span class='red'>â</span>SK"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>Î</span>SJ", "name": "Статья мрачная (стрела простая) Фа высокое"}
+  ]},
+  {"name": "Статья мрачная (стрела простая) {family}", "opts": ["Равенство"], "melody": "0:4", "variants": [
+    {"pitch": "Фа", "value": "<span class='red'>ð</span>SJ"},
+    {"pitch": "Соль", "value": "<span class='red'>ð</span>DJ"},
+    {"pitch": "Ля", "value": "<span class='red'>ð</span>SK"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>ð</span>SJ", "name": "Статья мрачная (стрела простая) Фа высокое с равенством"}
+  ]},
+  {"name": "Статья мрачная (стрела простая) {family}", "opts": ["Закидка", "Сорочья ножка"], "melody": "0:3 +1:1", "variants": [
+    {"pitch": "Соль", "value": "<span class='red'>ï</span>DJñ<span class='red'>ç</span>"},
+    {"pitch": "Ре", "value": "<span class='red'>í</span>DJñ<span class='red'>ç</span>"},
+    {"pitch": "Ре низкое", "value": "<span class='red'>Í</span>DJñ<span class='red'>ç</span>"}
+  ]},
+  {"name": "Статья мрачная с облачком {family}", "opts": ["Равенство", "Облачко"], "melody": "0:2 0:1 -1:1", "variants": [
+    {"pitch": "Ре", "value": "<span class='red'>íÐ</span>DJ{"},
+    {"pitch": "Ми", "value": "<span class='red'>öÐ</span>SK{"},
+    {"pitch": "Фа", "value": "<span class='red'>ìÐ</span>SJ{"},
+    {"pitch": "Соль", "value": "<span class='red'>ïÐ</span>DJ{"},
+    {"pitch": "Ля", "value": "<span class='red'>âÐ</span>SK{"}
+  ]},
+  {"name": "Статья мрачная с облачком {family}", "opts": ["2 равенства", "Облачко"], "melody": "0:2 0:1 -1:1", "variants": [
+    {"pitch": "Ре", "value": "<span class='red'>ðÐ</span>DJ{"},
+    {"pitch": "Ми", "value": "<span class='red'>ðÐ</span>SK{"},
+    {"pitch": "Фа", "value": "<span class='red'>ðÐ</span>SJ{"}
+  ]},
+  {"name": "Статья мрачная Ля c закидкой и сорочьей ножкой", "opts": ["Закидка", "Сорочья ножка"], "melody": "0:3 +1:1", "variants": [
+    {"pitch": "Ля", "value": "<span class='red'>â</span>SKñ<span class='red'>ç</span>"}
+  ]},
+  {"name": "Статья мрачная (стрела простая) {pitch}", "opts": ["Равенство", "Облачко"], "melody": "0:2 0:1 -1:1", "variants": [
+    {"pitch": "Фа высокое", "value": "<span class='red'>Î</span>SJ{"}
+  ]},
+  {"name": "Статья мрачная Ми c закидкой и сорочьей ножкой", "opts": ["Закидка", "Сорочья ножка"], "melody": "0:3 +1:1", "variants": [
+    {"pitch": "Ми", "value": "<span class='red'>ö</span>SKñ<span class='red'>ç</span>"},
+    {"pitch": "Ут низкое", "value": "<span class='red'>Ã</span>SJñ<span class='red'>ç</span>"},
+    {"pitch": "Ут", "value": "<span class='red'>ã</span>SJñ<span class='red'>ç</span>"},
+    {"pitch": "Фа", "value": "<span class='red'>ì</span>SJñ<span class='red'>ç</span>"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>Î</span>SJñ<span class='red'>ç</span>"},
+    {"pitch": "Ми низкое", "value": "<span class='red'>Ö</span>SKñ<span class='red'>ç</span>"}
+  ]},
+  {"name": "Статья мрачная (стрела простая) {family}", "opts": ["Борзая"], "melody": "0:2", "variants": [
+    {"pitch": "Соль", "value": "<span class='red'>ïá</span>DJ"}
+  ]},
+  {"name": "Статья мрачная (стрела простая) {family}", "opts": ["Борзая", "Подвертка"], "melody": "-1:1 0:3 -1:1", "variants": [
+    {"pitch": "Соль", "value": "<span class='red'>ïá</span>DJ5"}
+  ]},
+  {"name": "Статья мрачная с облачком и сорочьей ножкой {family}", "opts": ["Закидка", "Равенство", "Облачко", "Сорочья ножка"], "melody": "0:2 0:1 +1:1", "variants": [
+    {"pitch": "Ре низкое", "value": "<span class='red'>ÍÐ</span>DJ{<span class='red'>ç</span>ñ"},
+    {"pitch": "Ут", "value": "<span class='red'>ãÐ</span>SJ{<span class='red'>ç</span>ñ"},
+    {"pitch": "Ми", "value": "<span class='red'>öÐ</span>SK{<span class='red'>ç</span>ñ"},
+    {"pitch": "Фа", "value": "<span class='red'>ìÐ</span>SJ{<span class='red'>ç</span>ñ"},
+    {"pitch": "Соль", "value": "<span class='red'>ïÐ</span>DJ{<span class='red'>ç</span>ñ"},
+    {"pitch": "Ля", "value": "<span class='red'>âÐ</span>SK{<span class='red'>ç</span>ñ"},
+    {"pitch": "Ля с доп. пометой Фа высокое", "value": "<span class='red'>âÐ</span>SK{<span class='red'>ç</span>ñ<span class='red'>Î</span>", "name": "Статья мрачная с облачком и сорочьей ножкой Ми и Ля", "notes": "в2в1М1"},
+    {"pitch": "Соль с доп. пометой Ля", "value": "<span class='red'>ïÐ</span>DJ{<span class='red'>ç</span>ñ<span class='red'>â</span>", "name": "Статья мрачная с облачком и сорочьей ножкой Ре и Соль", "notes": "п2п1в1"}
+  ]},
+  {"name": "Статья мрачная с облачком и сорочьей ножкойМи и Ля", "opts": ["Закидка", "Равенство", "Облачко", "Сорочья ножка"], "melody": "0:2 0:1 +1:1", "variants": [
+    {"pitch": "Ми низкое", "value": "<span class='red'>ÖÐ</span>SK{<span class='red'>ç</span>ñ"}
+  ]},
+  {"name": "Статья мрачная с облачком и сорочьей ножкойРе и Соль", "opts": ["Закидка", "Равенство", "Облачко", "Сорочья ножка"], "melody": "0:2 0:1 +1:1", "variants": [
+    {"pitch": "Ре", "value": "<span class='red'>íÐ</span>DJ{<span class='red'>ç</span>ñ"}
+  ]},
+  {"name": "Статья мрачная с облачком и сорочьей ножкой {family}", "opts": ["Закидка", "2 равенства", "Облачко", "Сорочья ножка"], "melody": "0:2 0:1 +1:1", "variants": [
+    {"pitch": "Фа", "value": "<span class='red'>ðÐ</span>SJ{<span class='red'>ç</span>ñ"}
+  ]},
+  {"name": "Статья мрачная с облачком и сорочьей ножкой {family}", "opts": ["Борзая", "Закидка", "2 равенства", "Облачко", "Сорочья ножка"], "melody": "0:2 0:1 +1:1", "variants": [
+    {"pitch": "Соль", "value": "<span class='red'>ðÐ</span>DJ{<span class='red'>ç</span>ñ"},
+    {"pitch": "Ля", "value": "<span class='red'>ðÐ</span>SK{<span class='red'>ç</span>ñ"}
+  ]},
+  {"name": "Статья мрачная (стрела простая) {family}", "opts": ["Подчашие"], "melody": "-1:2 -2:2 0:4", "variants": [
+    {"pitch": "Ут низкое", "value": "<span class='red'>Ã</span>SJ4"},
+    {"pitch": "Ре низкое", "value": "<span class='red'>Í</span>WJ4"},
+    {"pitch": "Ми низкое", "value": "<span class='red'>Ö</span>SK4", "name": "Статья мрачная (стрела простая) Ми"},
+    {"pitch": "Ут", "value": "<span class='red'>ã</span>SJ4"},
+    {"pitch": "Ре", "value": "<span class='red'>í</span>WJ4"},
+    {"pitch": "Ми", "value": "<span class='red'>ö</span>SK4", "name": "Статья мрачная (стрела простая) Ми"},
+    {"pitch": "Фа", "value": "<span class='red'>ì</span>SJ4"},
+    {"pitch": "Соль", "value": "<span class='red'>ï</span>DJ4"},
+    {"pitch": "Ля", "value": "<span class='red'>â</span>SK4"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>Î</span>SJ4", "name": "Статья мрачная (стрела простая) Фа высокое"}
+  ]},
+  {"name": "Статья мрачная (стрела простая) {family}", "opts": ["Равенство", "Подчашие"], "melody": "-1:2 -2:2 0:4", "variants": [
+    {"pitch": "Фа", "value": "<span class='red'>ð</span>SJ4"},
+    {"pitch": "Соль", "value": "<span class='red'>ð</span>DJ4"},
+    {"pitch": "Ля", "value": "<span class='red'>ð</span>SK4"}
+  ]}
+]},
+{"id": 55, "label": "Стопица с очком", "records": [
+  {"name": "Стопица с очком {pitch}", "opts": [], "melody": "0:1 -1:1", "variants": [
+    {"pitch": "Ут низкое", "value": "<span class='red'>Ã</span>c1", "name": "Стопица с очком Ут и Фа"},
+    {"pitch": "Ре низкое", "value": "<span class='red'>Í</span>w1", "name": "Стопица с очком Ре"},
+    {"pitch": "Ми низкое", "value": "<span class='red'>Ö</span>v1", "name": "Стопица с очком Ми"},
+    {"pitch": "Ут", "value": "<span class='red'>ã</span>c1", "name": "Стопица с очком Ут и Фа"},
+    {"pitch": "Ре", "value": "<span class='red'>í</span>w1"},
+    {"pitch": "Ми", "value": "<span class='red'>ö</span>v1"},
+    {"pitch": "Фа", "value": "<span class='red'>ì</span>c1", "name": "Стопица с очком Ут и Фа"},
+    {"pitch": "Соль", "value": "<span class='red'>ï</span>x1"},
+    {"pitch": "Ля", "value": "<span class='red'>â</span>u1"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>Î</span>c1", "name": "Стопица с очком Ут и Фа"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>Ï</span>x1", "name": "Стопица с очком Соль"},
+    {"pitch": "Ля высокое", "value": "<span class='red'>Â</span>u1", "name": "Стопица с очком Ля"}
+  ]},
+  {"name": "Стопица с очком {pitch}", "opts": ["Равенство"], "melody": "0:1 -1:1", "variants": [
+    {"pitch": "Ут", "value": "<span class='red'>ð</span>c1"},
+    {"pitch": "Фа", "value": "<span class='red'>ð</span>c1"},
+    {"pitch": "Ре", "value": "<span class='red'>ð</span>w1"},
+    {"pitch": "Ми", "value": "<span class='red'>ð</span>v1"},
+    {"pitch": "Соль", "value": "<span class='red'>ð</span>x1"},
+    {"pitch": "Ля", "value": "<span class='red'>ð</span>u1"}
+  ]},
+  {"name": "Стопица с очком {pitch}", "opts": ["Ломка"], "melody": "0:1 -1:1", "variants": [
+    {"pitch": "Ми низкое", "value": "<span class='red'>Ö</span>v1<span class='red'> ø</span>", "name": "Стопица с очком Ми"},
+    {"pitch": "Ут", "value": "<span class='red'>ã</span>c1<span class='red'> ù</span>", "name": "Стопица с очком Ут и Фа"},
+    {"pitch": "Ре", "value": "<span class='red'>í</span>w1<span class='red'> ú</span>"},
+    {"pitch": "Ми", "value": "<span class='red'>ö</span>v1<span class='red'> ÷</span>", "notes": "с1г1"},
+    {"pitch": "Фа", "value": "<span class='red'>ì</span>c1<span class='red'> ÿ</span>", "name": "Стопица с очком Ут и Фа"},
+    {"pitch": "Соль", "value": "<span class='red'>ï</span>x1<span class='red'> û</span>"},
+    {"pitch": "Ля", "value": "<span class='red'>â</span>u1<span class='red'> ü</span>"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>Î</span>c1<span class='red'> ý</span>", "name": "Стопица с очком Ут и Фа"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>Ï</span>x1<span class='red'> þ</span>", "name": "Стопица с очком Соль"},
+    {"pitch": "Ля высокое", "value": "<span class='red'>Â</span>u1<span class='red'> Ā</span>", "name": "Стопица с очком Ля"}
+  ]},
+  {"name": "Стопица с очком {pitch}", "opts": ["Равенство", "Ломка"], "melody": "0:1 -1:1", "variants": [
+    {"pitch": "Ми", "value": "<span class='red'>ð</span>v1<span class='red'> ø</span>", "notes": "с1г1"},
+    {"pitch": "Ут", "value": "<span class='red'>ð</span>c1<span class='red'> ù</span>", "name": "Стопица с очком Ут и Фа"},
+    {"pitch": "Ре", "value": "<span class='red'>ð</span>w1<span class='red'> ú</span>"},
+    {"pitch": "Ми", "value": "<span class='red'>ð</span>v1<span class='red'> ÷</span>", "notes": "с1г1"},
+    {"pitch": "Фа", "value": "<span class='red'>ð</span>c1<span class='red'> ÿ</span>", "name": "Стопица с очком Ут и Фа"},
+    {"pitch": "Соль", "value": "<span class='red'>ð</span>x1<span class='red'> û</span>"},
+    {"pitch": "Ля", "value": "<span class='red'>ð</span>u1<span class='red'> ü</span>"},
+    {"pitch": "Фа высокое", "value": "<span class='red'>ð</span>c1<span class='red'> ý</span>", "name": "Стопица с очком Ут и Фа"},
+    {"pitch": "Соль высокое", "value": "<span class='red'>ð</span>x1<span class='red'> þ</span>", "name": "Стопица с очком Соль"},
+    {"pitch": "Ля", "value": "<span class='red'>ð</span>u1<span class='red'> Ā</span>"}
+  ]}
+]}
+]
+}
