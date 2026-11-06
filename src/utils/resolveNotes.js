@@ -205,10 +205,44 @@ export const makeNotesKey = (name, pitch, opts) => {
   return `${name}|${pitch}|${optsPart}`
 }
 
+/**
+ * Ключи из kruk2 содержат ещё и «семейную» опцию (Светлая, Громная…), которой нет
+ * в каталоге, и «Сорочья-ножка» через дефис. Опция подставляется, только если её
+ * основа есть в имени знамени.
+ */
+const FAMILY_OPTS = [
+  'Простая', 'Мрачная', 'Светлая', 'Тресветлая', 'Громная', 'Громосветлая',
+  'Громокрыжная', 'Крыжевая', 'Возводная', 'Трясосветлая', 'Запятая', 'Малая',
+]
+
+const familyOptsFor = name => FAMILY_OPTS.filter(o => (
+  name.toLowerCase().indexOf(o.slice(0, -2).toLowerCase()) !== -1
+))
+
+const lookupKey = (name, pitch, opts) => {
+  const found = notesIndex[makeNotesKey(name, pitch, opts)]
+  return found && found !== '###' ? found : null
+}
+
+/** Точный ключ, затем с «Сорочья-ножка» и семейной опцией; без запасного имя|помета. */
+const lookupStrict = (name, pitch, opts) => {
+  const exact = lookupKey(name, pitch, opts)
+  if (exact) return exact
+  const hyphened = (opts || []).map(o => (o === 'Сорочья ножка' ? 'Сорочья-ножка' : o))
+  const variants = [hyphened].concat(familyOptsFor(name)
+    .filter(f => hyphened.indexOf(f) === -1)
+    .map(f => hyphened.concat(f)))
+  for (let i = 0; i < variants.length; i += 1) {
+    const found = lookupKey(name, pitch, variants[i])
+    if (found) return found
+  }
+  return null
+}
+
 export const lookupNotesString = (name, pitch, opts) => {
   if (!name || !pitch) return null
-  const exact = notesIndex[makeNotesKey(name, pitch, opts)]
-  if (exact && exact !== '###') return exact
+  const strict = lookupStrict(name, pitch, opts)
+  if (strict) return strict
   const weak = notesIndex[`${name}|${pitch}`]
   if (weak && weak !== '###') return weak
   return null
@@ -216,7 +250,9 @@ export const lookupNotesString = (name, pitch, opts) => {
 
 const lookupWithEqualityOpts = (name, targetPitch, opts) => {
   const lookupOpts = (opts || []).filter(o => o !== 'Равенство')
-  const found = lookupNotesString(name, targetPitch, lookupOpts)
+  const found = lookupStrict(name, targetPitch, lookupOpts)
+    || lookupStrict(name, targetPitch, opts)
+    || lookupNotesString(name, targetPitch, lookupOpts)
   if (found) return found
   return lookupNotesString(name, targetPitch, [])
 }
