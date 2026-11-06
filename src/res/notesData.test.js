@@ -28,6 +28,11 @@ describe('notesIndex + compositions smoke', () => {
     })
   })
 
+  it('Стрела простая с подчашием: помета — верхняя нота', () => {
+    expect(lookupNotesString('Статья мрачная (стрела простая) Ре и Соль', 'Ре', ['Подчашие'])).toBe('г2ц2н4')
+    expect(lookupNotesString('Статья мрачная (стрела простая) Ут и Фа', 'Фа', ['Подчашие'])).toBe('с2н2м4')
+  })
+
   it('compositions expose valueNotes aligned with value length', () => {
     expect(COMPOSITIONS.length).toBeGreaterThan(0)
     COMPOSITIONS.forEach((group) => {
