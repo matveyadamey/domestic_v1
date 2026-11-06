@@ -1,3 +1,16 @@
+/*
+ * NewDamaskin is legacy-encoded: capitals Е З И О П У Ф Ш Э Ю Я hold other
+ * Church Slavonic glyphs (Ѣ Ѕ Ї Ѡ Ѱ …). Skip those code points so a Russian
+ * bucvica falls back to Afonit for them; Old Slavonic ones use
+ * .bucvica-letter-glyph--old (see utils/bucvicaLetters).
+ */
+@font-face {
+    font-family: NewDamaskinBucvica;
+    src: url(../../res/fonts/NewDamaskin.ttf);
+    unicode-range: U+0000-0414, U+0416, U+0419-041D, U+0420-0422,
+        U+0425-0427, U+0429-042C, U+0430-10FFFF;
+}
+
 .syllable.bucvica {
     /* Out of flex flow so every kruk/text row shares the same left edge */
     position: absolute;
@@ -44,7 +57,7 @@
 .syllable.bucvica .bucvica-letter {
     position: relative;
     color: red;
-    font-family: NewDamaskin, Afonit, serif;
+    font-family: NewDamaskinBucvica, Afonit, serif;
     cursor: default;
     box-sizing: content-box;
     width: 100% !important;
@@ -75,7 +88,7 @@
     top: auto;
     color: red;
     text-transform: uppercase;
-    font-family: NewDamaskin, Afonit, serif;
+    font-family: NewDamaskinBucvica, Afonit, serif;
     line-height: 1;
     white-space: nowrap;
     pointer-events: none;
@@ -103,4 +116,9 @@
     border-radius: .25rem;
     pointer-events: auto;
     padding: 2px 6px;
+}
+
+/* Old Slavonic letter drawn from its legacy slot in the full NewDamaskin */
+.syllable.bucvica .bucvica-letter-glyph.bucvica-letter-glyph--old {
+    font-family: NewDamaskin, Afonit, serif;
 }

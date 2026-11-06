@@ -13,6 +13,7 @@ import {
 import InsertCaret from '../../components/InsertCaret'
 import { shouldSuppressItemClick } from '../../utils/paperDragSelect'
 import { syllableSizeStyle } from '../../utils/syllableSize'
+import { legacyGlyphFor } from '../../utils/bucvicaLetters'
 
 import './style.css'
 
@@ -88,6 +89,8 @@ class Bucvica extends PureComponent {
     const textSize = Number((values && values.textSize) || 16)
     // Keep ink on underlay level: cancel extra gap when bucSize ≠ textSize
     const baselineShiftPt = FONT_DESC_RATIO * (bucSize - textSize) + BASELINE_NUDGE_PT
+    // Old Slavonic letters live in NewDamaskin's Russian slots (Ї → «И»)
+    const legacyGlyph = legacyGlyphFor(text)
 
     return (
       <div
@@ -115,13 +118,13 @@ class Bucvica extends PureComponent {
           }}
         >
           <span
-            className="bucvica-letter-glyph"
+            className={`bucvica-letter-glyph${legacyGlyph ? ' bucvica-letter-glyph--old' : ''}`}
             style={{
               fontSize: `${bucSize}pt`,
               transform: `translateY(${baselineShiftPt}pt)`,
             }}
           >
-            {text}
+            {legacyGlyph || text}
           </span>
         </div>
         <button

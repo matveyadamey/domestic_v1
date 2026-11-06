@@ -5,6 +5,7 @@ import { connect } from 'react-redux'
 import './style.css'
 
 import { changeParagraph, addSyllable } from '../../actions'
+import { oldSlavonicFromKeyEvent } from '../../utils/bucvicaLetters'
 
 class InsertText extends Component {
   constructor(props) {
@@ -80,6 +81,13 @@ class InsertText extends Component {
   }
 
   onBucvicaKeyDown = (e) => {
+    // Alt + letter → Old Slavonic variant (Alt + И → Ї)
+    const oldLetter = oldSlavonicFromKeyEvent(e)
+    if (oldLetter) {
+      e.preventDefault()
+      e.target.value = oldLetter
+      return
+    }
     if (e.key !== 'Enter') return
     e.preventDefault()
     this.insertBucvica()
@@ -152,6 +160,11 @@ class InsertText extends Component {
               {hasCaret
                 ? 'Вставка перед выбранным слогом. Или клик по подписи → буква → Enter.'
                 : 'Клик по подписи под крюком → одна буква → Enter. Или введите букву здесь и нажмите «Вставить».'}
+            </div>
+            <div className="insert-bucvica-hint">
+              Буква печатается по-русски. Старославянская — с Alt:
+              Alt+И → Ї, Е → Ѣ, З → Ѕ, О → Ꙍ, П → Ѱ, У → Ꙋ, Ф → Ѯ, Ш → Ѡ,
+              Э → Є, Ю → Ѵ, Я → Ѧ.
             </div>
           </div>
         </form>

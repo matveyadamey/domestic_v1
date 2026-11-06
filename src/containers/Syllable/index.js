@@ -7,6 +7,7 @@ import InsertCaret from '../../components/InsertCaret'
 import { resolveNotesData } from '../../utils/resolveNotes'
 import { shouldSuppressItemClick } from '../../utils/paperDragSelect'
 import { syllableSizeStyle } from '../../utils/syllableSize'
+import { oldSlavonicFromKeyEvent } from '../../utils/bucvicaLetters'
 import {
   editText,
   changePage,
@@ -134,6 +135,18 @@ class Syllable extends Component {
   }
 
   onEditKeyDown = (e) => {
+    // Alt + letter → Old Slavonic letter for a drop capital (Alt + И → Ї)
+    const oldLetter = oldSlavonicFromKeyEvent(e)
+    if (oldLetter) {
+      e.preventDefault()
+      e.stopPropagation()
+      if (this.editRef && isPlaceholderDash(this.editRef.textContent)) {
+        this.editRef.textContent = ''
+        placeCaretAtEnd(this.editRef)
+      }
+      document.execCommand('insertText', false, oldLetter)
+      return
+    }
     if (e.key === 'Enter' && (e.ctrlKey || e.metaKey)) {
       e.preventDefault()
       e.stopPropagation()
